@@ -60,6 +60,8 @@
 		862E9D031E24E94F00AABF85 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D001E24E94F00AABF85 /* Window.cpp */; };
 		862E9D071E25220A00AABF85 /* UIScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D051E25220A00AABF85 /* UIScene.cpp */; };
 		862E9D081E25220A00AABF85 /* UIScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D051E25220A00AABF85 /* UIScene.cpp */; };
+		862E9D171E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D151E262D9C00AABF85 /* GameConfigLoader.cpp */; };
+		862E9D181E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D151E262D9C00AABF85 /* GameConfigLoader.cpp */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
 		9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */; };
 		9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF504831A5E87B100AFDA55 /* ConsoleWindowController.m */; };
@@ -247,6 +249,10 @@
 		862E9D051E25220A00AABF85 /* UIScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIScene.cpp; sourceTree = "<group>"; };
 		862E9D061E25220A00AABF85 /* UIScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScene.h; sourceTree = "<group>"; };
 		862E9D0A1E2527CE00AABF85 /* GameModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameModule.h; path = ../Classes/GameModule.h; sourceTree = "<group>"; };
+		862E9D0E1E25CE2100AABF85 /* ConfigReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigReader.h; sourceTree = "<group>"; };
+		862E9D121E25D42A00AABF85 /* ConfigReaderPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigReaderPlist.h; sourceTree = "<group>"; };
+		862E9D151E262D9C00AABF85 /* GameConfigLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameConfigLoader.cpp; path = ../Classes/GameConfigLoader.cpp; sourceTree = "<group>"; };
+		862E9D161E262D9C00AABF85 /* GameConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameConfigLoader.h; path = ../Classes/GameConfigLoader.h; sourceTree = "<group>"; };
 		9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		9FF504781A5E86D600AFDA55 /* libsimulator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsimulator.xcodeproj; path = "../../cocos2d-x/tools/simulator/libsimulator/proj.ios_mac/libsimulator.xcodeproj"; sourceTree = "<group>"; };
 		9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsoleWindow.xib; sourceTree = "<group>"; };
@@ -446,6 +452,8 @@
 		862E9CF21E24C41600AABF85 /* misc */ = {
 			isa = PBXGroup;
 			children = (
+				862E9D0E1E25CE2100AABF85 /* ConfigReader.h */,
+				862E9D121E25D42A00AABF85 /* ConfigReaderPlist.h */,
 			);
 			name = misc;
 			path = ../Classes/misc;
@@ -555,6 +563,8 @@
 				862E9CE81E24A1C500AABF85 /* GameApp.cpp */,
 				862E9CE91E24A1C500AABF85 /* GameApp.h */,
 				862E9CEC1E24A21300AABF85 /* gamebase.h */,
+				862E9D151E262D9C00AABF85 /* GameConfigLoader.cpp */,
+				862E9D161E262D9C00AABF85 /* GameConfigLoader.h */,
 				862E9D0A1E2527CE00AABF85 /* GameModule.h */,
 				862E9CEF1E24C41600AABF85 /* GUI */,
 				862E9CF51E24C4A800AABF85 /* GUI.h */,
@@ -797,6 +807,7 @@
 				862E9D031E24E94F00AABF85 /* Window.cpp in Sources */,
 				862E9CFF1E24E2E200AABF85 /* Panel.cpp in Sources */,
 				862E9CFA1E24C53A00AABF85 /* Layer.cpp in Sources */,
+				862E9D181E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */,
 				862E9CEB1E24A1C500AABF85 /* GameApp.cpp in Sources */,
 				862E9D081E25220A00AABF85 /* UIScene.cpp in Sources */,
 				C07828F818B4D72E00BD2287 /* main.m in Sources */,
@@ -813,6 +824,7 @@
 				862E9D021E24E94F00AABF85 /* Window.cpp in Sources */,
 				862E9CFE1E24E2E200AABF85 /* Panel.cpp in Sources */,
 				862E9CF91E24C53A00AABF85 /* Layer.cpp in Sources */,
+				862E9D171E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */,
 				862E9CEA1E24A1C500AABF85 /* GameApp.cpp in Sources */,
 				862E9D071E25220A00AABF85 /* UIScene.cpp in Sources */,
 				5023811817EBBCAC00990C9B /* AppController.mm in Sources */,
