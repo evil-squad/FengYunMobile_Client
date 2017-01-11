@@ -536,6 +536,11 @@ public:
     // This method is used internally.
     virtual ValueVector getValueVectorFromFile(const std::string& filename);
 
+    // Converts the Data to a ValueVector
+    // This method is used internally.
+    // add by blucenong 2017-01-11
+    virtual ValueVector getValueVectorFromData(const char* filedata, int filesize);
+
     /**
      *  Checks whether a file exists.
      *

@@ -467,6 +467,26 @@ ValueVector FileUtilsApple::getValueVectorFromFile(const std::string& filename)
     return ret;
 }
 
+ValueVector FileUtilsApple::getValueVectorFromData(const char *filedata, int filesize)
+{
+    NSData* data = [NSData dataWithBytes:filedata length:filesize];
+    NSPropertyListFormat format;
+    NSError* error;
+    NSDictionary* dict = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:&format error:&error];
+
+    ValueVector ret;
+
+    if (dict != nil)
+    {
+        for (id key in dict)
+        {
+            addNSObjectToCCVector(key, ret);
+        }
+    }
+
+    return ret;
+}
+
 bool FileUtilsApple::createDirectory(const std::string& path)
 {
     CCASSERT(!path.empty(), "Invalid path");
