@@ -62,6 +62,8 @@
 		862E9D081E25220A00AABF85 /* UIScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D051E25220A00AABF85 /* UIScene.cpp */; };
 		862E9D171E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D151E262D9C00AABF85 /* GameConfigLoader.cpp */; };
 		862E9D181E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D151E262D9C00AABF85 /* GameConfigLoader.cpp */; };
+		862E9D1F1E27302D00AABF85 /* GameInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D1D1E27302D00AABF85 /* GameInput.cpp */; };
+		862E9D201E27302D00AABF85 /* GameInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D1D1E27302D00AABF85 /* GameInput.cpp */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
 		9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */; };
 		9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF504831A5E87B100AFDA55 /* ConsoleWindowController.m */; };
@@ -253,6 +255,8 @@
 		862E9D121E25D42A00AABF85 /* ConfigReaderPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigReaderPlist.h; sourceTree = "<group>"; };
 		862E9D151E262D9C00AABF85 /* GameConfigLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameConfigLoader.cpp; path = ../Classes/GameConfigLoader.cpp; sourceTree = "<group>"; };
 		862E9D161E262D9C00AABF85 /* GameConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameConfigLoader.h; path = ../Classes/GameConfigLoader.h; sourceTree = "<group>"; };
+		862E9D1D1E27302D00AABF85 /* GameInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameInput.cpp; path = ../Classes/GameInput.cpp; sourceTree = "<group>"; };
+		862E9D1E1E27302D00AABF85 /* GameInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameInput.h; path = ../Classes/GameInput.h; sourceTree = "<group>"; };
 		9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		9FF504781A5E86D600AFDA55 /* libsimulator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsimulator.xcodeproj; path = "../../cocos2d-x/tools/simulator/libsimulator/proj.ios_mac/libsimulator.xcodeproj"; sourceTree = "<group>"; };
 		9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsoleWindow.xib; sourceTree = "<group>"; };
@@ -565,6 +569,8 @@
 				862E9CEC1E24A21300AABF85 /* gamebase.h */,
 				862E9D151E262D9C00AABF85 /* GameConfigLoader.cpp */,
 				862E9D161E262D9C00AABF85 /* GameConfigLoader.h */,
+				862E9D1D1E27302D00AABF85 /* GameInput.cpp */,
+				862E9D1E1E27302D00AABF85 /* GameInput.h */,
 				862E9D0A1E2527CE00AABF85 /* GameModule.h */,
 				862E9CEF1E24C41600AABF85 /* GUI */,
 				862E9CF51E24C4A800AABF85 /* GUI.h */,
@@ -801,6 +807,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				862E9D201E27302D00AABF85 /* GameInput.cpp in Sources */,
 				C07828FA18B4D72E00BD2287 /* SimulatorApp.mm in Sources */,
 				5023813317EBBCE400990C9B /* AppDelegate.cpp in Sources */,
 				9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */,
@@ -818,6 +825,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				862E9D1F1E27302D00AABF85 /* GameInput.cpp in Sources */,
 				5023812517EBBCAC00990C9B /* RootViewController.mm in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
