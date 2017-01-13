@@ -64,6 +64,8 @@
 		862E9D181E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D151E262D9C00AABF85 /* GameConfigLoader.cpp */; };
 		862E9D1F1E27302D00AABF85 /* GameInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D1D1E27302D00AABF85 /* GameInput.cpp */; };
 		862E9D201E27302D00AABF85 /* GameInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D1D1E27302D00AABF85 /* GameInput.cpp */; };
+		862E9D231E27685A00AABF85 /* lua_game_bindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D211E27685A00AABF85 /* lua_game_bindings.cpp */; };
+		862E9D241E27685A00AABF85 /* lua_game_bindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D211E27685A00AABF85 /* lua_game_bindings.cpp */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
 		9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */; };
 		9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF504831A5E87B100AFDA55 /* ConsoleWindowController.m */; };
@@ -255,8 +257,14 @@
 		862E9D121E25D42A00AABF85 /* ConfigReaderPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigReaderPlist.h; sourceTree = "<group>"; };
 		862E9D151E262D9C00AABF85 /* GameConfigLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameConfigLoader.cpp; path = ../Classes/GameConfigLoader.cpp; sourceTree = "<group>"; };
 		862E9D161E262D9C00AABF85 /* GameConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameConfigLoader.h; path = ../Classes/GameConfigLoader.h; sourceTree = "<group>"; };
+		862E9D1C1E2715CF00AABF85 /* lua_custom_module_register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lua_custom_module_register.h; path = ../Classes/lua_custom_module_register.h; sourceTree = "<group>"; };
 		862E9D1D1E27302D00AABF85 /* GameInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameInput.cpp; path = ../Classes/GameInput.cpp; sourceTree = "<group>"; };
 		862E9D1E1E27302D00AABF85 /* GameInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameInput.h; path = ../Classes/GameInput.h; sourceTree = "<group>"; };
+		862E9D211E27685A00AABF85 /* lua_game_bindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_game_bindings.cpp; sourceTree = "<group>"; };
+		862E9D221E27685A00AABF85 /* lua_game_bindings.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua_game_bindings.hpp; sourceTree = "<group>"; };
+		862E9D251E27698A00AABF85 /* input.inc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = input.inc.hpp; sourceTree = "<group>"; };
+		862E9D261E2769FF00AABF85 /* LuaHelpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LuaHelpUtils.h; path = ../Classes/LuaHelpUtils.h; sourceTree = "<group>"; };
+		862E9D271E276B3300AABF85 /* LuaHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LuaHandler.hpp; sourceTree = "<group>"; };
 		9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		9FF504781A5E86D600AFDA55 /* libsimulator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsimulator.xcodeproj; path = "../../cocos2d-x/tools/simulator/libsimulator/proj.ios_mac/libsimulator.xcodeproj"; sourceTree = "<group>"; };
 		9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsoleWindow.xib; sourceTree = "<group>"; };
@@ -440,6 +448,10 @@
 		862E9CF01E24C41600AABF85 /* lua */ = {
 			isa = PBXGroup;
 			children = (
+				862E9D251E27698A00AABF85 /* input.inc.hpp */,
+				862E9D211E27685A00AABF85 /* lua_game_bindings.cpp */,
+				862E9D221E27685A00AABF85 /* lua_game_bindings.hpp */,
+				862E9D271E276B3300AABF85 /* LuaHandler.hpp */,
 			);
 			name = lua;
 			path = ../Classes/lua;
@@ -575,7 +587,9 @@
 				862E9CEF1E24C41600AABF85 /* GUI */,
 				862E9CF51E24C4A800AABF85 /* GUI.h */,
 				862E9CF01E24C41600AABF85 /* lua */,
+				862E9D1C1E2715CF00AABF85 /* lua_custom_module_register.h */,
 				15427CE2198F237300DC375D /* lua_module_register.h */,
+				862E9D261E2769FF00AABF85 /* LuaHelpUtils.h */,
 				862E9CF11E24C41600AABF85 /* managers */,
 				862E9CF21E24C41600AABF85 /* misc */,
 				862E9CF31E24C41600AABF85 /* Net */,
@@ -809,6 +823,7 @@
 			files = (
 				862E9D201E27302D00AABF85 /* GameInput.cpp in Sources */,
 				C07828FA18B4D72E00BD2287 /* SimulatorApp.mm in Sources */,
+				862E9D241E27685A00AABF85 /* lua_game_bindings.cpp in Sources */,
 				5023813317EBBCE400990C9B /* AppDelegate.cpp in Sources */,
 				9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */,
 				862E9D031E24E94F00AABF85 /* Window.cpp in Sources */,
@@ -827,6 +842,7 @@
 			files = (
 				862E9D1F1E27302D00AABF85 /* GameInput.cpp in Sources */,
 				5023812517EBBCAC00990C9B /* RootViewController.mm in Sources */,
+				862E9D231E27685A00AABF85 /* lua_game_bindings.cpp in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
 				862E9D021E24E94F00AABF85 /* Window.cpp in Sources */,
@@ -984,7 +1000,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cocos2d-x $(SRCROOT)/../../cocos2d-x/cocos/audio/include $(SRCROOT)/../../cocos2d-x/cocos $(SRCROOT)/../../cocos2d-x/extensions $(SRCROOT)/../../cocos2d-x/external $(SRCROOT)/../../cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../cocos2d-x/external/lua/luajit/include $(SRCROOT)/../../cocos2d-x/external/lua/tolua $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib/protobuf-lite";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cocos2d-x $(SRCROOT)/../../cocos2d-x/cocos/audio/include $(SRCROOT)/../../cocos2d-x/cocos $(SRCROOT)/../../cocos2d-x/extensions $(SRCROOT)/../../cocos2d-x/external $(SRCROOT)/../../cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../cocos2d-x/external/lua/luajit/include $(SRCROOT)/../../cocos2d-x/external/lua/tolua $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib/protobuf-lite $(SRCROOT)/../../cocos2d-x/cocos/scripting/lua-bindings/manual $(SRCROOT)/../../cocos2d-x/cocos/scripting/lua-bindings/auto";
 			};
 			name = Debug;
 		};
@@ -1006,7 +1022,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cocos2d-x $(SRCROOT)/../../cocos2d-x/cocos/audio/include $(SRCROOT)/../../cocos2d-x/cocos $(SRCROOT)/../../cocos2d-x/extensions $(SRCROOT)/../../cocos2d-x/external $(SRCROOT)/../../cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../cocos2d-x/external/lua/luajit/include $(SRCROOT)/../../cocos2d-x/external/lua/tolua $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib/protobuf-lite";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cocos2d-x $(SRCROOT)/../../cocos2d-x/cocos/audio/include $(SRCROOT)/../../cocos2d-x/cocos $(SRCROOT)/../../cocos2d-x/extensions $(SRCROOT)/../../cocos2d-x/external $(SRCROOT)/../../cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../cocos2d-x/external/lua/luajit/include $(SRCROOT)/../../cocos2d-x/external/lua/tolua $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib/protobuf-lite $(SRCROOT)/../../cocos2d-x/cocos/scripting/lua-bindings/manual $(SRCROOT)/../../cocos2d-x/cocos/scripting/lua-bindings/auto";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

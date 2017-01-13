@@ -3,6 +3,7 @@
 #include "audio/include/SimpleAudioEngine.h"
 #include "cocos2d.h"
 #include "scripting/lua-bindings/manual/lua_module_register.h"
+#include "lua_custom_module_register.h"
 
 using namespace CocosDenshion;
 
@@ -51,6 +52,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
     lua_State* L = engine->getLuaStack()->getLuaState();
     lua_module_register(L);
+
+    lua_custom_module_register(L);
 
     register_all_packages();
 
