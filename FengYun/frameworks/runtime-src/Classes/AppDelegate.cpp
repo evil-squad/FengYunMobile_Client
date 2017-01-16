@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "scripting/lua-bindings/manual/lua_module_register.h"
 #include "lua_custom_module_register.h"
+#include "GameApp.h"
 
 using namespace CocosDenshion;
 
@@ -60,11 +61,13 @@ bool AppDelegate::applicationDidFinishLaunching()
     LuaStack* stack = engine->getLuaStack();
     stack->setXXTEAKeyAndSign("2dxLua", strlen("2dxLua"), "XXTEA", strlen("XXTEA"));
 
+    fy::GameApp::getInstance()->onStart();
+
     //register custom function
     //LuaStack* stack = engine->getLuaStack();
     //register_custom_function(stack->getLuaState());
 
-    if (engine->executeScriptFile("src/main.lua"))
+    if (engine->executeScriptFile("src/init.lua"))
     {
         return false;
     }
@@ -75,6 +78,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 // This function will be called when the app is inactive. Note, when receiving a phone call it is invoked.
 void AppDelegate::applicationDidEnterBackground()
 {
+    fy::GameApp::getInstance()->onPause();
     Director::getInstance()->stopAnimation();
 
     SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
@@ -86,4 +90,5 @@ void AppDelegate::applicationWillEnterForeground()
     Director::getInstance()->startAnimation();
 
     SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    fy::GameApp::getInstance()->onResume();
 }

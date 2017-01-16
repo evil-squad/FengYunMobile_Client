@@ -41,7 +41,14 @@ public:
     void adjustTime(std::uint64_t time);
     long getSystemTime();
 
+    void setEventHandler(const std::string& name, EventHandler handler);
+    void sendEvent(const std::string& name);
+
     static void runInMainThread(const std::function<void()>& func);
+
+    std::string getPersistenDataPath();
+
+    void loadConfigs(const std::function<void()>& cb);
 
 private:
     struct PrivateData;

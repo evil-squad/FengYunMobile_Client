@@ -23,6 +23,8 @@ public:
 
 #define ENABLE_DEBUG_LOG
 
+#define ENABLE_DEBUG_FPS
+
 #define DBG_ASSERT(cond, msg) CCASSERT(cond, msg)
 
 #ifdef ENABLE_DEBUG_LOG

@@ -1,22 +1,21 @@
 /**
- * @file  UIScene.cpp
+ * @file  GameScene.cpp
  * @project  FengYun
  * @author Bluce Nong <nongjinxia@mokylin.com>
- * @Created by BluceNong on 10/01/2017.
+ * @Created by BluceNong on 16/01/2017.
  * @  Copyright © 2017 MokyLin  Bluce Nong <nongjinxia@mokylin.com>. All rights reserved.
 */
 
-#include "UIScene.h"
-#include "UIManager.h"
+#include "GameScene.h"
 #include "GameModule.h"
+#include "UIManager.h"
 
 BEGIN_NS_SCENES
 
-UIScene* UIScene::create(const std::string& name, const std::function<void()>& enterCb)
+GameScene* GameScene::create(int id)
 {
-    UIScene* s = new UIScene();
-
-    if (s && s->init(name, enterCb))
+    auto s = new GameScene();
+    if (s && s->initWithId(id))
     {
         s->autorelease();
         return s;
@@ -25,18 +24,21 @@ UIScene* UIScene::create(const std::string& name, const std::function<void()>& e
     return nullptr;
 }
 
-UIScene::UIScene()
- : _uiLayer(nullptr)
- , _enterCb(nullptr)
+GameScene::GameScene()
+    : _id(0)
 {}
 
-UIScene::~UIScene()
+GameScene::~GameScene()
 {}
 
-bool UIScene::init(const std::string &name, const std::function<void ()> &enterCb)
+bool GameScene::initWithId(int id)
 {
-    this->setName(name);
-    _enterCb = enterCb;
+    if (!cocos2d::Scene::init()) return false;
+
+    _id = id;
+
+    _sceneNode = cocos2d::Node::create();
+    this->addChild(_sceneNode);
 
     _uiLayer = gui::Layer::create();
     this->addChild(_uiLayer);
@@ -44,18 +46,25 @@ bool UIScene::init(const std::string &name, const std::function<void ()> &enterC
     return true;
 }
 
-void UIScene::onEnter()
+void GameScene::onEnter()
 {
     cocos2d::Scene::onEnter();
+
     GameModule::get<UIManager>()->registerUILayer(_uiLayer);
-    if (_enterCb) _enterCb();
 }
 
-void UIScene::onExit()
+void GameScene::onExit()
 {
     _uiLayer->closeAll();
     GameModule::get<UIManager>()->unregisterUILayer(_uiLayer);
+
     cocos2d::Scene::onExit();
 }
+
+void GameScene::update(float dt)
+{
+    
+}
+
 
 END_NS_SCENES
