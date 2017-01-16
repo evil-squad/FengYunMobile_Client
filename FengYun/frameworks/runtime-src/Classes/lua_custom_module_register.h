@@ -19,10 +19,23 @@ extern "C" {
 }
 #endif
 
+#include "lua/lua_game_bindings.hpp"
+#include "lua/auto/lua_gui_auto.hpp"
+#include "lua/lua_gui_manual.hpp"
+#include "lua/auto/lua_managers_auto.hpp"
+#include "lua/lua_managers_manual.hpp"
 
 static int lua_custom_module_register(lua_State* L)
 {
     tolua_beginmodule(L, nullptr);
+
+    register_all_gui(L);
+    register_all_gui_manual(L);
+
+    register_all_managers(L);
+    register_all_managers_manual(L);
+
+    register_all_game_bindings(L);
 
     tolua_endmodule(L);
 
