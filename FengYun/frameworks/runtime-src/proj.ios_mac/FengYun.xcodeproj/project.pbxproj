@@ -66,6 +66,36 @@
 		862E9D201E27302D00AABF85 /* GameInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D1D1E27302D00AABF85 /* GameInput.cpp */; };
 		862E9D231E27685A00AABF85 /* lua_game_bindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D211E27685A00AABF85 /* lua_game_bindings.cpp */; };
 		862E9D241E27685A00AABF85 /* lua_game_bindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D211E27685A00AABF85 /* lua_game_bindings.cpp */; };
+		862E9D2A1E2C756200AABF85 /* UIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D281E2C756200AABF85 /* UIManager.cpp */; };
+		862E9D2B1E2C756200AABF85 /* UIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D281E2C756200AABF85 /* UIManager.cpp */; };
+		862E9D2F1E2CA49A00AABF85 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D2D1E2CA49A00AABF85 /* GameScene.cpp */; };
+		862E9D301E2CA49A00AABF85 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D2D1E2CA49A00AABF85 /* GameScene.cpp */; };
+		862E9D331E2CAFAD00AABF85 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D311E2CAFAD00AABF85 /* SceneManager.cpp */; };
+		862E9D341E2CAFAD00AABF85 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D311E2CAFAD00AABF85 /* SceneManager.cpp */; };
+		862E9D371E2D05BE00AABF85 /* lua_gui_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D351E2D05BE00AABF85 /* lua_gui_manual.cpp */; };
+		862E9D381E2D05BE00AABF85 /* lua_gui_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D351E2D05BE00AABF85 /* lua_gui_manual.cpp */; };
+		862E9D421E2D066D00AABF85 /* Layer.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D3B1E2D066D00AABF85 /* Layer.lua */; };
+		862E9D431E2D066D00AABF85 /* Layer.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D3B1E2D066D00AABF85 /* Layer.lua */; };
+		862E9D441E2D066D00AABF85 /* lua_gui_auto_api.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D3C1E2D066D00AABF85 /* lua_gui_auto_api.lua */; };
+		862E9D451E2D066D00AABF85 /* lua_gui_auto_api.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D3C1E2D066D00AABF85 /* lua_gui_auto_api.lua */; };
+		862E9D461E2D066D00AABF85 /* Panel.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D3D1E2D066D00AABF85 /* Panel.lua */; };
+		862E9D471E2D066D00AABF85 /* Panel.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D3D1E2D066D00AABF85 /* Panel.lua */; };
+		862E9D481E2D066D00AABF85 /* TopLevelNode.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D3E1E2D066D00AABF85 /* TopLevelNode.lua */; };
+		862E9D491E2D066D00AABF85 /* TopLevelNode.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D3E1E2D066D00AABF85 /* TopLevelNode.lua */; };
+		862E9D4A1E2D066D00AABF85 /* Window.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D3F1E2D066D00AABF85 /* Window.lua */; };
+		862E9D4B1E2D066D00AABF85 /* Window.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D3F1E2D066D00AABF85 /* Window.lua */; };
+		862E9D4C1E2D066D00AABF85 /* lua_gui_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D401E2D066D00AABF85 /* lua_gui_auto.cpp */; };
+		862E9D4D1E2D066D00AABF85 /* lua_gui_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D401E2D066D00AABF85 /* lua_gui_auto.cpp */; };
+		862E9D501E2D07D800AABF85 /* lua_managers_auto_api.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D4E1E2D07D800AABF85 /* lua_managers_auto_api.lua */; };
+		862E9D511E2D07D800AABF85 /* lua_managers_auto_api.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D4E1E2D07D800AABF85 /* lua_managers_auto_api.lua */; };
+		862E9D521E2D07D800AABF85 /* UIManager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D4F1E2D07D800AABF85 /* UIManager.lua */; };
+		862E9D531E2D07D800AABF85 /* UIManager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D4F1E2D07D800AABF85 /* UIManager.lua */; };
+		862E9D561E2D07EA00AABF85 /* lua_managers_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D541E2D07EA00AABF85 /* lua_managers_auto.cpp */; };
+		862E9D571E2D07EA00AABF85 /* lua_managers_auto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D541E2D07EA00AABF85 /* lua_managers_auto.cpp */; };
+		862E9D5A1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D581E2D07F900AABF85 /* lua_managers_manual.cpp */; };
+		862E9D5B1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D581E2D07F900AABF85 /* lua_managers_manual.cpp */; };
+		862E9D5F1E2D125F00AABF85 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D621E2D125F00AABF85 /* InfoPlist.strings */; };
+		862E9D601E2D125F00AABF85 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D621E2D125F00AABF85 /* InfoPlist.strings */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
 		9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */; };
 		9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF504831A5E87B100AFDA55 /* ConsoleWindowController.m */; };
@@ -265,6 +295,31 @@
 		862E9D251E27698A00AABF85 /* input.inc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = input.inc.hpp; sourceTree = "<group>"; };
 		862E9D261E2769FF00AABF85 /* LuaHelpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LuaHelpUtils.h; path = ../Classes/LuaHelpUtils.h; sourceTree = "<group>"; };
 		862E9D271E276B3300AABF85 /* LuaHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LuaHandler.hpp; sourceTree = "<group>"; };
+		862E9D281E2C756200AABF85 /* UIManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIManager.cpp; sourceTree = "<group>"; };
+		862E9D291E2C756200AABF85 /* UIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIManager.h; sourceTree = "<group>"; };
+		862E9D2C1E2C761700AABF85 /* MathTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MathTypes.h; path = ../Classes/MathTypes.h; sourceTree = "<group>"; };
+		862E9D2D1E2CA49A00AABF85 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
+		862E9D2E1E2CA49A00AABF85 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		862E9D311E2CAFAD00AABF85 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		862E9D321E2CAFAD00AABF85 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		862E9D351E2D05BE00AABF85 /* lua_gui_manual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_gui_manual.cpp; sourceTree = "<group>"; };
+		862E9D361E2D05BE00AABF85 /* lua_gui_manual.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua_gui_manual.hpp; sourceTree = "<group>"; };
+		862E9D3B1E2D066D00AABF85 /* Layer.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Layer.lua; sourceTree = "<group>"; };
+		862E9D3C1E2D066D00AABF85 /* lua_gui_auto_api.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lua_gui_auto_api.lua; sourceTree = "<group>"; };
+		862E9D3D1E2D066D00AABF85 /* Panel.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Panel.lua; sourceTree = "<group>"; };
+		862E9D3E1E2D066D00AABF85 /* TopLevelNode.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TopLevelNode.lua; sourceTree = "<group>"; };
+		862E9D3F1E2D066D00AABF85 /* Window.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Window.lua; sourceTree = "<group>"; };
+		862E9D401E2D066D00AABF85 /* lua_gui_auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_gui_auto.cpp; sourceTree = "<group>"; };
+		862E9D411E2D066D00AABF85 /* lua_gui_auto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua_gui_auto.hpp; sourceTree = "<group>"; };
+		862E9D4E1E2D07D800AABF85 /* lua_managers_auto_api.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lua_managers_auto_api.lua; sourceTree = "<group>"; };
+		862E9D4F1E2D07D800AABF85 /* UIManager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIManager.lua; sourceTree = "<group>"; };
+		862E9D541E2D07EA00AABF85 /* lua_managers_auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_managers_auto.cpp; sourceTree = "<group>"; };
+		862E9D551E2D07EA00AABF85 /* lua_managers_auto.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua_managers_auto.hpp; sourceTree = "<group>"; };
+		862E9D581E2D07F900AABF85 /* lua_managers_manual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_managers_manual.cpp; sourceTree = "<group>"; };
+		862E9D591E2D07F900AABF85 /* lua_managers_manual.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua_managers_manual.hpp; sourceTree = "<group>"; };
+		862E9D611E2D125F00AABF85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		862E9D631E2D126700AABF85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		862E9D641E2D128800AABF85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		9FF504781A5E86D600AFDA55 /* libsimulator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsimulator.xcodeproj; path = "../../cocos2d-x/tools/simulator/libsimulator/proj.ios_mac/libsimulator.xcodeproj"; sourceTree = "<group>"; };
 		9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsoleWindow.xib; sourceTree = "<group>"; };
@@ -373,6 +428,7 @@
 				5023811517EBBCAC00990C9B /* Prefix.pch */,
 				5023811617EBBCAC00990C9B /* RootViewController.h */,
 				5023811717EBBCAC00990C9B /* RootViewController.mm */,
+				862E9D621E2D125F00AABF85 /* InfoPlist.strings */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -448,9 +504,14 @@
 		862E9CF01E24C41600AABF85 /* lua */ = {
 			isa = PBXGroup;
 			children = (
+				862E9D391E2D066D00AABF85 /* auto */,
 				862E9D251E27698A00AABF85 /* input.inc.hpp */,
 				862E9D211E27685A00AABF85 /* lua_game_bindings.cpp */,
 				862E9D221E27685A00AABF85 /* lua_game_bindings.hpp */,
+				862E9D351E2D05BE00AABF85 /* lua_gui_manual.cpp */,
+				862E9D361E2D05BE00AABF85 /* lua_gui_manual.hpp */,
+				862E9D581E2D07F900AABF85 /* lua_managers_manual.cpp */,
+				862E9D591E2D07F900AABF85 /* lua_managers_manual.hpp */,
 				862E9D271E276B3300AABF85 /* LuaHandler.hpp */,
 			);
 			name = lua;
@@ -460,6 +521,10 @@
 		862E9CF11E24C41600AABF85 /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				862E9D311E2CAFAD00AABF85 /* SceneManager.cpp */,
+				862E9D321E2CAFAD00AABF85 /* SceneManager.h */,
+				862E9D281E2C756200AABF85 /* UIManager.cpp */,
+				862E9D291E2C756200AABF85 /* UIManager.h */,
 			);
 			name = managers;
 			path = ../Classes/managers;
@@ -486,12 +551,40 @@
 		862E9CF41E24C41600AABF85 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				862E9D2D1E2CA49A00AABF85 /* GameScene.cpp */,
+				862E9D2E1E2CA49A00AABF85 /* GameScene.h */,
 				862E9D041E251CB800AABF85 /* scenebase.h */,
 				862E9D051E25220A00AABF85 /* UIScene.cpp */,
 				862E9D061E25220A00AABF85 /* UIScene.h */,
 			);
 			name = Scenes;
 			path = ../Classes/Scenes;
+			sourceTree = "<group>";
+		};
+		862E9D391E2D066D00AABF85 /* auto */ = {
+			isa = PBXGroup;
+			children = (
+				862E9D3A1E2D066D00AABF85 /* api */,
+				862E9D401E2D066D00AABF85 /* lua_gui_auto.cpp */,
+				862E9D411E2D066D00AABF85 /* lua_gui_auto.hpp */,
+				862E9D541E2D07EA00AABF85 /* lua_managers_auto.cpp */,
+				862E9D551E2D07EA00AABF85 /* lua_managers_auto.hpp */,
+			);
+			path = auto;
+			sourceTree = "<group>";
+		};
+		862E9D3A1E2D066D00AABF85 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				862E9D4E1E2D07D800AABF85 /* lua_managers_auto_api.lua */,
+				862E9D4F1E2D07D800AABF85 /* UIManager.lua */,
+				862E9D3B1E2D066D00AABF85 /* Layer.lua */,
+				862E9D3C1E2D066D00AABF85 /* lua_gui_auto_api.lua */,
+				862E9D3D1E2D066D00AABF85 /* Panel.lua */,
+				862E9D3E1E2D066D00AABF85 /* TopLevelNode.lua */,
+				862E9D3F1E2D066D00AABF85 /* Window.lua */,
+			);
+			path = api;
 			sourceTree = "<group>";
 		};
 		9FF504791A5E86D600AFDA55 /* Products */ = {
@@ -591,6 +684,7 @@
 				15427CE2198F237300DC375D /* lua_module_register.h */,
 				862E9D261E2769FF00AABF85 /* LuaHelpUtils.h */,
 				862E9CF11E24C41600AABF85 /* managers */,
+				862E9D2C1E2C761700AABF85 /* MathTypes.h */,
 				862E9CF21E24C41600AABF85 /* misc */,
 				862E9CF31E24C41600AABF85 /* Net */,
 				862E9CF41E24C41600AABF85 /* Scenes */,
@@ -762,11 +856,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C03781BA18BF655400FE4F13 /* res in Resources */,
+				862E9D601E2D125F00AABF85 /* InfoPlist.strings in Resources */,
+				862E9D531E2D07D800AABF85 /* UIManager.lua in Resources */,
+				862E9D511E2D07D800AABF85 /* lua_managers_auto_api.lua in Resources */,
+				862E9D4B1E2D066D00AABF85 /* Window.lua in Resources */,
+				862E9D491E2D066D00AABF85 /* TopLevelNode.lua in Resources */,
 				C03781BC18BF655400FE4F13 /* src in Resources */,
 				9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */,
+				862E9D471E2D066D00AABF85 /* Panel.lua in Resources */,
+				862E9D451E2D066D00AABF85 /* lua_gui_auto_api.lua in Resources */,
 				5023817617EBBE3400990C9B /* Icon.icns in Resources */,
 				9FFC07361A4A764100AED399 /* MainMenu.xib in Resources */,
 				C05D1C131923449100B808A4 /* config.json in Resources */,
+				862E9D431E2D066D00AABF85 /* Layer.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,13 +878,18 @@
 			files = (
 				15A8A4491834C64F00142BE0 /* Icon-114.png in Resources */,
 				5023811D17EBBCAC00990C9B /* Icon-120.png in Resources */,
+				862E9D421E2D066D00AABF85 /* Layer.lua in Resources */,
 				5091733B17ECE17A00D62437 /* Icon-100.png in Resources */,
+				862E9D501E2D07D800AABF85 /* lua_managers_auto_api.lua in Resources */,
 				5023811B17EBBCAC00990C9B /* Default@2x.png in Resources */,
+				862E9D441E2D066D00AABF85 /* lua_gui_auto_api.lua in Resources */,
 				5091733617ECE17A00D62437 /* Icon-29.png in Resources */,
 				5023811917EBBCAC00990C9B /* Default-568h@2x.png in Resources */,
 				5091733917ECE17A00D62437 /* Icon-58.png in Resources */,
+				862E9D461E2D066D00AABF85 /* Panel.lua in Resources */,
 				5023811F17EBBCAC00990C9B /* Icon-152.png in Resources */,
 				5023812017EBBCAC00990C9B /* Icon-57.png in Resources */,
+				862E9D5F1E2D125F00AABF85 /* InfoPlist.strings in Resources */,
 				521A8E7019F0C3D200D177D7 /* Default-667h@2x.png in Resources */,
 				C03781B918BF655400FE4F13 /* res in Resources */,
 				5023812217EBBCAC00990C9B /* Icon-76.png in Resources */,
@@ -791,9 +898,12 @@
 				5023811E17EBBCAC00990C9B /* Icon-144.png in Resources */,
 				5023811A17EBBCAC00990C9B /* Default.png in Resources */,
 				C03781BB18BF655400FE4F13 /* src in Resources */,
+				862E9D4A1E2D066D00AABF85 /* Window.lua in Resources */,
 				5091733817ECE17A00D62437 /* Icon-50.png in Resources */,
+				862E9D481E2D066D00AABF85 /* TopLevelNode.lua in Resources */,
 				5023812117EBBCAC00990C9B /* Icon-72.png in Resources */,
 				C05D1C121923449100B808A4 /* config.json in Resources */,
+				862E9D521E2D07D800AABF85 /* UIManager.lua in Resources */,
 				521A8E7119F0C3D200D177D7 /* Default-736h@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -825,6 +935,11 @@
 				C07828FA18B4D72E00BD2287 /* SimulatorApp.mm in Sources */,
 				862E9D241E27685A00AABF85 /* lua_game_bindings.cpp in Sources */,
 				5023813317EBBCE400990C9B /* AppDelegate.cpp in Sources */,
+				862E9D301E2CA49A00AABF85 /* GameScene.cpp in Sources */,
+				862E9D2B1E2C756200AABF85 /* UIManager.cpp in Sources */,
+				862E9D381E2D05BE00AABF85 /* lua_gui_manual.cpp in Sources */,
+				862E9D571E2D07EA00AABF85 /* lua_managers_auto.cpp in Sources */,
+				862E9D5B1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */,
 				9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */,
 				862E9D031E24E94F00AABF85 /* Window.cpp in Sources */,
 				862E9CFF1E24E2E200AABF85 /* Panel.cpp in Sources */,
@@ -833,6 +948,8 @@
 				862E9CEB1E24A1C500AABF85 /* GameApp.cpp in Sources */,
 				862E9D081E25220A00AABF85 /* UIScene.cpp in Sources */,
 				C07828F818B4D72E00BD2287 /* main.m in Sources */,
+				862E9D341E2CAFAD00AABF85 /* SceneManager.cpp in Sources */,
+				862E9D4D1E2D066D00AABF85 /* lua_gui_auto.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +961,11 @@
 				5023812517EBBCAC00990C9B /* RootViewController.mm in Sources */,
 				862E9D231E27685A00AABF85 /* lua_game_bindings.cpp in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
+				862E9D2F1E2CA49A00AABF85 /* GameScene.cpp in Sources */,
+				862E9D2A1E2C756200AABF85 /* UIManager.cpp in Sources */,
+				862E9D371E2D05BE00AABF85 /* lua_gui_manual.cpp in Sources */,
+				862E9D561E2D07EA00AABF85 /* lua_managers_auto.cpp in Sources */,
+				862E9D5A1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
 				862E9D021E24E94F00AABF85 /* Window.cpp in Sources */,
 				862E9CFE1E24E2E200AABF85 /* Panel.cpp in Sources */,
@@ -852,6 +974,8 @@
 				862E9CEA1E24A1C500AABF85 /* GameApp.cpp in Sources */,
 				862E9D071E25220A00AABF85 /* UIScene.cpp in Sources */,
 				5023811817EBBCAC00990C9B /* AppController.mm in Sources */,
+				862E9D331E2CAFAD00AABF85 /* SceneManager.cpp in Sources */,
+				862E9D4C1E2D066D00AABF85 /* lua_gui_auto.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,6 +1019,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		862E9D621E2D125F00AABF85 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				862E9D611E2D125F00AABF85 /* en */,
+				862E9D631E2D126700AABF85 /* zh-Hans */,
+				862E9D641E2D128800AABF85 /* Base */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		9FFC07341A4A764100AED399 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
