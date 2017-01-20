@@ -12,6 +12,8 @@
 #include "scenebase.h"
 #include "cocos2d.h"
 #include "GUI/Layer.h"
+#include "ECS/NetRole.h"
+#include "MathTypes.h"
 
 BEGIN_NS_SCENES
 
@@ -28,19 +30,32 @@ CC_CONSTRUCTOR_ACCESS:
 
     bool initWithId(int id);
 
+    void initMap();
+    void initMapTouch();
+
     virtual void onEnter() override;
     virtual void onExit() override;
 
 protected:
     virtual void update(float dt) override;
 
+    Vector2 getViewPoins() const { return _viewPoint; }
+    void setViewPoint(const Vector2& pos);
+
 protected:
     int _id;
 
 private:
     gui::Layer* _uiLayer;
-
     cocos2d::Node* _sceneNode;
+    ecs::NetRole* _player;
+
+    Vector2 _viewPoint;
+
+private:
+
+    void adjustVirePoint(float dt);
+    void updateView();
 
 };
 

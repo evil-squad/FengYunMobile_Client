@@ -78,6 +78,7 @@ void SceneManager::gotoScene(int id)
     auto scene = GameScene::create(id);
     _data->current = scene;
     _data->current->retain();
+    Director::getInstance()->replaceScene(scene);
 }
 
 END_NS_FY
