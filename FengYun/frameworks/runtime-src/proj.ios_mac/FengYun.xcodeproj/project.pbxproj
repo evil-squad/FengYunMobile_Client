@@ -96,6 +96,18 @@
 		862E9D5B1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D581E2D07F900AABF85 /* lua_managers_manual.cpp */; };
 		862E9D5F1E2D125F00AABF85 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D621E2D125F00AABF85 /* InfoPlist.strings */; };
 		862E9D601E2D125F00AABF85 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 862E9D621E2D125F00AABF85 /* InfoPlist.strings */; };
+		862E9D701E2DC6F700AABF85 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D6E1E2DC6F700AABF85 /* Component.cpp */; };
+		862E9D711E2DC6F700AABF85 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D6E1E2DC6F700AABF85 /* Component.cpp */; };
+		862E9D751E2DDDD300AABF85 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D731E2DDDD300AABF85 /* World.cpp */; };
+		862E9D761E2DDDD300AABF85 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D731E2DDDD300AABF85 /* World.cpp */; };
+		862E9D7A1E2DFF5A00AABF85 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D781E2DFF5A00AABF85 /* Entity.cpp */; };
+		862E9D7B1E2DFF5A00AABF85 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D781E2DFF5A00AABF85 /* Entity.cpp */; };
+		862E9D7E1E2DFF8E00AABF85 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D7C1E2DFF8E00AABF85 /* Transform.cpp */; };
+		862E9D7F1E2DFF8E00AABF85 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D7C1E2DFF8E00AABF85 /* Transform.cpp */; };
+		862E9D821E2E5AD100AABF85 /* Role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D801E2E5AD100AABF85 /* Role.cpp */; };
+		862E9D831E2E5AD100AABF85 /* Role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D801E2E5AD100AABF85 /* Role.cpp */; };
+		862E9D871E2E6C4900AABF85 /* NetRole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D851E2E6C4900AABF85 /* NetRole.cpp */; };
+		862E9D881E2E6C4900AABF85 /* NetRole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D851E2E6C4900AABF85 /* NetRole.cpp */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
 		9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */; };
 		9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF504831A5E87B100AFDA55 /* ConsoleWindowController.m */; };
@@ -320,6 +332,23 @@
 		862E9D611E2D125F00AABF85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		862E9D631E2D126700AABF85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		862E9D641E2D128800AABF85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		862E9D6B1E2DC5E100AABF85 /* ecsbase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ecsbase.h; sourceTree = "<group>"; };
+		862E9D6E1E2DC6F700AABF85 /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
+		862E9D6F1E2DC6F700AABF85 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		862E9D721E2DC74000AABF85 /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		862E9D731E2DDDD300AABF85 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		862E9D741E2DDDD300AABF85 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		862E9D771E2DF86800AABF85 /* WorldEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldEvent.h; sourceTree = "<group>"; };
+		862E9D781E2DFF5A00AABF85 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		862E9D791E2DFF5A00AABF85 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		862E9D7C1E2DFF8E00AABF85 /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
+		862E9D7D1E2DFF8E00AABF85 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
+		862E9D801E2E5AD100AABF85 /* Role.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Role.cpp; sourceTree = "<group>"; };
+		862E9D811E2E5AD100AABF85 /* Role.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Role.h; sourceTree = "<group>"; };
+		862E9D841E2E5CE300AABF85 /* RoleTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RoleTypes.h; path = ../Classes/RoleTypes.h; sourceTree = "<group>"; };
+		862E9D851E2E6C4900AABF85 /* NetRole.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetRole.cpp; sourceTree = "<group>"; };
+		862E9D861E2E6C4900AABF85 /* NetRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRole.h; sourceTree = "<group>"; };
+		86A922211E31AFE0007D9545 /* SceneProjector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneProjector.h; sourceTree = "<group>"; };
 		9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		9FF504781A5E86D600AFDA55 /* libsimulator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsimulator.xcodeproj; path = "../../cocos2d-x/tools/simulator/libsimulator/proj.ios_mac/libsimulator.xcodeproj"; sourceTree = "<group>"; };
 		9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsoleWindow.xib; sourceTree = "<group>"; };
@@ -473,6 +502,21 @@
 		862E9CED1E24C41600AABF85 /* ECS */ = {
 			isa = PBXGroup;
 			children = (
+				862E9D6E1E2DC6F700AABF85 /* Component.cpp */,
+				862E9D6F1E2DC6F700AABF85 /* Component.h */,
+				862E9D6B1E2DC5E100AABF85 /* ecsbase.h */,
+				862E9D781E2DFF5A00AABF85 /* Entity.cpp */,
+				862E9D791E2DFF5A00AABF85 /* Entity.h */,
+				862E9D721E2DC74000AABF85 /* Event.h */,
+				862E9D851E2E6C4900AABF85 /* NetRole.cpp */,
+				862E9D861E2E6C4900AABF85 /* NetRole.h */,
+				862E9D801E2E5AD100AABF85 /* Role.cpp */,
+				862E9D811E2E5AD100AABF85 /* Role.h */,
+				862E9D7C1E2DFF8E00AABF85 /* Transform.cpp */,
+				862E9D7D1E2DFF8E00AABF85 /* Transform.h */,
+				862E9D731E2DDDD300AABF85 /* World.cpp */,
+				862E9D741E2DDDD300AABF85 /* World.h */,
+				862E9D771E2DF86800AABF85 /* WorldEvent.h */,
 			);
 			name = ECS;
 			path = ../Classes/ECS;
@@ -554,6 +598,7 @@
 				862E9D2D1E2CA49A00AABF85 /* GameScene.cpp */,
 				862E9D2E1E2CA49A00AABF85 /* GameScene.h */,
 				862E9D041E251CB800AABF85 /* scenebase.h */,
+				86A922211E31AFE0007D9545 /* SceneProjector.h */,
 				862E9D051E25220A00AABF85 /* UIScene.cpp */,
 				862E9D061E25220A00AABF85 /* UIScene.h */,
 			);
@@ -687,6 +732,7 @@
 				862E9D2C1E2C761700AABF85 /* MathTypes.h */,
 				862E9CF21E24C41600AABF85 /* misc */,
 				862E9CF31E24C41600AABF85 /* Net */,
+				862E9D841E2E5CE300AABF85 /* RoleTypes.h */,
 				862E9CF41E24C41600AABF85 /* Scenes */,
 			);
 			name = Classes;
@@ -754,8 +800,13 @@
 		F293B3BF15EB7BE500256477 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "MokyLin  Bluce Nong <nongjinxia@mokylin.com>";
+				TargetAttributes = {
+					F293B3C715EB7BE500256477 = {
+						DevelopmentTeam = R25R9Z7JM2;
+					};
+				};
 			};
 			buildConfigurationList = F293B3C215EB7BE500256477 /* Build configuration list for PBXProject "FengYun" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -932,19 +983,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				862E9D201E27302D00AABF85 /* GameInput.cpp in Sources */,
+				862E9D881E2E6C4900AABF85 /* NetRole.cpp in Sources */,
 				C07828FA18B4D72E00BD2287 /* SimulatorApp.mm in Sources */,
 				862E9D241E27685A00AABF85 /* lua_game_bindings.cpp in Sources */,
+				862E9D831E2E5AD100AABF85 /* Role.cpp in Sources */,
 				5023813317EBBCE400990C9B /* AppDelegate.cpp in Sources */,
 				862E9D301E2CA49A00AABF85 /* GameScene.cpp in Sources */,
 				862E9D2B1E2C756200AABF85 /* UIManager.cpp in Sources */,
 				862E9D381E2D05BE00AABF85 /* lua_gui_manual.cpp in Sources */,
 				862E9D571E2D07EA00AABF85 /* lua_managers_auto.cpp in Sources */,
+				862E9D761E2DDDD300AABF85 /* World.cpp in Sources */,
 				862E9D5B1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */,
+				862E9D711E2DC6F700AABF85 /* Component.cpp in Sources */,
 				9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */,
 				862E9D031E24E94F00AABF85 /* Window.cpp in Sources */,
 				862E9CFF1E24E2E200AABF85 /* Panel.cpp in Sources */,
+				862E9D7B1E2DFF5A00AABF85 /* Entity.cpp in Sources */,
 				862E9CFA1E24C53A00AABF85 /* Layer.cpp in Sources */,
 				862E9D181E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */,
+				862E9D7F1E2DFF8E00AABF85 /* Transform.cpp in Sources */,
 				862E9CEB1E24A1C500AABF85 /* GameApp.cpp in Sources */,
 				862E9D081E25220A00AABF85 /* UIScene.cpp in Sources */,
 				C07828F818B4D72E00BD2287 /* main.m in Sources */,
@@ -958,19 +1015,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				862E9D1F1E27302D00AABF85 /* GameInput.cpp in Sources */,
+				862E9D871E2E6C4900AABF85 /* NetRole.cpp in Sources */,
 				5023812517EBBCAC00990C9B /* RootViewController.mm in Sources */,
 				862E9D231E27685A00AABF85 /* lua_game_bindings.cpp in Sources */,
+				862E9D821E2E5AD100AABF85 /* Role.cpp in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
 				862E9D2F1E2CA49A00AABF85 /* GameScene.cpp in Sources */,
 				862E9D2A1E2C756200AABF85 /* UIManager.cpp in Sources */,
 				862E9D371E2D05BE00AABF85 /* lua_gui_manual.cpp in Sources */,
 				862E9D561E2D07EA00AABF85 /* lua_managers_auto.cpp in Sources */,
+				862E9D751E2DDDD300AABF85 /* World.cpp in Sources */,
 				862E9D5A1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */,
+				862E9D701E2DC6F700AABF85 /* Component.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
 				862E9D021E24E94F00AABF85 /* Window.cpp in Sources */,
 				862E9CFE1E24E2E200AABF85 /* Panel.cpp in Sources */,
+				862E9D7A1E2DFF5A00AABF85 /* Entity.cpp in Sources */,
 				862E9CF91E24C53A00AABF85 /* Layer.cpp in Sources */,
 				862E9D171E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */,
+				862E9D7E1E2DFF8E00AABF85 /* Transform.cpp in Sources */,
 				862E9CEA1E24A1C500AABF85 /* GameApp.cpp in Sources */,
 				862E9D071E25220A00AABF85 /* UIScene.cpp in Sources */,
 				5023811817EBBCAC00990C9B /* AppController.mm in Sources */,
@@ -1045,7 +1108,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = ../../../runtime/mac;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1072,6 +1134,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokylin.fengyun;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../cocos2d-x/external/glfw3/include/mac $(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
 			};
@@ -1081,7 +1144,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = mac/Prefix.pch;
@@ -1106,6 +1168,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokylin.fengyun;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../cocos2d-x/external/glfw3/include/mac $(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
 			};
@@ -1114,10 +1177,23 @@
 		F293B6C215EB7BEA00256477 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
@@ -1128,10 +1204,14 @@
 					GLFW_EXPOSE_NATIVE_COCOA,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cocos2d-x $(SRCROOT)/../../cocos2d-x/cocos/audio/include $(SRCROOT)/../../cocos2d-x/cocos $(SRCROOT)/../../cocos2d-x/extensions $(SRCROOT)/../../cocos2d-x/external $(SRCROOT)/../../cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../cocos2d-x/external/lua/luajit/include $(SRCROOT)/../../cocos2d-x/external/lua/tolua $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib/protobuf-lite $(SRCROOT)/../../cocos2d-x/cocos/scripting/lua-bindings/manual $(SRCROOT)/../../cocos2d-x/cocos/scripting/lua-bindings/auto";
@@ -1141,19 +1221,35 @@
 		F293B6C315EB7BEA00256477 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					USE_FILE32API,
 					"CC_LUA_ENGINE_ENABLED=1",
 					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
 				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cocos2d-x $(SRCROOT)/../../cocos2d-x/cocos/audio/include $(SRCROOT)/../../cocos2d-x/cocos $(SRCROOT)/../../cocos2d-x/extensions $(SRCROOT)/../../cocos2d-x/external $(SRCROOT)/../../cocos2d-x/external/chipmunk/include/chipmunk $(SRCROOT)/../../cocos2d-x/external/lua/luajit/include $(SRCROOT)/../../cocos2d-x/external/lua/tolua $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib $(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib/protobuf-lite $(SRCROOT)/../../cocos2d-x/cocos/scripting/lua-bindings/manual $(SRCROOT)/../../cocos2d-x/cocos/scripting/lua-bindings/auto";
@@ -1167,6 +1263,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = R25R9Z7JM2;
 				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1178,7 +1275,7 @@
 					"$(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -1192,6 +1289,7 @@
 					"-image_base",
 					100000000,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.santigame.dragoncrown;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1206,6 +1304,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = R25R9Z7JM2;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
@@ -1216,7 +1315,7 @@
 					"$(SRCROOT)/../../cocos2d-x/tools/simulator/libsimulator/lib",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -1230,6 +1329,7 @@
 					"-image_base",
 					100000000,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.santigame.dragoncrown;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
