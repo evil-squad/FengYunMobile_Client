@@ -209,7 +209,6 @@ void GameScene::adjustVirePoint(float dt)
 void GameScene::updateView()
 {
     auto pos = -_viewPoint;
-    DBG_LOG("update view point ========>%f, %f", pos.x, pos.y);
     _sceneNode->setPosition(pos);
 }
 
