@@ -19,7 +19,19 @@ public:
         int i = 0;
         i ++;
     }
+
+static void debugDraw(cocos2d::Node* node, cocos2d::Color4F color = cocos2d::Color4F(0, 1, 0, 0.5))
+{
+    auto drawNode = cocos2d::DrawNode::create();
+    auto size = node->getContentSize();
+    cocos2d::Vec2 poses[] = { cocos2d::Vec2(0, 0), cocos2d::Vec2(size.width, 0),cocos2d::Vec2(size.width, size.height), cocos2d::Vec2(0, size.height) };
+    drawNode->drawSolidPoly(poses, 4, color);
+    drawNode->setPosition(cocos2d::Vec2(0, 0));
+    node->addChild(drawNode, 100);
+}
 };
+
+#define DBG_DRAW(node, color) DebugHelper::debugDraw(node, color)
 
 #define ENABLE_DEBUG_LOG
 

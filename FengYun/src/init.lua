@@ -35,7 +35,6 @@ function openInitUI()
 	local uilayer = game.getUILayer()
 	local size = cc.size(uirect.width, uirect.height)
 	local win = gui.Panel:create(0, 0, size.width, size.height)
-	print("open init ui=======>", tostring(uilayer))
 	local bg = cc.Sprite:create("builtin/ui/bg.png")
 	bg:setPosition(cc.p(size.width * 0.5, size.height * 0.5))
 	win:addChild(bg)
@@ -44,7 +43,25 @@ function openInitUI()
 	win:setPosition(cc.p(uirect.width * 0.5, uirect.height * 0.5))
 	uilayer:addChild(win)
 
-	rPrint(uirect)
+	local tip = cc.Label:createWithSystemFont("点击屏幕继续", "Helvetica", "24")
+	tip:setPosition(cc.p(size.width * 0.5, size.height * 0.5))
+	win:addChild(tip)
+	tip:setColor(cc.c3b(0, 255, 0))
+
+	local s1 = cc.ScaleTo:create(0.5, 1.5)
+	local s2 = cc.ScaleTo:create(0.5, 1.0)
+	local seq = cc.Sequence:create(s1, s2)
+	tip:runAction(cc.RepeatForever:create(seq))
+
+	local function onTouchBegan(touch, event)
+		game.sendEvent("goto_game_scene")
+		return true
+	end
+
+	local listener = cc.EventListenerTouchOneByOne:create()
+   listener:setSwallowTouches(true)
+   listener:registerScriptHandler(onTouchBegan,cc.Handler.EVENT_TOUCH_BEGAN )
+   win:getEventDispatcher():addEventListenerWithSceneGraphPriority(listener, win)
 end
 
 main()
