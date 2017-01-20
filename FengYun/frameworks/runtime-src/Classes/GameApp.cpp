@@ -123,6 +123,11 @@ void GameApp::onStart()
         });
         GameApp::getInstance()->setEventHandler("goto_init_ui", nullptr);
     });
+
+    setEventHandler("goto_game_scene", []{
+        GameModule::get<SceneManager>()->gotoScene(1);
+        GameApp::getInstance()->setEventHandler("goto_game_scene", nullptr);
+    });
 }
 
 void GameApp::onPause()
