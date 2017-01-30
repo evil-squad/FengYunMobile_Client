@@ -108,6 +108,10 @@
 		862E9D831E2E5AD100AABF85 /* Role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D801E2E5AD100AABF85 /* Role.cpp */; };
 		862E9D871E2E6C4900AABF85 /* NetRole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D851E2E6C4900AABF85 /* NetRole.cpp */; };
 		862E9D881E2E6C4900AABF85 /* NetRole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9D851E2E6C4900AABF85 /* NetRole.cpp */; };
+		863F71141E3F4BC900282006 /* CityController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 863F71121E3F4BC900282006 /* CityController.cpp */; };
+		863F71151E3F4BC900282006 /* CityController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 863F71121E3F4BC900282006 /* CityController.cpp */; };
+		863F711A1E3F4C0100282006 /* BaseSceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 863F71181E3F4C0100282006 /* BaseSceneController.cpp */; };
+		863F711B1E3F4C0100282006 /* BaseSceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 863F71181E3F4C0100282006 /* BaseSceneController.cpp */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
 		9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */; };
 		9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF504831A5E87B100AFDA55 /* ConsoleWindowController.m */; };
@@ -348,6 +352,11 @@
 		862E9D841E2E5CE300AABF85 /* RoleTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RoleTypes.h; path = ../Classes/RoleTypes.h; sourceTree = "<group>"; };
 		862E9D851E2E6C4900AABF85 /* NetRole.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetRole.cpp; sourceTree = "<group>"; };
 		862E9D861E2E6C4900AABF85 /* NetRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetRole.h; sourceTree = "<group>"; };
+		863F71121E3F4BC900282006 /* CityController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CityController.cpp; sourceTree = "<group>"; };
+		863F71131E3F4BC900282006 /* CityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityController.h; sourceTree = "<group>"; };
+		863F71181E3F4C0100282006 /* BaseSceneController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSceneController.cpp; sourceTree = "<group>"; };
+		863F71191E3F4C0100282006 /* BaseSceneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSceneController.h; sourceTree = "<group>"; };
+		863F711C1E3F7C2800282006 /* SceneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneController.h; sourceTree = "<group>"; };
 		86A922211E31AFE0007D9545 /* SceneProjector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneProjector.h; sourceTree = "<group>"; };
 		9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		9FF504781A5E86D600AFDA55 /* libsimulator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsimulator.xcodeproj; path = "../../cocos2d-x/tools/simulator/libsimulator/proj.ios_mac/libsimulator.xcodeproj"; sourceTree = "<group>"; };
@@ -595,9 +604,14 @@
 		862E9CF41E24C41600AABF85 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				863F71181E3F4C0100282006 /* BaseSceneController.cpp */,
+				863F71191E3F4C0100282006 /* BaseSceneController.h */,
+				863F71121E3F4BC900282006 /* CityController.cpp */,
+				863F71131E3F4BC900282006 /* CityController.h */,
 				862E9D2D1E2CA49A00AABF85 /* GameScene.cpp */,
 				862E9D2E1E2CA49A00AABF85 /* GameScene.h */,
 				862E9D041E251CB800AABF85 /* scenebase.h */,
+				863F711C1E3F7C2800282006 /* SceneController.h */,
 				86A922211E31AFE0007D9545 /* SceneProjector.h */,
 				862E9D051E25220A00AABF85 /* UIScene.cpp */,
 				862E9D061E25220A00AABF85 /* UIScene.h */,
@@ -984,8 +998,10 @@
 			files = (
 				862E9D201E27302D00AABF85 /* GameInput.cpp in Sources */,
 				862E9D881E2E6C4900AABF85 /* NetRole.cpp in Sources */,
+				863F71151E3F4BC900282006 /* CityController.cpp in Sources */,
 				C07828FA18B4D72E00BD2287 /* SimulatorApp.mm in Sources */,
 				862E9D241E27685A00AABF85 /* lua_game_bindings.cpp in Sources */,
+				863F711B1E3F4C0100282006 /* BaseSceneController.cpp in Sources */,
 				862E9D831E2E5AD100AABF85 /* Role.cpp in Sources */,
 				5023813317EBBCE400990C9B /* AppDelegate.cpp in Sources */,
 				862E9D301E2CA49A00AABF85 /* GameScene.cpp in Sources */,
@@ -1016,8 +1032,10 @@
 			files = (
 				862E9D1F1E27302D00AABF85 /* GameInput.cpp in Sources */,
 				862E9D871E2E6C4900AABF85 /* NetRole.cpp in Sources */,
+				863F71141E3F4BC900282006 /* CityController.cpp in Sources */,
 				5023812517EBBCAC00990C9B /* RootViewController.mm in Sources */,
 				862E9D231E27685A00AABF85 /* lua_game_bindings.cpp in Sources */,
+				863F711A1E3F4C0100282006 /* BaseSceneController.cpp in Sources */,
 				862E9D821E2E5AD100AABF85 /* Role.cpp in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
 				862E9D2F1E2CA49A00AABF85 /* GameScene.cpp in Sources */,
