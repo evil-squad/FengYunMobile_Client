@@ -6,6 +6,7 @@
 require "config"
 require "cocos.init"
 require "GameUtils"
+require "GameConstants"
 require "DebugUtils"
 
 local function mergeTable(a, b)
@@ -62,6 +63,12 @@ function openInitUI()
    listener:setSwallowTouches(true)
    listener:registerScriptHandler(onTouchBegan,cc.Handler.EVENT_TOUCH_BEGAN )
    win:getEventDispatcher():addEventListenerWithSceneGraphPriority(listener, win)
+
+   local function onCompleted()
+   	require "ui"
+   end
+
+   onCompleted()
 end
 
 main()
