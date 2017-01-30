@@ -121,13 +121,14 @@ bool NetRole::init()
         sprintf(szName1, "run_%s", info.first.c_str());
         createAnimation("run", szName1, _animations);
     }
-    _skin = Sprite::create();
-    _skin->setPosition(Vec2::ZERO);
-    _skin->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
-    _skin->setContentSize(Size(10, 10));
-    this->addChild(_skin);
 
     this->setContentSize(Size(10, 10));
+    _skin = Sprite::create();
+    _skin->setContentSize(Size(10, 10));
+    _skin->setPosition(Vec2(this->getContentSize() / 2.0f));
+    _skin->setAnchorPoint(Vec2::ANCHOR_MIDDLE_BOTTOM);
+    this->addChild(_skin);
+
     return true;
 }
 

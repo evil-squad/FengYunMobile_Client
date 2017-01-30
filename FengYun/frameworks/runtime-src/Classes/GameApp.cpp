@@ -105,6 +105,8 @@ void GameApp::onStart()
 
     fu->addSearchPath("src/");
     fu->addSearchPath("res/");
+    fu->addSearchPath("res/default/builtin/");
+    fu->addSearchPath("res/default/dynamic/");
 
     createAndRegisterMudules(_data->modules);
 

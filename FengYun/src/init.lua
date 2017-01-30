@@ -35,7 +35,7 @@ function openInitUI()
 	local uilayer = game.getUILayer()
 	local size = cc.size(uirect.width, uirect.height)
 	local win = gui.Panel:create(0, 0, size.width, size.height)
-	local bg = cc.Sprite:create("builtin/ui/bg.png")
+	local bg = cc.Sprite:create("ui/bg.png")
 	bg:setPosition(cc.p(size.width * 0.5, size.height * 0.5))
 	win:addChild(bg)
 
