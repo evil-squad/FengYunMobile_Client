@@ -11,6 +11,7 @@
 #include "UIManager.h"
 #include "DebugHelper.h"
 #include "SceneProjector.h"
+#include "SceneController.h"
 
 USING_NS_CC;
 BEGIN_NS_SCENES
@@ -35,6 +36,8 @@ GameScene::GameScene()
     , _uiLayer(nullptr)
     , _sceneNode(nullptr)
     , _player(nullptr)
+    , _controller(nullptr)
+    , _time(0)
 {}
 
 GameScene::~GameScene()
@@ -123,6 +126,8 @@ void GameScene::onEnter()
 
     GameModule::get<UIManager>()->registerUILayer(_uiLayer);
 
+    _controller->onSceneEnter();
+
     this->adjustVirePoint(-1);
 
     this->scheduleUpdate();
@@ -130,16 +135,29 @@ void GameScene::onEnter()
 
 void GameScene::onExit()
 {
-    _uiLayer->closeAll();
-    GameModule::get<UIManager>()->unregisterUILayer(_uiLayer);
-
     this->unscheduleUpdate();
+
+    _uiLayer->closeAll();
+
+    _controller->onSceneExit();
+
+    GameModule::get<UIManager>()->unregisterUILayer(_uiLayer);
 
     cocos2d::Scene::onExit();
 }
 
+void GameScene::setController(SceneController *controller)
+{
+    DBG_ASSERT(_controller == nullptr, "Already has scene controller!");
+    _controller = controller;
+}
+
 void GameScene::update(float dt)
 {
+    _time += dt;
+    
+    _controller->onSceneUpdate(dt);
+
     this->adjustVirePoint(dt);
 }
 
@@ -203,7 +221,6 @@ void GameScene::adjustVirePoint(float dt)
             setViewPoint(pos);
         }
     }
-
 }
 
 void GameScene::updateView()

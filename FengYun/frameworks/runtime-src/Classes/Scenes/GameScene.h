@@ -17,6 +17,8 @@
 
 BEGIN_NS_SCENES
 
+class SceneController;
+
 class GameScene final : public cocos2d::Scene
 {
 public:
@@ -36,6 +38,9 @@ CC_CONSTRUCTOR_ACCESS:
     virtual void onEnter() override;
     virtual void onExit() override;
 
+    SceneController* getController() const { return _controller; }
+    void setController(SceneController* controller);
+
 protected:
     virtual void update(float dt) override;
 
@@ -45,12 +50,16 @@ protected:
 protected:
     int _id;
 
+    SceneController* _controller;
+
 private:
     gui::Layer* _uiLayer;
     cocos2d::Node* _sceneNode;
     ecs::NetRole* _player;
 
     Vector2 _viewPoint;
+
+    float _time;
 
 private:
 

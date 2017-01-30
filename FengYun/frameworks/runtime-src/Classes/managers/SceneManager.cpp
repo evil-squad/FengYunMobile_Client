@@ -11,6 +11,7 @@
 #include <algorithm>
 
 #include "Scenes/UIScene.h"
+#include "Scenes/CityController.h"
 #include "GameApp.h"
 
 USING_NS_CC;
@@ -77,6 +78,7 @@ void SceneManager::gotoScene(int id)
 {
     auto scene = GameScene::create(id);
     _data->current = scene;
+    scene->setController(new CityController(scene));
     _data->current->retain();
     Director::getInstance()->replaceScene(scene);
 }
