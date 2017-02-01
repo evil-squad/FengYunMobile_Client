@@ -13,6 +13,23 @@
 
 BEGIN_NS_FY
 
+enum class RoleJob
+{
+    NONE = 0,
+    BUJINGYUN,
+    DIERMENG,
+    NIEFENG,
+    CHUCHU
+};
+
+enum class RoleType
+{
+    PLAYER = 0,
+    NPC,
+    MONSTER,
+    NONE
+};
+
 enum class FaceDir
 {
     NONE = 0,
