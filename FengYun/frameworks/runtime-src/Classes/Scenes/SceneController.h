@@ -22,6 +22,8 @@ public:
     SceneController() {}
     virtual ~SceneController() {}
 
+    virtual void onSetPlayerAgent(int id, const Vector3& pt, FaceDir face, const std::function<void()>& cb) = 0;
+
     virtual void onSceneEnter() = 0;
     virtual void onSceneExit() = 0;
     virtual void onSceneUpdate(float dt) = 0;
