@@ -20,6 +20,8 @@ public:
     BaseSceneController(GameScene* scene);
     virtual ~BaseSceneController();
 
+    void onSetPlayerAgent(int id, const Vector3& pt, FaceDir face, const std::function<void()>& cb) override;
+
 protected:
     GameScene* _scene;
 
