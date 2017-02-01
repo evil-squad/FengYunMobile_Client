@@ -80,6 +80,8 @@ void SceneManager::gotoScene(int id)
     _data->current = scene;
     scene->setController(new CityController(scene));
     _data->current->retain();
+    scene->onSceneBegin();
+    scene->getController()->onSetPlayerAgent(1000, Vector3(300, 300, 0), fy::FaceDir::FRONT, nullptr);
     Director::getInstance()->replaceScene(scene);
 }
 

@@ -18,6 +18,7 @@
 
 #include "UIManager.h"
 #include "SceneManager.h"
+#include "AnimationManager.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -38,6 +39,7 @@ static void createAndRegisterMudules(std::vector<GameModule*>& modules)
     DBG_ASSERT(modules.empty(), "Modules not empty!");
     modules.push_back(createAndRegisterModule<UIManager>());
     modules.push_back(createAndRegisterModule<SceneManager>());
+    modules.push_back(createAndRegisterModule<AnimationManager>());
 }
 
 GameApp* GameApp::s_instance = nullptr;
@@ -107,6 +109,7 @@ void GameApp::onStart()
     fu->addSearchPath("res/");
     fu->addSearchPath("res/default/builtin/");
     fu->addSearchPath("res/default/dynamic/");
+    fu->addSearchPath("res/default/config/");
 
     createAndRegisterMudules(_data->modules);
 
