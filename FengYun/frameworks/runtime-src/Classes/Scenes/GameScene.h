@@ -12,8 +12,8 @@
 #include "scenebase.h"
 #include "cocos2d.h"
 #include "GUI/Layer.h"
-#include "ECS/NetRole.h"
 #include "MathTypes.h"
+#include "BattleController.h"
 
 BEGIN_NS_SCENES
 
@@ -41,6 +41,12 @@ CC_CONSTRUCTOR_ACCESS:
     SceneController* getController() const { return _controller; }
     void setController(SceneController* controller);
 
+    BattleController* getBattleController() { return _battleController; }
+    void setBattleController(BattleController* controller) { _battleController = controller; }
+
+    void onSceneBegin();
+    void onSceneEnd();
+
 protected:
     virtual void update(float dt) override;
 
@@ -51,11 +57,11 @@ protected:
     int _id;
 
     SceneController* _controller;
+    BattleController* _battleController;
 
 private:
     gui::Layer* _uiLayer;
     cocos2d::Node* _sceneNode;
-    ecs::NetRole* _player;
 
     Vector2 _viewPoint;
 

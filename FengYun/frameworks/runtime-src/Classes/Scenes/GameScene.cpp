@@ -12,8 +12,12 @@
 #include "DebugHelper.h"
 #include "SceneProjector.h"
 #include "SceneController.h"
+#include "ECS/World.h"
+#include "ECS/RendererSystem.h"
+#include "ECS/Entity.h"
 
 USING_NS_CC;
+USING_NS_ECS;
 BEGIN_NS_SCENES
 
 static const float CAMERA_FOLLOW_COEF = 1/ 90.0;
@@ -35,13 +39,29 @@ GameScene::GameScene()
     , _viewPoint(Vector2::ZERO)
     , _uiLayer(nullptr)
     , _sceneNode(nullptr)
-    , _player(nullptr)
     , _controller(nullptr)
     , _time(0)
-{}
+    , _battleController(nullptr)
+{
+
+}
 
 GameScene::~GameScene()
-{}
+{
+    onSceneEnd();
+    ecs::World::getInstance()->clear();
+    if (_controller)
+    {
+        delete _controller;
+        _controller = nullptr;
+    }
+
+    if (_battleController)
+    {
+        delete _battleController;
+        _controller = nullptr;
+    }
+}
 
 bool GameScene::initWithId(int id)
 {
@@ -49,24 +69,15 @@ bool GameScene::initWithId(int id)
 
     _id = id;
 
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("avatar/man/man_stand.plist", "avatar/man/man_stand.png");
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("avatar/man/man_run.plist", "avatar/man/man_run.png");
-
     _sceneNode = cocos2d::Node::create();
     this->addChild(_sceneNode);
 
     _uiLayer = gui::Layer::create();
     this->addChild(_uiLayer);
 
-    _player = ecs::NetRole::create();
-
     this->initMap();
 
     _sceneNode->setContentSize(cocos2d::Size(3000, 3000));
-
-    _player->setPosition(Vec2(200, 200));
-    _player->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
-    _sceneNode->addChild(_player);
 
     auto labelTip = Label::createWithSystemFont("点击屏幕控制角色行走", "Helvetica", 24);
     auto& rect = GameModule::get<UIManager>()->getUIRect();
@@ -81,6 +92,16 @@ bool GameScene::initWithId(int id)
     labelTip->runAction(rep);
 
     this->initMapTouch();
+
+    auto systemEntity = World::getInstance()->findEntity("RendererSystem");
+    if (!systemEntity)
+    {
+        systemEntity = World::getInstance()->createEntity();
+        systemEntity->setName("RendererSystem");
+        systemEntity->markGlobal();
+        systemEntity->addComponent<RendererSystem>();
+        //do not finish here
+    }
 
     return true;
 }
@@ -102,16 +123,12 @@ void GameScene::initMap()
 void GameScene::initMapTouch()
 {
     auto listener = EventListenerTouchOneByOne::create();
-    listener->onTouchBegan = ([=] (Touch* touch, Event* event){
+    listener->onTouchBegan = ([=] (Touch* touch, cocos2d::Event* event){
         auto target = event->getCurrentTarget();
         auto pos = touch->getLocation();
         auto loc = target->convertToNodeSpace(pos);
-        auto playerPos = _player->getPosition();
-        auto dis = loc - playerPos;
 
-        _player->checkAngle(dis.getAngle() * 180/M_PI);
-
-        _player->onMove(loc, nullptr);
+        //        _player->checkAngle(dis.getAngle() * 180/M_PI);
 
         return true;
     });
@@ -122,7 +139,6 @@ void GameScene::initMapTouch()
 void GameScene::onEnter()
 {
     cocos2d::Scene::onEnter();
-    _player->onStart();
 
     GameModule::get<UIManager>()->registerUILayer(_uiLayer);
 
@@ -152,11 +168,30 @@ void GameScene::setController(SceneController *controller)
     _controller = controller;
 }
 
+void GameScene::onSceneBegin()
+{
+    auto rendererSystem = World::getInstance()->findEntity("RendererSystem")->getComponent<RendererSystem>();
+    auto layer = rendererSystem->getLayer();
+    layer->removeFromParent();
+    _sceneNode->addChild(layer);
+
+    ecs::World::getInstance()->setUserData<GameScene>(this);
+    ecs::World::getInstance()->start();
+}
+
+void GameScene::onSceneEnd()
+{
+    World::getInstance()->stop();
+    World::getInstance()->setUserData<GameScene>(nullptr);
+}
+
 void GameScene::update(float dt)
 {
     _time += dt;
     
     _controller->onSceneUpdate(dt);
+
+    ecs::World::getInstance()->update(dt);
 
     this->adjustVirePoint(dt);
 }
@@ -175,9 +210,9 @@ void GameScene::adjustVirePoint(float dt)
     const Size& size = Director::getInstance()->getVisibleSize();
     const Size& mapSize = _sceneNode->getContentSize();
 
-    auto playerPos = _player->getPosition();
+    auto playerPos =  Vector2::ZERO;
 
-    auto pos = _player->getPosition() - Vector2(size.width * 0.5, size.height * 0.5);
+    auto pos = playerPos - Vector2(size.width * 0.5, size.height * 0.5);
     float scale = playerPos.y * 0.00005;
     float scaleOffsetX = scale * 500;
 
