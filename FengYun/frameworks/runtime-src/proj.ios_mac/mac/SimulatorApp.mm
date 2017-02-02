@@ -189,6 +189,7 @@ static void glfwDropFunc(GLFWwindow *window, int count, const char **files)
         config->changeFrameOrientationToPortait();
     }
     config->setScriptFile(parser->getEntryFile());
+    config->setShowConsole(false);
 }
 
 - (void) updateProjectFromCommandLineArgs:(ProjectConfig*)config
