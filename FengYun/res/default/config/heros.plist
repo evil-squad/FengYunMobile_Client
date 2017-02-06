@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bujingyun</key>
+	<dict>
+		<key>name</key>
+		<string>bujingyun</string>
+		<key>states</key>
+		<array>
+			<string>stand</string>
+			<string>run</string>
+			<string>attack</string>
+		</array>
+	</dict>
+	<key>diermeng</key>
+	<dict>
+		<key>name</key>
+		<string>bujingyun</string>
+		<key>states</key>
+		<array>
+			<string>stand</string>
+			<string>run</string>
+			<string>attack</string>
+		</array>
+	</dict>
+	<key>niefeng</key>
+	<dict>
+		<key>name</key>
+		<string>bujingyun</string>
+		<key>states</key>
+		<array>
+			<string>stand</string>
+			<string>run</string>
+			<string>attack</string>
+		</array>
+	</dict>
+	<key>chuchu</key>
+	<dict>
+		<key>name</key>
+		<string>bujingyun</string>
+		<key>states</key>
+		<array>
+			<string>stand</string>
+			<string>run</string>
+			<string>attack</string>
+		</array>
+	</dict>
+</dict>
+</plist>
