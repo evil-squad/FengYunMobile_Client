@@ -8,6 +8,8 @@
 
 #include "UserFreeMover.h"
 #include "BaseState.h"
+#include "NavSystem.h"
+#include "MapManager.h"
 
 BEGIN_NS_FSM
 
@@ -31,6 +33,25 @@ UserFreeMover::~UserFreeMover()
 
 void UserFreeMover::adjustAxis(fy::fsm::BaseState *st, float dt)
 {
+    auto pos = st->getBaseData()->getRole()->getTransform()->getPosition();
+    auto mapPos = MapManager::toMapPoint(pos);
+
+    _adjustAxis = _axis;
+    auto v = _adjustAxis.getNormalized() * (_speed * dt);
+    pos = MapManager::toMapPoint(pos + Vector3(v.x, v.y, 0));
+
+    auto& nav = *NavSystem::getInstance();
+    if (!nav.isWalkable(pos))
+    {
+        if (v.x < 0 && !nav.isWalkable(mapPos + Vector3(-1, 0, 0)))
+            _adjustAxis.x = 0;
+        if (v.x > 0 && !nav.isWalkable(mapPos + Vector3(1, 0, 0)))
+            _adjustAxis.x = 0;
+        if (v.y < 0 && !nav.isWalkable(mapPos + Vector3(0, 1, 0)))
+            _adjustAxis.y = 0;
+        if (v.y > 0 && !nav.isWalkable(mapPos + Vector3(0, -1, 0)))
+            _adjustAxis.y = 0;
+    }
 }
 
 void UserFreeMover::updatePredicts(fy::fsm::BaseState *st, bool force)
