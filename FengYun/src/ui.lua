@@ -3,6 +3,7 @@
 -- Date: 2017-01-30 18:10:38
 --
 require "UI.Joystick"
+require "UI.ActionPad"
 
 local function main()
 	collectgarbage("collect")
@@ -11,6 +12,7 @@ local function main()
 
 	local function enterCityScene()
 		openJoystick()
+		openActionPad()
 	end
 
 	local function leaveCityScene()
