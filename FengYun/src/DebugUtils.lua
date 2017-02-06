@@ -28,7 +28,7 @@ function debugDraw(node, color)
 	end
 	drawNode:drawSolidPoly(poses, 4, color)
 	drawNode:setPosition(cc.p(0, 0))
-	node:addChid(drawNode, 1000)
+	node:addChild(drawNode, 1000)
 end
 
 
