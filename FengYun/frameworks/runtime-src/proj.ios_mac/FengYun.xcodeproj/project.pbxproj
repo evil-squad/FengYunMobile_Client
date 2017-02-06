@@ -54,6 +54,16 @@
 		862E514C1E418E6D00FD0538 /* AnimationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E51491E418E6D00FD0538 /* AnimationManager.cpp */; };
 		862E514F1E41952D00FD0538 /* Standing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E514D1E41952D00FD0538 /* Standing.cpp */; };
 		862E51501E41952D00FD0538 /* Standing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E514D1E41952D00FD0538 /* Standing.cpp */; };
+		862E51531E41DDC900FD0538 /* UserInputProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E51511E41DDC900FD0538 /* UserInputProcessor.cpp */; };
+		862E51541E41DDC900FD0538 /* UserInputProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E51511E41DDC900FD0538 /* UserInputProcessor.cpp */; };
+		862E51571E4245D500FD0538 /* Moving.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E51551E4245D500FD0538 /* Moving.cpp */; };
+		862E51581E4245D500FD0538 /* Moving.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E51551E4245D500FD0538 /* Moving.cpp */; };
+		862E515B1E42BAAF00FD0538 /* AStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E51591E42BAAF00FD0538 /* AStar.cpp */; };
+		862E515C1E42BAAF00FD0538 /* AStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E51591E42BAAF00FD0538 /* AStar.cpp */; };
+		862E51611E42BC2B00FD0538 /* NavSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E515F1E42BC2B00FD0538 /* NavSystem.cpp */; };
+		862E51621E42BC2B00FD0538 /* NavSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E515F1E42BC2B00FD0538 /* NavSystem.cpp */; };
+		862E51651E42BD1200FD0538 /* MapManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E51631E42BD1200FD0538 /* MapManager.cpp */; };
+		862E51661E42BD1200FD0538 /* MapManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E51631E42BD1200FD0538 /* MapManager.cpp */; };
 		862E9CEA1E24A1C500AABF85 /* GameApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9CE81E24A1C500AABF85 /* GameApp.cpp */; };
 		862E9CEB1E24A1C500AABF85 /* GameApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9CE81E24A1C500AABF85 /* GameApp.cpp */; };
 		862E9CF91E24C53A00AABF85 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 862E9CF71E24C53A00AABF85 /* Layer.cpp */; };
@@ -319,6 +329,18 @@
 		862E514A1E418E6D00FD0538 /* AnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationManager.h; sourceTree = "<group>"; };
 		862E514D1E41952D00FD0538 /* Standing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Standing.cpp; sourceTree = "<group>"; };
 		862E514E1E41952D00FD0538 /* Standing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Standing.h; sourceTree = "<group>"; };
+		862E51511E41DDC900FD0538 /* UserInputProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserInputProcessor.cpp; sourceTree = "<group>"; };
+		862E51521E41DDC900FD0538 /* UserInputProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInputProcessor.h; sourceTree = "<group>"; };
+		862E51551E4245D500FD0538 /* Moving.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Moving.cpp; sourceTree = "<group>"; };
+		862E51561E4245D500FD0538 /* Moving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moving.h; sourceTree = "<group>"; };
+		862E51591E42BAAF00FD0538 /* AStar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AStar.cpp; sourceTree = "<group>"; };
+		862E515A1E42BAAF00FD0538 /* AStar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AStar.h; sourceTree = "<group>"; };
+		862E515D1E42BB2200FD0538 /* MinHeap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinHeap.h; sourceTree = "<group>"; };
+		862E515E1E42BBD000FD0538 /* BitArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BitArray.h; sourceTree = "<group>"; };
+		862E515F1E42BC2B00FD0538 /* NavSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NavSystem.cpp; path = ../Classes/NavSystem.cpp; sourceTree = "<group>"; };
+		862E51601E42BC2B00FD0538 /* NavSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavSystem.h; path = ../Classes/NavSystem.h; sourceTree = "<group>"; };
+		862E51631E42BD1200FD0538 /* MapManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapManager.cpp; sourceTree = "<group>"; };
+		862E51641E42BD1200FD0538 /* MapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapManager.h; sourceTree = "<group>"; };
 		862E9CE81E24A1C500AABF85 /* GameApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameApp.cpp; path = ../Classes/GameApp.cpp; sourceTree = "<group>"; };
 		862E9CE91E24A1C500AABF85 /* GameApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameApp.h; path = ../Classes/GameApp.h; sourceTree = "<group>"; };
 		862E9CEC1E24A21300AABF85 /* gamebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gamebase.h; path = ../Classes/gamebase.h; sourceTree = "<group>"; };
@@ -628,12 +650,16 @@
 				863F71231E3F990600282006 /* InputProcessor.h */,
 				863F71341E40123E00282006 /* Motor.cpp */,
 				863F71351E40123E00282006 /* Motor.h */,
+				862E51551E4245D500FD0538 /* Moving.cpp */,
+				862E51561E4245D500FD0538 /* Moving.h */,
 				863F711E1E3F97F400282006 /* SharedData.h */,
 				862E514D1E41952D00FD0538 /* Standing.cpp */,
 				862E514E1E41952D00FD0538 /* Standing.h */,
 				863F712A1E3FA85800282006 /* State.h */,
 				863F71441E403FCA00282006 /* UserFreeMover.cpp */,
 				863F71451E403FCA00282006 /* UserFreeMover.h */,
+				862E51511E41DDC900FD0538 /* UserInputProcessor.cpp */,
+				862E51521E41DDC900FD0538 /* UserInputProcessor.h */,
 			);
 			name = FSM;
 			path = ../Classes/FSM;
@@ -676,6 +702,8 @@
 			children = (
 				862E51491E418E6D00FD0538 /* AnimationManager.cpp */,
 				862E514A1E418E6D00FD0538 /* AnimationManager.h */,
+				862E51631E42BD1200FD0538 /* MapManager.cpp */,
+				862E51641E42BD1200FD0538 /* MapManager.h */,
 				862E9D311E2CAFAD00AABF85 /* SceneManager.cpp */,
 				862E9D321E2CAFAD00AABF85 /* SceneManager.h */,
 				862E9D281E2C756200AABF85 /* UIManager.cpp */,
@@ -688,8 +716,12 @@
 		862E9CF21E24C41600AABF85 /* misc */ = {
 			isa = PBXGroup;
 			children = (
+				862E51591E42BAAF00FD0538 /* AStar.cpp */,
+				862E515A1E42BAAF00FD0538 /* AStar.h */,
+				862E515E1E42BBD000FD0538 /* BitArray.h */,
 				862E9D0E1E25CE2100AABF85 /* ConfigReader.h */,
 				862E9D121E25D42A00AABF85 /* ConfigReaderPlist.h */,
+				862E515D1E42BB2200FD0538 /* MinHeap.h */,
 				863F71381E40154300282006 /* Physics.cpp */,
 				863F71391E40154300282006 /* Physics.h */,
 			);
@@ -855,6 +887,8 @@
 				862E9CF11E24C41600AABF85 /* managers */,
 				862E9D2C1E2C761700AABF85 /* MathTypes.h */,
 				862E9CF21E24C41600AABF85 /* misc */,
+				862E515F1E42BC2B00FD0538 /* NavSystem.cpp */,
+				862E51601E42BC2B00FD0538 /* NavSystem.h */,
 				862E9CF31E24C41600AABF85 /* Net */,
 				862E9D841E2E5CE300AABF85 /* RoleTypes.h */,
 				862E9CF41E24C41600AABF85 /* Scenes */,
@@ -1108,11 +1142,13 @@
 			files = (
 				862E514C1E418E6D00FD0538 /* AnimationManager.cpp in Sources */,
 				862E9D201E27302D00AABF85 /* GameInput.cpp in Sources */,
+				862E51541E41DDC900FD0538 /* UserInputProcessor.cpp in Sources */,
 				863F714F1E40AE8400282006 /* LocalBattleController.cpp in Sources */,
 				862E9D881E2E6C4900AABF85 /* NetRole.cpp in Sources */,
 				863F71151E3F4BC900282006 /* CityController.cpp in Sources */,
 				C07828FA18B4D72E00BD2287 /* SimulatorApp.mm in Sources */,
 				863F71471E403FCA00282006 /* UserFreeMover.cpp in Sources */,
+				862E51661E42BD1200FD0538 /* MapManager.cpp in Sources */,
 				862E9D241E27685A00AABF85 /* lua_game_bindings.cpp in Sources */,
 				863F714B1E4043FE00282006 /* BattleController.cpp in Sources */,
 				863F71531E40C86C00282006 /* Player.cpp in Sources */,
@@ -1120,6 +1156,7 @@
 				862E9D831E2E5AD100AABF85 /* Role.cpp in Sources */,
 				5023813317EBBCE400990C9B /* AppDelegate.cpp in Sources */,
 				862E9D301E2CA49A00AABF85 /* GameScene.cpp in Sources */,
+				862E51581E4245D500FD0538 /* Moving.cpp in Sources */,
 				863F713F1E40349500282006 /* Agent.cpp in Sources */,
 				862E9D2B1E2C756200AABF85 /* UIManager.cpp in Sources */,
 				862E9D381E2D05BE00AABF85 /* lua_gui_manual.cpp in Sources */,
@@ -1129,6 +1166,7 @@
 				862E9D761E2DDDD300AABF85 /* World.cpp in Sources */,
 				862E9D5B1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */,
 				862E9D711E2DC6F700AABF85 /* Component.cpp in Sources */,
+				862E515C1E42BAAF00FD0538 /* AStar.cpp in Sources */,
 				9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */,
 				863F713B1E40154300282006 /* Physics.cpp in Sources */,
 				863F71271E3F992800282006 /* BaseInputProcessor.cpp in Sources */,
@@ -1145,6 +1183,7 @@
 				862E9CEB1E24A1C500AABF85 /* GameApp.cpp in Sources */,
 				862E9D081E25220A00AABF85 /* UIScene.cpp in Sources */,
 				C07828F818B4D72E00BD2287 /* main.m in Sources */,
+				862E51621E42BC2B00FD0538 /* NavSystem.cpp in Sources */,
 				863F71571E40F78D00282006 /* Renderer.cpp in Sources */,
 				862E9D341E2CAFAD00AABF85 /* SceneManager.cpp in Sources */,
 				863F71221E3F986800282006 /* BaseData.cpp in Sources */,
@@ -1158,11 +1197,13 @@
 			files = (
 				862E514B1E418E6D00FD0538 /* AnimationManager.cpp in Sources */,
 				862E9D1F1E27302D00AABF85 /* GameInput.cpp in Sources */,
+				862E51531E41DDC900FD0538 /* UserInputProcessor.cpp in Sources */,
 				863F714E1E40AE8400282006 /* LocalBattleController.cpp in Sources */,
 				862E9D871E2E6C4900AABF85 /* NetRole.cpp in Sources */,
 				863F71141E3F4BC900282006 /* CityController.cpp in Sources */,
 				5023812517EBBCAC00990C9B /* RootViewController.mm in Sources */,
 				863F71461E403FCA00282006 /* UserFreeMover.cpp in Sources */,
+				862E51651E42BD1200FD0538 /* MapManager.cpp in Sources */,
 				862E9D231E27685A00AABF85 /* lua_game_bindings.cpp in Sources */,
 				863F714A1E4043FE00282006 /* BattleController.cpp in Sources */,
 				863F71521E40C86C00282006 /* Player.cpp in Sources */,
@@ -1170,6 +1211,7 @@
 				862E9D821E2E5AD100AABF85 /* Role.cpp in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
 				862E9D2F1E2CA49A00AABF85 /* GameScene.cpp in Sources */,
+				862E51571E4245D500FD0538 /* Moving.cpp in Sources */,
 				863F713E1E40349500282006 /* Agent.cpp in Sources */,
 				862E9D2A1E2C756200AABF85 /* UIManager.cpp in Sources */,
 				862E9D371E2D05BE00AABF85 /* lua_gui_manual.cpp in Sources */,
@@ -1179,6 +1221,7 @@
 				862E9D751E2DDDD300AABF85 /* World.cpp in Sources */,
 				862E9D5A1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */,
 				862E9D701E2DC6F700AABF85 /* Component.cpp in Sources */,
+				862E515B1E42BAAF00FD0538 /* AStar.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
 				863F713A1E40154300282006 /* Physics.cpp in Sources */,
 				863F71261E3F992800282006 /* BaseInputProcessor.cpp in Sources */,
@@ -1195,6 +1238,7 @@
 				862E9CEA1E24A1C500AABF85 /* GameApp.cpp in Sources */,
 				862E9D071E25220A00AABF85 /* UIScene.cpp in Sources */,
 				5023811817EBBCAC00990C9B /* AppController.mm in Sources */,
+				862E51611E42BC2B00FD0538 /* NavSystem.cpp in Sources */,
 				863F71561E40F78D00282006 /* Renderer.cpp in Sources */,
 				862E9D331E2CAFAD00AABF85 /* SceneManager.cpp in Sources */,
 				863F71211E3F986800282006 /* BaseData.cpp in Sources */,
