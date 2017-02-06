@@ -16,7 +16,7 @@ void Standing::onEnter()
     data->getRole()->getAvatar()->play("stand", true);
     data->getMotor()->setSpeed(Vector3::ZERO);
     data->getMotor()->setAccel(Vector3::ZERO);
-//    data->getInput()->onStanding();
+    data->getInput()->onStanding();
 }
 
 void Standing::onExit()
