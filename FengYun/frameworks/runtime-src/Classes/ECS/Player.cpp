@@ -13,6 +13,8 @@
 #include "FSM/Fsm.h"
 #include "FSM/BaseData.h"
 #include "FSM/Standing.h"
+#include "FSM/Moving.h"
+#include "FSM/UserInputProcessor.h"
 
 USING_NS_FSM;
 
@@ -53,7 +55,11 @@ void Player::init(fy::RoleJob job)
 
     Role::init("man", true);
 
+    auto input = new UserInputProcessor(_fsm, _fsmData);
+    _fsmData->setInput(input);
+
     _fsm->addState("Standing", new Standing());
+    _fsm->addState("Moving", new Moving());
 }
 
 void Player::onAwake()

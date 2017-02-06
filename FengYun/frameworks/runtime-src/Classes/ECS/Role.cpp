@@ -96,13 +96,29 @@ const ComponentHandle<Transform>& Role::getTransform()
     return getEntity()->getTransform();
 }
 
+const std::string& Role::getCurrentStateName() const
+{
+    static std::string empty = "";
+    auto st = _fsm->getCurrent();
+    if (!st) return empty;
+    return st->getName();
+}
+
 void Role::onUpdate(float dt)
 {
+    if (_fsm)
+    {
+        _fsm->update(dt);
+    }
 }
 
 void Role::onReceive(const Event<void> &ev)
 {
-
+    if (ev.getId() == event_id<SceneAgentEvent>())
+    {
+        if (_fsm)
+            _fsmData->getInput()->onHandleAgentMsg(ev.cast<SceneAgentEvent>().msg);
+    }
 }
 
 void Role::onStart()

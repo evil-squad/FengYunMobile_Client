@@ -63,6 +63,8 @@ public:
 
     const ComponentHandle<Avatar>& getAvatar() { return _avatar; }
     scenes::GameScene* getScene() { return getWorldUserData<scenes::GameScene>(); }
+
+    const std::string& getCurrentStateName() const;
 protected:
     Role(const ComponentType<Component>& type, RoleType roleType);
     virtual ~Role();

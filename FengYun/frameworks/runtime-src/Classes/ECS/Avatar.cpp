@@ -141,6 +141,7 @@ bool Avatar::load(const std::string &path, const std::string &name)
 
 void Avatar::play(const std::string &name, bool loop, const std::function<void()>& callback)
 {
+    _avatarRenderer->stopAllActions();
     auto role = getEntity()->getComponent<Role>();
     const std::string& roleAvatarName = role->getName();
     auto faceInfo = getFaceName(role->getFaceDir());
