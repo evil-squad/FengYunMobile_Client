@@ -41,6 +41,19 @@ public:
         return getBaseData()->getMotor();
     }
 
+    template<class T>
+    T* getMover()
+    {
+        return static_cast<T*>(_mover);
+    }
+
+    virtual bool isSkill() const { return false; }
+
+    void notifyInterrupted(BaseState* st)
+    {
+        onInterrupted(st);
+    }
+
 protected:
     BaseMover* _mover;
 

@@ -38,7 +38,7 @@ public:
 protected:
     BaseState* getCurrentState() { return static_cast<BaseState*>(_fsm->getCurrent()); }
 
-private:
+protected:
     Fsm* _fsm;
     BaseData* _fsmData;
 };

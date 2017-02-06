@@ -15,6 +15,15 @@
 
 BEGIN_NS_FSM
 
+enum class JoystickDir
+{
+    NONE = 0,
+    LEFT,
+    RIGHT,
+    UP,
+    DOWN
+};
+
 class BaseData : public SharedData
 {
 public:

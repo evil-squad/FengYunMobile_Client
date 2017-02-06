@@ -62,7 +62,8 @@ void Fsm::runState(const std::string& name, SharedData* shared)
 
 void Fsm::replaceState(const std::string& name)
 {
-
+    State* st = getState(name);
+    _next = st;
 }
 
 void Fsm::end()
@@ -72,12 +73,38 @@ void Fsm::end()
 
 void Fsm::update(float dt)
 {
+    _deltaTime = dt;
+    _time += dt;
+    if (_ending)
+    {
+        _ending = false;
+        endImmediately();
+        return;
+    }
 
+    if (!_current) return;
+
+    _current->update();
+
+    if (_next)
+    {
+        _current->exit();
+        _next->enter();
+        _current = _next;
+        _next = nullptr;
+    }
 }
 
 void Fsm::endImmediately()
 {
+    if (_current)
+    {
+        _current->exit();
+        _current = nullptr;
+    }
 
+    _next = nullptr;
+    _shared = nullptr;
 }
 
 END_NS_FSM
