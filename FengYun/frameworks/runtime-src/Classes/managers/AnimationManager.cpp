@@ -16,6 +16,11 @@ BEGIN_NS_FY
 struct AnimationManager::PrivateData
 {
     Map<std::string, Animation*> animations;
+
+    bool hasAnimation(const std::string& name)
+    {
+        return animations.find(name) != animations.end();
+    }
 };
 
 AnimationManager::AnimationManager()
@@ -49,6 +54,11 @@ void AnimationManager::removeAnimation(const std::string &name)
 cocos2d::Animation* AnimationManager::getAnimation(const std::string &name) const
 {
     return _data->animations.at(name);
+}
+
+bool AnimationManager::hasAnimation(const std::string &name)
+{
+    return _data->hasAnimation(name);
 }
 
 END_NS_FY

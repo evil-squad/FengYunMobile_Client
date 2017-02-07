@@ -14,33 +14,8 @@
 
 BEGIN_NS_ECS
 
-static const float ANGLE_OFFSET = 22.5;
+
 static const float PLAYER_RUN_SPEED = 100;
-
-namespace
-{
-    static FaceDir changeFaceDir(float angle)
-    {
-        if (angle <= -90 + ANGLE_OFFSET && angle > -90 - ANGLE_OFFSET)
-            return FaceDir::FRONT;
-        else if (angle <= -45 + ANGLE_OFFSET && angle > -45 - ANGLE_OFFSET)
-            return FaceDir::RIGHT_DOWN;
-        else if ( angle <= 0 + ANGLE_OFFSET && angle > 0 - ANGLE_OFFSET)
-            return FaceDir::RIGHT;
-        else if (angle <= 45 + ANGLE_OFFSET && angle > 45 - ANGLE_OFFSET)
-            return FaceDir::RIGHT_UP;
-        else if (angle <= 90 + ANGLE_OFFSET && angle > 90 - ANGLE_OFFSET)
-            return FaceDir::BACK;
-        else if (angle <= 135 + ANGLE_OFFSET && angle > 135 - ANGLE_OFFSET)
-            return FaceDir::LEFT_UP;
-        else if ((angle <= 180 && angle > 180 - ANGLE_OFFSET) || (angle <= -180 + ANGLE_OFFSET && angle > -180))
-            return FaceDir::LEFT;
-        else if (angle <= -135 + ANGLE_OFFSET && angle > -135 - ANGLE_OFFSET)
-            return FaceDir::LEFT_DOWN;
-
-        return FaceDir::NONE;
-    }
-}
 
 /////////////////TODO: class Role
 Role::Role(const ComponentType<Component>& type, RoleType roleType)

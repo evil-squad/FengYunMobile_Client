@@ -34,6 +34,8 @@ public:
 
     cocos2d::Animation* getAnimation(const std::string& name) const;
 
+    bool hasAnimation(const std::string& name);
+
 private:
     struct PrivateData;
 

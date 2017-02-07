@@ -40,6 +40,8 @@ public:
 
     void stop();
 
+    bool hasAnimation(const std::string& name);
+
     cocos2d::Node* getDisplayNode();
     cocos2d::Sprite* getAvatarRenderer();
 

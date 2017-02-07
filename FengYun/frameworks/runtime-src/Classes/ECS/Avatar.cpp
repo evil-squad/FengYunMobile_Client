@@ -185,6 +185,11 @@ void Avatar::stop()
 {
 }
 
+bool Avatar::hasAnimation(const std::string &name)
+{
+    return GameModule::get<AnimationManager>()->hasAnimation(name);
+}
+
 void Avatar::onUpdate(float dt)
 {
 }
