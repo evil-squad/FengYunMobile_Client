@@ -33,6 +33,4 @@ BaseData::~BaseData()
     }
 }
 
-
-
 END_NS_FSM
