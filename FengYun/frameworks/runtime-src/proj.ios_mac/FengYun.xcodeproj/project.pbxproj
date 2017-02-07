@@ -154,6 +154,12 @@
 		863F71571E40F78D00282006 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 863F71541E40F78D00282006 /* Renderer.cpp */; };
 		863F715A1E40F96500282006 /* RendererSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 863F71581E40F96500282006 /* RendererSystem.cpp */; };
 		863F715B1E40F96500282006 /* RendererSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 863F71581E40F96500282006 /* RendererSystem.cpp */; };
+		8655E5841E4847A30026CB52 /* Attack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5821E4847A30026CB52 /* Attack.cpp */; };
+		8655E5851E4847A30026CB52 /* Attack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5821E4847A30026CB52 /* Attack.cpp */; };
+		8655E58A1E484B4B0026CB52 /* StateFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5881E484B4B0026CB52 /* StateFactory.cpp */; };
+		8655E58B1E484B4B0026CB52 /* StateFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5881E484B4B0026CB52 /* StateFactory.cpp */; };
+		8655E58E1E484C950026CB52 /* Dead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E58C1E484C950026CB52 /* Dead.cpp */; };
+		8655E58F1E484C950026CB52 /* Dead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E58C1E484C950026CB52 /* Dead.cpp */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
 		9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */; };
 		9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF504831A5E87B100AFDA55 /* ConsoleWindowController.m */; };
@@ -450,6 +456,13 @@
 		863F71551E40F78D00282006 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		863F71581E40F96500282006 /* RendererSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RendererSystem.cpp; sourceTree = "<group>"; };
 		863F71591E40F96500282006 /* RendererSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendererSystem.h; sourceTree = "<group>"; };
+		8655E5821E4847A30026CB52 /* Attack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Attack.cpp; sourceTree = "<group>"; };
+		8655E5831E4847A30026CB52 /* Attack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attack.h; sourceTree = "<group>"; };
+		8655E5881E484B4B0026CB52 /* StateFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateFactory.cpp; sourceTree = "<group>"; };
+		8655E5891E484B4B0026CB52 /* StateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateFactory.h; sourceTree = "<group>"; };
+		8655E58C1E484C950026CB52 /* Dead.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dead.cpp; sourceTree = "<group>"; };
+		8655E58D1E484C950026CB52 /* Dead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dead.h; sourceTree = "<group>"; };
+		8655E5901E496A070026CB52 /* CommonTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommonTypes.h; path = ../Classes/CommonTypes.h; sourceTree = "<group>"; };
 		86A922211E31AFE0007D9545 /* SceneProjector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneProjector.h; sourceTree = "<group>"; };
 		9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		9FF504781A5E86D600AFDA55 /* libsimulator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsimulator.xcodeproj; path = "../../cocos2d-x/tools/simulator/libsimulator/proj.ios_mac/libsimulator.xcodeproj"; sourceTree = "<group>"; };
@@ -637,6 +650,8 @@
 		862E9CEE1E24C41600AABF85 /* FSM */ = {
 			isa = PBXGroup;
 			children = (
+				8655E5821E4847A30026CB52 /* Attack.cpp */,
+				8655E5831E4847A30026CB52 /* Attack.h */,
 				863F711F1E3F986800282006 /* BaseData.cpp */,
 				863F71201E3F986800282006 /* BaseData.h */,
 				863F71241E3F992800282006 /* BaseInputProcessor.cpp */,
@@ -644,6 +659,8 @@
 				863F71331E3FB04700282006 /* BaseMover.h */,
 				863F712F1E3FAFFD00282006 /* BaseState.cpp */,
 				863F71301E3FAFFD00282006 /* BaseState.h */,
+				8655E58C1E484C950026CB52 /* Dead.cpp */,
+				8655E58D1E484C950026CB52 /* Dead.h */,
 				863F712B1E3FA86E00282006 /* Fsm.cpp */,
 				863F712C1E3FA86E00282006 /* Fsm.h */,
 				863F711D1E3F93DE00282006 /* fsmbase.h */,
@@ -656,6 +673,8 @@
 				862E514D1E41952D00FD0538 /* Standing.cpp */,
 				862E514E1E41952D00FD0538 /* Standing.h */,
 				863F712A1E3FA85800282006 /* State.h */,
+				8655E5881E484B4B0026CB52 /* StateFactory.cpp */,
+				8655E5891E484B4B0026CB52 /* StateFactory.h */,
 				863F71441E403FCA00282006 /* UserFreeMover.cpp */,
 				863F71451E403FCA00282006 /* UserFreeMover.h */,
 				862E51511E41DDC900FD0538 /* UserInputProcessor.cpp */,
@@ -867,6 +886,7 @@
 			children = (
 				F293BB7E15EB831F00256477 /* AppDelegate.cpp */,
 				F293BB7F15EB831F00256477 /* AppDelegate.h */,
+				8655E5901E496A070026CB52 /* CommonTypes.h */,
 				862E9CFB1E24DBD500AABF85 /* DebugHelper.h */,
 				862E9CED1E24C41600AABF85 /* ECS */,
 				862E9CEE1E24C41600AABF85 /* FSM */,
@@ -1140,6 +1160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8655E58B1E484B4B0026CB52 /* StateFactory.cpp in Sources */,
 				862E514C1E418E6D00FD0538 /* AnimationManager.cpp in Sources */,
 				862E9D201E27302D00AABF85 /* GameInput.cpp in Sources */,
 				862E51541E41DDC900FD0538 /* UserInputProcessor.cpp in Sources */,
@@ -1154,6 +1175,7 @@
 				863F71531E40C86C00282006 /* Player.cpp in Sources */,
 				863F711B1E3F4C0100282006 /* BaseSceneController.cpp in Sources */,
 				862E9D831E2E5AD100AABF85 /* Role.cpp in Sources */,
+				8655E58F1E484C950026CB52 /* Dead.cpp in Sources */,
 				5023813317EBBCE400990C9B /* AppDelegate.cpp in Sources */,
 				862E9D301E2CA49A00AABF85 /* GameScene.cpp in Sources */,
 				862E51581E4245D500FD0538 /* Moving.cpp in Sources */,
@@ -1181,6 +1203,7 @@
 				862E9D181E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */,
 				862E9D7F1E2DFF8E00AABF85 /* Transform.cpp in Sources */,
 				862E9CEB1E24A1C500AABF85 /* GameApp.cpp in Sources */,
+				8655E5851E4847A30026CB52 /* Attack.cpp in Sources */,
 				862E9D081E25220A00AABF85 /* UIScene.cpp in Sources */,
 				C07828F818B4D72E00BD2287 /* main.m in Sources */,
 				862E51621E42BC2B00FD0538 /* NavSystem.cpp in Sources */,
@@ -1195,6 +1218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8655E58A1E484B4B0026CB52 /* StateFactory.cpp in Sources */,
 				862E514B1E418E6D00FD0538 /* AnimationManager.cpp in Sources */,
 				862E9D1F1E27302D00AABF85 /* GameInput.cpp in Sources */,
 				862E51531E41DDC900FD0538 /* UserInputProcessor.cpp in Sources */,
@@ -1209,6 +1233,7 @@
 				863F71521E40C86C00282006 /* Player.cpp in Sources */,
 				863F711A1E3F4C0100282006 /* BaseSceneController.cpp in Sources */,
 				862E9D821E2E5AD100AABF85 /* Role.cpp in Sources */,
+				8655E58E1E484C950026CB52 /* Dead.cpp in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
 				862E9D2F1E2CA49A00AABF85 /* GameScene.cpp in Sources */,
 				862E51571E4245D500FD0538 /* Moving.cpp in Sources */,
@@ -1236,6 +1261,7 @@
 				862E9D171E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */,
 				862E9D7E1E2DFF8E00AABF85 /* Transform.cpp in Sources */,
 				862E9CEA1E24A1C500AABF85 /* GameApp.cpp in Sources */,
+				8655E5841E4847A30026CB52 /* Attack.cpp in Sources */,
 				862E9D071E25220A00AABF85 /* UIScene.cpp in Sources */,
 				5023811817EBBCAC00990C9B /* AppController.mm in Sources */,
 				862E51611E42BC2B00FD0538 /* NavSystem.cpp in Sources */,
