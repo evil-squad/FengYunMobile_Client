@@ -8,6 +8,7 @@
 
 #include "AnimationManager.h"
 #include "cocos2d.h"
+#include "DebugHelper.h"
 
 USING_NS_CC;
 
@@ -53,6 +54,10 @@ void AnimationManager::removeAnimation(const std::string &name)
 
 cocos2d::Animation* AnimationManager::getAnimation(const std::string &name) const
 {
+    for (auto iter :_data->animations)
+    {
+        DBG_LOG("%s", iter.first.c_str());
+    }
     return _data->animations.at(name);
 }
 
