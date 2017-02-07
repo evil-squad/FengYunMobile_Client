@@ -12,6 +12,7 @@
 
 #include "Standing.h"
 #include "Moving.h"
+#include "Attack.h"
 
 #include "GameApp.h"
 
@@ -240,7 +241,20 @@ bool UserInputProcessor::processAttack(fy::fsm::BaseState *st, fy::GameInput *in
     {
         _attackPressedTime = time;
     }
-    if (_attackPressedTime < 0) return false;
+//    if (_attackPressedTime < 0) return false;
+
+    bool isShort = false;
+
+    if (input->getButtonUp(attackBtnId))
+    {
+        isShort = true;
+    }
+
+    if (isShort)
+    {
+        doCastSkill(st, 1);
+        return true;
+    }
 
     return false;
 }
@@ -256,6 +270,8 @@ bool UserInputProcessor::processSkills(fy::fsm::BaseState *st, fy::GameInput *in
 
 bool UserInputProcessor::doCastSkill(fy::fsm::BaseState *st, int skillId)
 {
+    auto attackSt = get_state<Attack>(_fsm, "Attack");
+    st->notifyInterrupted(attackSt);
     return false;
 }
 

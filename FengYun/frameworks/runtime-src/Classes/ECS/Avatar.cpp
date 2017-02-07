@@ -123,6 +123,7 @@ bool Avatar::load(const std::string &path, const std::string &name)
 
     loadResources(path, name, "stand");
     loadResources(path, name, "run");
+    loadResources(path, name, "attack");
 
     for (int i = (int)FaceDir::FRONT; i <= (int)FaceDir::LEFT_DOWN; ++i)
     {
@@ -134,6 +135,10 @@ bool Avatar::load(const std::string &path, const std::string &name)
         char szName1[128] = {0};
         sprintf(szName1, "%s_run_%s", name.c_str(), info.first.c_str());
         createAnimation(szName1);
+
+        char szName2[128] = {0};
+        sprintf(szName2, "%s_attack_%s", name.c_str(), info.first.c_str());
+        createAnimation(szName2);
     }
 
     return true;
@@ -141,7 +146,6 @@ bool Avatar::load(const std::string &path, const std::string &name)
 
 void Avatar::play(const std::string &name, bool loop, const std::function<void()>& callback)
 {
-    _avatarRenderer->stopAllActions();
     auto role = getEntity()->getComponent<Role>();
     const std::string& roleAvatarName = role->getName();
     auto faceInfo = getFaceName(role->getFaceDir());
@@ -149,6 +153,7 @@ void Avatar::play(const std::string &name, bool loop, const std::function<void()
     auto ani = GameModule::get<AnimationManager>()->getAnimation(str);
     if (ani)
     {
+        _avatarRenderer->stopAllActions();
         auto animate = cocos2d::Animate::create(ani);
         if (loop)
         {
