@@ -160,6 +160,14 @@
 		8655E58B1E484B4B0026CB52 /* StateFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5881E484B4B0026CB52 /* StateFactory.cpp */; };
 		8655E58E1E484C950026CB52 /* Dead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E58C1E484C950026CB52 /* Dead.cpp */; };
 		8655E58F1E484C950026CB52 /* Dead.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E58C1E484C950026CB52 /* Dead.cpp */; };
+		8655E5931E49BC890026CB52 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5911E49BC890026CB52 /* WorldManager.cpp */; };
+		8655E5941E49BC890026CB52 /* WorldManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5911E49BC890026CB52 /* WorldManager.cpp */; };
+		8655E5971E49C53E0026CB52 /* GateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5951E49C53E0026CB52 /* GateManager.cpp */; };
+		8655E5981E49C53E0026CB52 /* GateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5951E49C53E0026CB52 /* GateManager.cpp */; };
+		8655E59B1E49DA830026CB52 /* NavAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5991E49DA830026CB52 /* NavAgent.cpp */; };
+		8655E59C1E49DA830026CB52 /* NavAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5991E49DA830026CB52 /* NavAgent.cpp */; };
+		8655E59F1E49E8B50026CB52 /* PlayerNavigating.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E59D1E49E8B50026CB52 /* PlayerNavigating.cpp */; };
+		8655E5A01E49E8B50026CB52 /* PlayerNavigating.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E59D1E49E8B50026CB52 /* PlayerNavigating.cpp */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
 		9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */; };
 		9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF504831A5E87B100AFDA55 /* ConsoleWindowController.m */; };
@@ -463,6 +471,14 @@
 		8655E58C1E484C950026CB52 /* Dead.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dead.cpp; sourceTree = "<group>"; };
 		8655E58D1E484C950026CB52 /* Dead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dead.h; sourceTree = "<group>"; };
 		8655E5901E496A070026CB52 /* CommonTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommonTypes.h; path = ../Classes/CommonTypes.h; sourceTree = "<group>"; };
+		8655E5911E49BC890026CB52 /* WorldManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorldManager.cpp; sourceTree = "<group>"; };
+		8655E5921E49BC890026CB52 /* WorldManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldManager.h; sourceTree = "<group>"; };
+		8655E5951E49C53E0026CB52 /* GateManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GateManager.cpp; sourceTree = "<group>"; };
+		8655E5961E49C53E0026CB52 /* GateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GateManager.h; sourceTree = "<group>"; };
+		8655E5991E49DA830026CB52 /* NavAgent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NavAgent.cpp; sourceTree = "<group>"; };
+		8655E59A1E49DA830026CB52 /* NavAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavAgent.h; sourceTree = "<group>"; };
+		8655E59D1E49E8B50026CB52 /* PlayerNavigating.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerNavigating.cpp; sourceTree = "<group>"; };
+		8655E59E1E49E8B50026CB52 /* PlayerNavigating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerNavigating.h; sourceTree = "<group>"; };
 		86A922211E31AFE0007D9545 /* SceneProjector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneProjector.h; sourceTree = "<group>"; };
 		9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		9FF504781A5E86D600AFDA55 /* libsimulator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsimulator.xcodeproj; path = "../../cocos2d-x/tools/simulator/libsimulator/proj.ios_mac/libsimulator.xcodeproj"; sourceTree = "<group>"; };
@@ -627,6 +643,8 @@
 				862E9D781E2DFF5A00AABF85 /* Entity.cpp */,
 				862E9D791E2DFF5A00AABF85 /* Entity.h */,
 				862E9D721E2DC74000AABF85 /* Event.h */,
+				8655E5991E49DA830026CB52 /* NavAgent.cpp */,
+				8655E59A1E49DA830026CB52 /* NavAgent.h */,
 				862E9D851E2E6C4900AABF85 /* NetRole.cpp */,
 				862E9D861E2E6C4900AABF85 /* NetRole.h */,
 				863F71501E40C86C00282006 /* Player.cpp */,
@@ -669,6 +687,8 @@
 				863F71351E40123E00282006 /* Motor.h */,
 				862E51551E4245D500FD0538 /* Moving.cpp */,
 				862E51561E4245D500FD0538 /* Moving.h */,
+				8655E59D1E49E8B50026CB52 /* PlayerNavigating.cpp */,
+				8655E59E1E49E8B50026CB52 /* PlayerNavigating.h */,
 				863F711E1E3F97F400282006 /* SharedData.h */,
 				862E514D1E41952D00FD0538 /* Standing.cpp */,
 				862E514E1E41952D00FD0538 /* Standing.h */,
@@ -721,12 +741,16 @@
 			children = (
 				862E51491E418E6D00FD0538 /* AnimationManager.cpp */,
 				862E514A1E418E6D00FD0538 /* AnimationManager.h */,
+				8655E5951E49C53E0026CB52 /* GateManager.cpp */,
+				8655E5961E49C53E0026CB52 /* GateManager.h */,
 				862E51631E42BD1200FD0538 /* MapManager.cpp */,
 				862E51641E42BD1200FD0538 /* MapManager.h */,
 				862E9D311E2CAFAD00AABF85 /* SceneManager.cpp */,
 				862E9D321E2CAFAD00AABF85 /* SceneManager.h */,
 				862E9D281E2C756200AABF85 /* UIManager.cpp */,
 				862E9D291E2C756200AABF85 /* UIManager.h */,
+				8655E5911E49BC890026CB52 /* WorldManager.cpp */,
+				8655E5921E49BC890026CB52 /* WorldManager.h */,
 			);
 			name = managers;
 			path = ../Classes/managers;
@@ -1176,6 +1200,7 @@
 				863F711B1E3F4C0100282006 /* BaseSceneController.cpp in Sources */,
 				862E9D831E2E5AD100AABF85 /* Role.cpp in Sources */,
 				8655E58F1E484C950026CB52 /* Dead.cpp in Sources */,
+				8655E5941E49BC890026CB52 /* WorldManager.cpp in Sources */,
 				5023813317EBBCE400990C9B /* AppDelegate.cpp in Sources */,
 				862E9D301E2CA49A00AABF85 /* GameScene.cpp in Sources */,
 				862E51581E4245D500FD0538 /* Moving.cpp in Sources */,
@@ -1189,6 +1214,7 @@
 				862E9D5B1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */,
 				862E9D711E2DC6F700AABF85 /* Component.cpp in Sources */,
 				862E515C1E42BAAF00FD0538 /* AStar.cpp in Sources */,
+				8655E5981E49C53E0026CB52 /* GateManager.cpp in Sources */,
 				9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */,
 				863F713B1E40154300282006 /* Physics.cpp in Sources */,
 				863F71271E3F992800282006 /* BaseInputProcessor.cpp in Sources */,
@@ -1197,6 +1223,8 @@
 				862E9D031E24E94F00AABF85 /* Window.cpp in Sources */,
 				862E9CFF1E24E2E200AABF85 /* Panel.cpp in Sources */,
 				862E9D7B1E2DFF5A00AABF85 /* Entity.cpp in Sources */,
+				8655E59C1E49DA830026CB52 /* NavAgent.cpp in Sources */,
+				8655E5A01E49E8B50026CB52 /* PlayerNavigating.cpp in Sources */,
 				862E9CFA1E24C53A00AABF85 /* Layer.cpp in Sources */,
 				863F71431E403B3400282006 /* Avatar.cpp in Sources */,
 				863F71321E3FAFFD00282006 /* BaseState.cpp in Sources */,
@@ -1234,6 +1262,7 @@
 				863F711A1E3F4C0100282006 /* BaseSceneController.cpp in Sources */,
 				862E9D821E2E5AD100AABF85 /* Role.cpp in Sources */,
 				8655E58E1E484C950026CB52 /* Dead.cpp in Sources */,
+				8655E5931E49BC890026CB52 /* WorldManager.cpp in Sources */,
 				F293BB9C15EB831F00256477 /* AppDelegate.cpp in Sources */,
 				862E9D2F1E2CA49A00AABF85 /* GameScene.cpp in Sources */,
 				862E51571E4245D500FD0538 /* Moving.cpp in Sources */,
@@ -1247,6 +1276,7 @@
 				862E9D5A1E2D07F900AABF85 /* lua_managers_manual.cpp in Sources */,
 				862E9D701E2DC6F700AABF85 /* Component.cpp in Sources */,
 				862E515B1E42BAAF00FD0538 /* AStar.cpp in Sources */,
+				8655E5971E49C53E0026CB52 /* GateManager.cpp in Sources */,
 				5023812417EBBCAC00990C9B /* main.m in Sources */,
 				863F713A1E40154300282006 /* Physics.cpp in Sources */,
 				863F71261E3F992800282006 /* BaseInputProcessor.cpp in Sources */,
@@ -1255,6 +1285,8 @@
 				862E9D021E24E94F00AABF85 /* Window.cpp in Sources */,
 				862E9CFE1E24E2E200AABF85 /* Panel.cpp in Sources */,
 				862E9D7A1E2DFF5A00AABF85 /* Entity.cpp in Sources */,
+				8655E59B1E49DA830026CB52 /* NavAgent.cpp in Sources */,
+				8655E59F1E49E8B50026CB52 /* PlayerNavigating.cpp in Sources */,
 				862E9CF91E24C53A00AABF85 /* Layer.cpp in Sources */,
 				863F71421E403B3400282006 /* Avatar.cpp in Sources */,
 				863F71311E3FAFFD00282006 /* BaseState.cpp in Sources */,
