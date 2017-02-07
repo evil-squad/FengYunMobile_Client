@@ -76,7 +76,7 @@ local function registKeyboard(self, handleInputEvent)
 		elseif key == "KEY_D" then
 			inputVector.x = 0
 		end
-		handleInputEvent(inputVector)
+		handleInputEvent(inputVector, game.JOYSTICK_DIR_NONE)
 	end
 
 	local listener = cc.EventListenerKeyboard:create()
@@ -179,20 +179,9 @@ local function createJoystickPanel(size, respRect, defaultPos, joystickScale)
 	panel:addChild(dish)
 
 	local joystickId = game.getInputAxisId("Joystick")
-	-- local verticalId = game.getInputAxisId("Vertical")
 
-	local curVec = {}
 	local function addAxisInputEvent(vec, dir)
-
-		game.addGameInputEvent(game.INPUT_EVENT_TYPE_AXIS_EVENT, joystickId, vec.x, vec.y, dir);
-		-- if vec.x ~= curVec.x then
-		-- 	curVec.x = vec.x
-		-- 	game.addGameInputEvent(game.INPUT_EVENT_TYPE_AXIS_EVENT, horizontalId, vec.x, dir)
-		-- end
-		-- if vec.y ~= curVec.y then
-		-- 	curVec.y = vec.y
-		-- 	game.addGameInputEvent(game.INPUT_EVENT_TYPE_AXIS_EVENT, verticalId, vec.y, dir)
-		-- end
+		game.addGameInputEvent(game.INPUT_EVENT_TYPE_AXIS_EVENT, joystickId, vec.x, vec.y, dir)
 	end
 
 	local function onTouchBegan(touch, event)
