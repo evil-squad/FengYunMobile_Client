@@ -14,6 +14,7 @@
 #include "UserFreeMover.h"
 #include <deque>
 #include "BaseData.h"
+#include "CommonTypes.h"
 
 namespace fy
 {
@@ -47,6 +48,7 @@ private:
     bool _skillEnabled;
 
     Vector2 _inputAxis;
+    JoystickDir _joystickDir;
 
     Vector2 _attackAxis;
     float _attackPressedTime;

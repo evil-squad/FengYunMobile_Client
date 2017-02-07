@@ -10,6 +10,7 @@
 #define FSM_MOVING_H
 
 #include "BaseState.h"
+#include "CommonTypes.h"
 
 BEGIN_NS_FSM
 
@@ -25,6 +26,9 @@ public:
     const Vector2& getAxis() const { return _axis; }
     void setAxis(const Vector2& axis) { _axis = axis; }
 
+    JoystickDir getDir() const { return _dir; }
+    void setDir(JoystickDir dir);
+
 protected:
     void onEnter() override;
     void onExit() override;
@@ -33,6 +37,7 @@ protected:
 private:
     bool _isRunning;
     Vector2 _axis;
+    JoystickDir _dir;
 };
 
 

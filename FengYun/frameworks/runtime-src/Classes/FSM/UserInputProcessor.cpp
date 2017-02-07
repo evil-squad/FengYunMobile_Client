@@ -25,9 +25,12 @@ static const int JumpPrority = 10;
 
 static inline Vector2 getInputVelocity(GameInput* input)
 {
-    float x = input->getAxis(input->getAxisId("Horizontal"));
-    float y = input->getAxis(input->getAxisId("Vertical"));
-    return Vector2(x, y);
+     return input->getAxis(input->getAxisId("Joystick")).axis;
+}
+
+static inline JoystickDir getJoystickDir(GameInput* input)
+{
+    return input->getAxis(input->getAxisId("Joystick")).dir;
 }
 
 static inline float calcVertSpeed(float height)
@@ -63,6 +66,7 @@ UserInputProcessor::UserInputProcessor(Fsm* fsm, BaseData* fsmData)
     , _attackEnabled(true)
     , _skillEnabled(true)
     , _inputAxis(Vector2::ZERO)
+    , _joystickDir(JoystickDir::NONE)
     , _attackAxis(Vector2::ZERO)
     , _attackPressedTime(-1)
     , _mover(nullptr)
@@ -137,9 +141,13 @@ void UserInputProcessor::update(fy::fsm::BaseState *st)
     if (_joystickEnabled)
     {
         _inputAxis = getInputVelocity(input);
+        _joystickDir = getJoystickDir(input);
     }
     else
-        _inputAxis = Vector2::ZERO;
+    {
+         _inputAxis = Vector2::ZERO;
+        _joystickDir = JoystickDir::NONE;
+    }
 
     float time = _fsm->getTime();
 
@@ -161,7 +169,9 @@ void UserInputProcessor::update(fy::fsm::BaseState *st)
 
     if (st->getName() == "Moving")
     {
-        static_cast<Moving*>(st)->setAxis(_inputAxis);
+        auto move = static_cast<Moving*>(st);
+        move->setAxis(_inputAxis);
+        move->setDir(_joystickDir);
         _mover->setAxis(_inputAxis);
     }
 
@@ -243,12 +253,12 @@ bool UserInputProcessor::doCastSkill(fy::fsm::BaseState *st, int skillId)
     return false;
 }
 
-void UserInputProcessor::doGroundAttack(fy::fsm::BaseState *st, fy::fsm::JoystickDir dir, bool isShort)
+void UserInputProcessor::doGroundAttack(fy::fsm::BaseState *st, JoystickDir dir, bool isShort)
 {
 
 }
 
-void UserInputProcessor::doAirAttack(fy::fsm::BaseState *st, fy::fsm::JoystickDir dir, bool isShort)
+void UserInputProcessor::doAirAttack(fy::fsm::BaseState *st, JoystickDir dir, bool isShort)
 {
 
 }

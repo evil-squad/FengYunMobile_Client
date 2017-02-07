@@ -13,6 +13,7 @@ BEGIN_NS_FSM
 Moving::Moving()
     : _isRunning(false)
     , _axis(Vector2::ZERO)
+    , _dir(JoystickDir::NONE)
 {
 }
 
@@ -20,10 +21,24 @@ Moving::~Moving()
 {
 }
 
+void Moving::setDir(fy::JoystickDir dir)
+{
+    if (dir == JoystickDir::NONE) return;
+    if (_dir == dir) return;
+
+    _dir = dir;
+    auto role = getBaseData()->getRole();
+    role->setFaceDir(fy::FaceDir(dir));
+    auto avatar = role->getAvatar();
+    avatar->play("run", true);
+}
+
 void Moving::onEnter()
 {
     auto data = getBaseData();
-    auto avatar = getBaseData()->getRole()->getAvatar();
+    auto role = data->getRole();
+    _dir = (JoystickDir)role->getFaceDir();
+    auto avatar = role->getAvatar();
     avatar->play("run", true);
     _mover = data->getInput()->getFreeMover();
     _mover->enter(this);
@@ -42,13 +57,6 @@ void Moving::startRun()
 void Moving::onDidUpdate()
 {
     if (getFsm()->getNext() != nullptr) return;
-
-    auto data = getBaseData();
-
-    if (_axis.x < 0)
-        data->getRole()->setFaceDir(fy::FaceDir::LEFT);
-    else if (_axis.x > 0)
-        data->getRole()->setFaceDir(fy::FaceDir::RIGHT);
 
     if (_axis.isZero())
         getFsm()->replaceState("Standing");
