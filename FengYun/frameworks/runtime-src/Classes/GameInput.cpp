@@ -81,7 +81,7 @@ void setButton(std::unordered_map<int, T>& buttons, int btnId, bool pressed)
         if (pressed)
             buttons[btnId] = T{ true, true, false };
         else
-            buttons[btnId] = T{ true, false, false };
+            buttons[btnId] = T{ false, false, false };
     }
 }
 

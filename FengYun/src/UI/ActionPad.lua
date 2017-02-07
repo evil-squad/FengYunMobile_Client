@@ -19,7 +19,7 @@ local function clamp(v, min, max)
 end
 
 local function addButtonInputEvent(input)
-	game.addGameInputEvent(game.INPUT_EVENT_TYPE_BUTTON_EVENT, input[1], input[3])
+	game.addGameInputEvent(game.INPUT_EVENT_TYPE_BUTTON_EVENT, input[1], input[2])
 end
 
 local function registerKeyBoard(self, buttons)
@@ -326,8 +326,6 @@ function openActionPad()
 		buttons[v] = { game.getInputButtonId(v), false }
 		addButtonInputEvent(buttons[v])
 	end
-
-	-- debugDraw(panel)
 
 	game.getUILayer():addChild(panel)
 end
