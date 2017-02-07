@@ -13,6 +13,8 @@ local ARROW_RADIUS = 55
 local MAX_RADIUS = 50
 local EXPAND_ARROW_RADIUS = MAX_RADIUS + 10
 
+local ANGLE_OFFSET = 22.5
+
 local ARROW_POSITIONS = 
 {
 	cc.p(ARROW_RADIUS, 0), --right
@@ -21,20 +23,46 @@ local ARROW_POSITIONS =
 	cc.p(0, ARROW_RADIUS) --up
 }
 
+local function translateJoystickDir(angle)
+	if (angle <= -90 + ANGLE_OFFSET and angle > -90 - ANGLE_OFFSET) then
+      return game.JOYSTICK_DIR_FRONT
+   elseif (angle <= -45 + ANGLE_OFFSET and angle > -45 - ANGLE_OFFSET) then
+      return game.JOYSTICK_DIR_RIGHT_DOWN
+   elseif ( angle <= 0 + ANGLE_OFFSET and angle > 0 - ANGLE_OFFSET) then
+      return game.JOYSTICK_DIR_RIGHT
+   elseif (angle <= 45 + ANGLE_OFFSET and angle > 45 - ANGLE_OFFSET) then
+      return game.JOYSTICK_DIR_RIGHT_UP
+   elseif (angle <= 90 + ANGLE_OFFSET and angle > 90 - ANGLE_OFFSET) then
+      return game.JOYSTICK_DIR_BACK
+   elseif (angle <= 135 + ANGLE_OFFSET and angle > 135 - ANGLE_OFFSET) then
+      return game.JOYSTICK_DIR_LEFT_UP
+   elseif ((angle <= 180 and angle > 180 - ANGLE_OFFSET) or (angle <= -180 + ANGLE_OFFSET and angle > -180)) then
+      return game.JOYSTICK_DIR_LEFT
+   elseif (angle <= -135 + ANGLE_OFFSET and angle > -135 - ANGLE_OFFSET) then
+      return game.JOYSTICK_DIR_LEFT_DOWN
+   end
+	return game.JOYSTICK_DIR_NONE
+end
+
 local function registKeyboard(self, handleInputEvent)
 	local inputVector = cc.p(0, 0)
+	local dir = game.JOYSTICK_DIR_NONE
 	local function onKeyPressed(keyCode, event)
 		local key = cc.KeyCodeKey[keyCode + 1]
 		if key == "KEY_W" then
 			inputVector.y = 1
+			dir = game.JOYSTICK_DIR_BACK
 		elseif key == "KEY_A" then
 			inputVector.x = -1
+			dir = game.JOYSTICK_DIR_LEFT
 		elseif key == "KEY_S" then
 			inputVector.y = -1
+			dir = game.JOYSTICK_DIR_FRONT
 		elseif key == "KEY_D" then
 			inputVector.x = 1
+			dir = game.JOYSTICK_DIR_RIGHT
 		end
-		handleInputEvent(inputVector)
+		handleInputEvent(inputVector, dir)
 	end
 
 	local function onKeyReleased(keyCode, event)
@@ -150,19 +178,21 @@ local function createJoystickPanel(size, respRect, defaultPos, joystickScale)
 	local dish = createJoystickDish(defaultPos, joystickScale)
 	panel:addChild(dish)
 
-	local horizontalId = game.getInputAxisId("Horizontal")
-	local verticalId = game.getInputAxisId("Vertical")
+	local joystickId = game.getInputAxisId("Joystick")
+	-- local verticalId = game.getInputAxisId("Vertical")
 
 	local curVec = {}
-	local function addAxisInputEvent(vec)
-		if vec.x ~= curVec.x then
-			curVec.x = vec.x
-			game.addGameInputEvent(game.INPUT_EVENT_TYPE_AXIS_EVENT, horizontalId, vec.x)
-		end
-		if vec.y ~= curVec.y then
-			curVec.y = vec.y
-			game.addGameInputEvent(game.INPUT_EVENT_TYPE_AXIS_EVENT, verticalId, vec.y)
-		end
+	local function addAxisInputEvent(vec, dir)
+
+		game.addGameInputEvent(game.INPUT_EVENT_TYPE_AXIS_EVENT, joystickId, vec.x, vec.y, dir);
+		-- if vec.x ~= curVec.x then
+		-- 	curVec.x = vec.x
+		-- 	game.addGameInputEvent(game.INPUT_EVENT_TYPE_AXIS_EVENT, horizontalId, vec.x, dir)
+		-- end
+		-- if vec.y ~= curVec.y then
+		-- 	curVec.y = vec.y
+		-- 	game.addGameInputEvent(game.INPUT_EVENT_TYPE_AXIS_EVENT, verticalId, vec.y, dir)
+		-- end
 	end
 
 	local function onTouchBegan(touch, event)
@@ -170,10 +200,13 @@ local function createJoystickPanel(size, respRect, defaultPos, joystickScale)
 		if not dish:isVisible() then return false end
 		local loc = target:convertToNodeSpace(touch:getLocation())
 
+		local dis = cc.p(loc.x - defaultPos.x, loc.y - defaultPos.y)
+		local angle = math.atan2(dis.y, dis.x) * 180 / math.pi
+
 		if cc.rectContainsPoint(respRect, loc) then
 			dish:start(loc)
 			local input = dish:getInput()
-			addAxisInputEvent(input)
+			addAxisInputEvent(input, translateJoystickDir(angle))
 			return true
 		end
 		return false
@@ -182,14 +215,24 @@ local function createJoystickPanel(size, respRect, defaultPos, joystickScale)
 	local function onTouchMoved(touch, event)
 		local target = event:getCurrentTarget()
 		local loc = target:convertToNodeSpace(touch:getLocation())
+
+		local dis = cc.p(loc.x - defaultPos.x, loc.y - defaultPos.y)
+		local angle = math.atan2(dis.y, dis.x) * 180 / math.pi
+
 		dish:setFinger(loc)
 		local input =dish:getInput()
-		addAxisInputEvent(input)
+		addAxisInputEvent(input, translateJoystickDir(angle))
 	end
 
 	local function onTouchEnded(touch, event)
+		local target = event:getCurrentTarget()
+		local loc = target:convertToNodeSpace(touch:getLocation())
+
+		local dis = cc.p(loc.x - defaultPos.x, loc.y - defaultPos.y)
+		local angle = math.atan2(dis.y, dis.x) * 180 / math.pi
+
 		dish:stop()
-		addAxisInputEvent(cc.p(0, 0))
+		addAxisInputEvent(cc.p(0, 0), translateJoystickDir(angle))
 	end
 
 	local listener = cc.EventListenerTouchOneByOne:create()
@@ -204,7 +247,7 @@ local function createJoystickPanel(size, respRect, defaultPos, joystickScale)
 		registKeyboard(panel, addAxisInputEvent)
 	end
 
-	addAxisInputEvent(cc.p(0, 0))
+	addAxisInputEvent(cc.p(0, 0), game.JOYSTICK_DIR_NONE)
 
 	return panel
 end
