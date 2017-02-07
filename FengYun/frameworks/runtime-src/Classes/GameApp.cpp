@@ -20,6 +20,8 @@
 #include "SceneManager.h"
 #include "AnimationManager.h"
 #include "MapManager.h"
+#include "GateManager.h"
+#include "WorldManager.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -42,6 +44,8 @@ static void createAndRegisterMudules(std::vector<GameModule*>& modules)
     modules.push_back(createAndRegisterModule<SceneManager>());
     modules.push_back(createAndRegisterModule<AnimationManager>());
     modules.push_back(createAndRegisterModule<MapManager>());
+    modules.push_back(createAndRegisterModule<GateManager>());
+    modules.push_back(createAndRegisterModule<WorldManager>());
 }
 
 GameApp* GameApp::s_instance = nullptr;
