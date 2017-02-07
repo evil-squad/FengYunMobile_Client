@@ -23,12 +23,16 @@ DEF_LUA_FUNC(addGameInputEvent)
         if (type == fy::InputEventType::AXIS_EVENT)
         {
             int id;
-            double v;
+            double x;
+            double y;
+            int a;
             ok &= luaval_to_int32(L, 2, &id);
-            ok &= luaval_to_number(L, 3, &v);
+            ok &= luaval_to_number(L, 3, &x);
+            ok &= luaval_to_number(L, 4, &y);
+            ok &= luaval_to_int32(L, 5, &a);
             if (ok)
             {
-                fy::GameInput::getInstance()->addInputEvent(id, (float)v);
+                fy::GameInput::getInstance()->addInputEvent(id, cocos2d::Vec2(x, y), (fy::JoystickDir)a);
                 return 0;
             }
         }

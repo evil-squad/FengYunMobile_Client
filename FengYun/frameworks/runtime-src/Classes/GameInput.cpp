@@ -51,13 +51,13 @@ int GameInput::getButtonId(const std::string &name)
     return s_idCounter;
 }
 
-void setAxis(std::unordered_map<int, float>& axis, int axisId, float val)
+void setAxis(std::unordered_map<int, AxisData>& axis, int axisId, const AxisData& data)
 {
     auto iter = axis.find(axisId);
     if (iter != axis.end())
-        iter->second = val;
+        iter->second = data;
     else
-        axis[axisId] = val;
+        axis[axisId] = data;
 }
 
 template <typename T>
@@ -85,12 +85,14 @@ void setButton(std::unordered_map<int, T>& buttons, int btnId, bool pressed)
     }
 }
 
-void GameInput::addInputEvent(int id, float value)
+void GameInput::addInputEvent(int id, const Vector2& axis, JoystickDir dir)
 {
     InputEvent event;
     event.type = InputEventType::AXIS_EVENT;
     event.axisEvent.id = id;
-    event.axisEvent.value = value;
+    event.axisEvent.x = axis.x;
+    event.axisEvent.y = axis.y;
+    event.axisEvent.joystickDir = dir;
     _eventQue.push(event);
 }
 
@@ -118,7 +120,8 @@ void GameInput::update(float dt)
         auto &ev = _eventQue.front();
         if (ev.type == InputEventType::AXIS_EVENT)
         {
-            setAxis(_axis, ev.axisEvent.id, ev.axisEvent.value);
+            AxisData d = { Vector2(ev.axisEvent.x, ev.axisEvent.y), ev.axisEvent.joystickDir };
+            setAxis(_axis, ev.axisEvent.id, d);
         }
         else if (ev.type == InputEventType::BUTTON_EVENT)
         {

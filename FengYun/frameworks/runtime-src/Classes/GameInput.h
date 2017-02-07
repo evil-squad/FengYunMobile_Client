@@ -16,6 +16,8 @@
 #include <queue>
 
 #include "gamebase.h"
+#include "CommonTypes.h"
+#include "MathTypes.h"
 
 BEGIN_NS_FY
 
@@ -25,25 +27,31 @@ enum class InputEventType
     BUTTON_EVENT
 };
 
+struct AxisData
+{
+    Vector2 axis;
+    JoystickDir dir;
+};
+
 class GameInput
 {
 public:
     static GameInput* getInstance();
 
-    void addInputEvent(int id, float value);
+    void addInputEvent(int id, const Vector2& value, JoystickDir dir);
     void addInputEvent(int id, bool value);
 
     int getAxisId(const std::string& name);
     int getButtonId(const std::string& name);
 
-    float getAxis(int axisId)
+    AxisData* getAxis(int axisId)
     {
-        if (axisId == 0) return 0;
+        if (axisId == 0) return nullptr;
         auto iter = _axis.find(axisId);
         if (iter != _axis.end())
-            return iter->second;
+            return &iter->second;
         else
-            return 0;
+            return nullptr;
     }
 
     bool getButtonDown(int btnId)
@@ -86,7 +94,9 @@ private:
         {
             InputEventType type;
             int id;
-            float value;
+            float x;
+            float y;
+            JoystickDir joystickDir;
         }axisEvent;
 
         struct
@@ -99,7 +109,7 @@ private:
 
     std::queue<InputEvent> _eventQue;
     std::unordered_map<std::string, int> _ids;
-    std::unordered_map<int, float> _axis;
+    std::unordered_map<int, AxisData> _axis;
     std::unordered_map<int, ButtonData_t>_buttons;
 };
 

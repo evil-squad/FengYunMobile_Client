@@ -25,12 +25,18 @@ static const int JumpPrority = 10;
 
 static inline Vector2 getInputVelocity(GameInput* input)
 {
-     return input->getAxis(input->getAxisId("Joystick")).axis;
+    auto data = input->getAxis(input->getAxisId("Joystick"));
+    if (data)
+        return data->axis;
+    return Vector2::ZERO;
 }
 
 static inline JoystickDir getJoystickDir(GameInput* input)
 {
-    return input->getAxis(input->getAxisId("Joystick")).dir;
+    auto data = input->getAxis(input->getAxisId("Joystick"));
+    if (data)
+        return data->dir;
+    return JoystickDir::NONE;
 }
 
 static inline float calcVertSpeed(float height)
