@@ -21,8 +21,8 @@ USING_NS_ECS;
 BEGIN_NS_FSM
 
 static const float FirstHeight = 224;
-static const float HoriJumpSpeed = 320;
-static const int JumpPrority = 10;
+//static const float HoriJumpSpeed = 320;
+//static const int JumpPrority = 10;
 
 static inline Vector2 getInputVelocity(GameInput* input)
 {
