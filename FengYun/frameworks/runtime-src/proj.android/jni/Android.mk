@@ -21,6 +21,7 @@ LOCAL_SRC_FILES := hellolua/main.cpp $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
 					$(LOCAL_PATH)/../../Classes/managers \
+					$(LOCAL_PATH)/../../Classes/Scenes \
 					$(LOCAL_PATH)/../../Classes/misc \
 					$(LOCAL_PATH)/../../Classes/lua
 
