@@ -8,6 +8,9 @@
 
 #include "MapManager.h"
 #include <memory>
+#include <algorithm>
+#include <unordered_map>
+#include <set>
 
 #include "GameConfigLoader.h"
 #include "SceneProjector.h"
@@ -15,6 +18,8 @@
 
 #include "GameApp.h"
 #include "DebugHelper.h"
+
+#include "json/document.h"
 
 #define MAP_TILE_SIZE 32
 
@@ -30,6 +35,11 @@ public:
     MapData()
         : _mapLayer(nullptr)
         , _frontLayer(nullptr)
+        , _mapTileWidth(0)
+        , _tileName("")
+        , _tilePath("")
+        , _maxHerTileCount(0)
+        , _maxVerTileCount(0)
     {}
 
     ~MapData()
@@ -59,6 +69,8 @@ public:
 
     void debugMap();
 
+    void adjust(const Vector2& pt);
+
     const Size& getSize() const { return _size; }
     void setSize(const Size& size) { _size = size; }
 
@@ -68,12 +80,46 @@ public:
     const Data& getNavData() const { return _navData; }
     void setNavData(Data data) { _navData = std::move(data); }
 
+    void setMapTileWidth(int width) { _mapTileWidth = width; }
+    int getMapTileWidth() const { return _mapTileWidth; }
+
+    void setTileName(const std::string& name) { _tileName = name; }
+    const std::string& getTileName() const { return _tileName; }
+
+    void setTilePath(const std::string& path) { _tilePath = path; }
+    const std::string& getTilePath() const { return _tilePath; }
+
+    void calculateTileCount()
+    {
+        _maxHerTileCount = std::ceil(_size.width / _mapTileWidth);
+        _maxVerTileCount = std::ceil(_size.width / _mapTileWidth);
+
+        const auto& size = Director::getInstance()->getVisibleSize();
+        xTileCount = std::ceil(size.width / _mapTileWidth);
+        yTileCount = std::ceil(size.height / _mapTileWidth);
+    }
+
 private:
     cocos2d::Node* _mapLayer;
     cocos2d::Node* _frontLayer;
     Size _size;
     float _maxHeight;
     Data _navData;
+    int _mapTileWidth;
+    std::string _tileName;
+    std::string _tilePath;
+
+    unordered_map<std::string, Sprite*> curTiles;
+    set<std::string> curKeys;
+    set<std::string> newKeys;
+
+    //max count of tiles for cur map
+    int _maxHerTileCount;
+    int _maxVerTileCount;
+
+    //count of tiles for screen view
+    int xTileCount;
+    int yTileCount;
 };
 
 static inline void addMapPointRect(DrawNode* node, MapHandle map, int x, int y, const Color4F& color)
@@ -116,7 +162,64 @@ inline void MapData::debugMap()
         }
     }
 
-    _mapLayer->addChild(node);
+    _mapLayer->addChild(node, 1);
+}
+
+inline void MapData::adjust(const Vector2 &pt)
+{
+    int xStartIdx = std::floor(pt.x / _mapTileWidth);
+    int yStartIdx = std::floor(pt.y / _mapTileWidth);
+    newKeys.clear();
+    for (int x = 0; x < xTileCount; ++ x)
+    {
+        for ( int y = 0; y < yTileCount; ++ y)
+        {
+            int xIdx = xStartIdx + x;
+            int yIdx = yStartIdx + y;
+
+            if (xIdx >= _maxHerTileCount || yIdx >= _maxVerTileCount || xIdx < 0 || yIdx < 0)
+                continue;
+
+            char name[128] = {0};
+            sprintf(name, "%s/%s%d_%d.png", _tilePath.c_str(), _tileName.c_str(), xIdx, yIdx);
+            string key = string(name);
+            newKeys.insert(key);
+        }
+    }
+
+    set<string> results;
+    set_difference(curKeys.begin(), curKeys.end(), newKeys.begin(), newKeys.end(), inserter(results, results.begin()));
+    for (auto it = results.begin(); it != results.end(); ++ it)
+    {
+        curTiles[*it]->removeFromParent();
+        curTiles.erase(*it);
+    }
+
+    results.clear();
+    set_difference(newKeys.begin(), newKeys.end(), curKeys.begin(), curKeys.end(), inserter(results, results.begin()));
+    for (auto it = results.begin(); it != results.end(); ++ it)
+    {
+        Sprite* tile = Sprite::create(*it);
+        tile->setIgnoreAnchorPointForPosition(true);
+        int xIdx = 0;
+        int yIdx = 0;
+//        char path[128] = {0};
+//        sprintf(path, "%s/%s", _tilePath.c_str(), _tileName.c_str());
+
+        sscanf((*it).c_str(), "maps/test/ditu%d_%d.png",  &xIdx, &yIdx);
+        int posX = _mapTileWidth * xIdx;
+        int posY = _mapTileWidth * yIdx;
+        tile->setPosition(Vec2(posX, posY));
+        _mapLayer->addChild(tile);
+
+        DebugHelper::debugDraw(tile);
+
+        curTiles[*it] = tile;
+    }
+
+    curKeys = newKeys;
+    newKeys.clear();
+    Director::getInstance()->getTextureCache()->removeUnusedTextures();
 }
 
 Node* MapHandle::getMapLayer()
@@ -137,6 +240,11 @@ const Size& MapHandle::getSize() const
 float MapHandle::getMaxHeight() const
 {
     return _data->getMaxHeight();
+}
+
+void MapHandle::adjust(const Vector2 &viewPoint)
+{
+    _data->adjust(viewPoint);
 }
 
 Vector3 MapHandle::toMapPoint(const Vector3 &pt) const
@@ -259,9 +367,47 @@ float MapManager::calculateDepth(const Vector3 &pos)
     return 0;
 }
 
+inline static std::string getDirname(const std::string& path)
+{
+    std::size_t lastIndex = path.find_last_of("/");
+    return path.substr(0, lastIndex);
+}
+
 static MapData* createMapData(int sceneId)
 {
+    std::string path = "maps/test/ditu.json";
+    string str = cocos2d::FileUtils::getInstance()->getStringFromFile(path);
+
+    std::string dirname = getDirname(path);
+
+    rapidjson::Document doc;
+    doc.Parse<0>(str.c_str());
+    if (doc.HasParseError())
+    {
+        DBG_LOG("Map Error '%u' on parse '%s'", doc.GetParseError(), str.c_str());
+        return nullptr;
+    }
+
     MapData* data = new MapData();
+
+    Size size;
+    size.width = doc["width"].GetInt();
+    size.height = doc["height"].GetInt();
+    data->setSize(size);
+    data->setMaxHeight(doc["maxHeight"].GetInt());
+    data->setTileName(doc["tileName"].GetString());
+    data->setMapTileWidth(doc["mapTileWidth"].GetInt());
+    data->setTilePath(dirname);
+    data->calculateTileCount();
+
+    std::string mapFilePath = doc["mapFile"].GetString();
+    if (!dirname.empty()) mapFilePath = dirname + "/" + mapFilePath;
+    Data mapData = FileUtils::getInstance()->getDataFromFile(mapFilePath);
+    data->setNavData(std::move(mapData));
+
+    cocos2d::Node* node = Node::create();
+    node->setContentSize(size);
+    data->setMapLayer(node);
 
     return data;
 }
