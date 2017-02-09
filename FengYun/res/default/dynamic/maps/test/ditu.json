@@ -1,0 +1,8 @@
+{
+  "width": 4096,
+  "height": 4096,
+  "maxHeight": 4096,
+  "mapFile": "ceshi.grid",
+  "mapTileWidth": 256,
+  "tileName": "ditu"
+}
