@@ -168,6 +168,8 @@
 		8655E59C1E49DA830026CB52 /* NavAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5991E49DA830026CB52 /* NavAgent.cpp */; };
 		8655E59F1E49E8B50026CB52 /* PlayerNavigating.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E59D1E49E8B50026CB52 /* PlayerNavigating.cpp */; };
 		8655E5A01E49E8B50026CB52 /* PlayerNavigating.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E59D1E49E8B50026CB52 /* PlayerNavigating.cpp */; };
+		8655E5AC1E4ACEB00026CB52 /* RoleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5AA1E4ACEB00026CB52 /* RoleManager.cpp */; };
+		8655E5AD1E4ACEB00026CB52 /* RoleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8655E5AA1E4ACEB00026CB52 /* RoleManager.cpp */; };
 		9FA3AE4E1BE9BCC900FC9645 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */; };
 		9FF504841A5E87B100AFDA55 /* ConsoleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF504811A5E87B100AFDA55 /* ConsoleWindow.xib */; };
 		9FF504851A5E87B100AFDA55 /* ConsoleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF504831A5E87B100AFDA55 /* ConsoleWindowController.m */; };
@@ -479,6 +481,9 @@
 		8655E59A1E49DA830026CB52 /* NavAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavAgent.h; sourceTree = "<group>"; };
 		8655E59D1E49E8B50026CB52 /* PlayerNavigating.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerNavigating.cpp; sourceTree = "<group>"; };
 		8655E59E1E49E8B50026CB52 /* PlayerNavigating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerNavigating.h; sourceTree = "<group>"; };
+		8655E5A71E4AB38B0026CB52 /* RoleData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RoleData.h; path = ../Classes/RoleData.h; sourceTree = "<group>"; };
+		8655E5AA1E4ACEB00026CB52 /* RoleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoleManager.cpp; sourceTree = "<group>"; };
+		8655E5AB1E4ACEB00026CB52 /* RoleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoleManager.h; sourceTree = "<group>"; };
 		86A922211E31AFE0007D9545 /* SceneProjector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneProjector.h; sourceTree = "<group>"; };
 		9FA3AE4D1BE9BCC900FC9645 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		9FF504781A5E86D600AFDA55 /* libsimulator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libsimulator.xcodeproj; path = "../../cocos2d-x/tools/simulator/libsimulator/proj.ios_mac/libsimulator.xcodeproj"; sourceTree = "<group>"; };
@@ -745,6 +750,8 @@
 				8655E5961E49C53E0026CB52 /* GateManager.h */,
 				862E51631E42BD1200FD0538 /* MapManager.cpp */,
 				862E51641E42BD1200FD0538 /* MapManager.h */,
+				8655E5AA1E4ACEB00026CB52 /* RoleManager.cpp */,
+				8655E5AB1E4ACEB00026CB52 /* RoleManager.h */,
 				862E9D311E2CAFAD00AABF85 /* SceneManager.cpp */,
 				862E9D321E2CAFAD00AABF85 /* SceneManager.h */,
 				862E9D281E2C756200AABF85 /* UIManager.cpp */,
@@ -936,6 +943,7 @@
 				862E9CF31E24C41600AABF85 /* Net */,
 				862E9D841E2E5CE300AABF85 /* RoleTypes.h */,
 				862E9CF41E24C41600AABF85 /* Scenes */,
+				8655E5A71E4AB38B0026CB52 /* RoleData.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1229,6 +1237,7 @@
 				863F71431E403B3400282006 /* Avatar.cpp in Sources */,
 				863F71321E3FAFFD00282006 /* BaseState.cpp in Sources */,
 				862E9D181E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */,
+				8655E5AD1E4ACEB00026CB52 /* RoleManager.cpp in Sources */,
 				862E9D7F1E2DFF8E00AABF85 /* Transform.cpp in Sources */,
 				862E9CEB1E24A1C500AABF85 /* GameApp.cpp in Sources */,
 				8655E5851E4847A30026CB52 /* Attack.cpp in Sources */,
@@ -1291,6 +1300,7 @@
 				863F71421E403B3400282006 /* Avatar.cpp in Sources */,
 				863F71311E3FAFFD00282006 /* BaseState.cpp in Sources */,
 				862E9D171E262D9C00AABF85 /* GameConfigLoader.cpp in Sources */,
+				8655E5AC1E4ACEB00026CB52 /* RoleManager.cpp in Sources */,
 				862E9D7E1E2DFF8E00AABF85 /* Transform.cpp in Sources */,
 				862E9CEA1E24A1C500AABF85 /* GameApp.cpp in Sources */,
 				8655E5841E4847A30026CB52 /* Attack.cpp in Sources */,
