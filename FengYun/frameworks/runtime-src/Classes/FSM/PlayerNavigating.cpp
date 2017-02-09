@@ -12,6 +12,7 @@
 #include "GameApp.h"
 #include "ECS/Entity.h"
 #include "ECS/World.h"
+#include "RoleManager.h"
 
 USING_NS_CC;
 
@@ -117,29 +118,112 @@ void PlayerNavigating::onDidUpdate()
 
     auto data = getBaseData();
 
-//    if (vel.x )
+    if (vel.x < 0)
+        data->getRole()->setFaceDir(fy::FaceDir::LEFT);
+    else if (vel.x > 0)
+        data->getRole()->setFaceDir(fy::FaceDir::RIGHT);
 
     checkTargetDone();
 }
 
 void PlayerNavigating::onInterrupted(fy::fsm::BaseState *st)
 {
+    stopNavigating();
 
+    net::AgentNavEndData d;
+    d.stateName = st->getName();
+    getInput()->onHandleAgentMsg(net::AgentMsg(d));
 }
 
 void PlayerNavigating::startNavigating()
 {
+    auto playerData = GameModule::get<RoleManager>()->getPlayerData();
+    auto target = playerData->getNavData().getNextTarget();
+    switch (target->type)
+    {
+        case RoleNavData::TargetType::GATE:
+        {
 
+        }
+            break;
+        case RoleNavData::TargetType::NPC:
+        {
+
+        }
+            break;
+        case RoleNavData::TargetType::COLLECT_ITEM:
+        {
+
+        }
+            break;
+        case RoleNavData::TargetType::TREASURE:
+        {
+
+        }
+            break;
+        case RoleNavData::TargetType::POS:
+        {
+
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 void PlayerNavigating::stopNavigating()
 {
-
+    GameModule::get<RoleManager>()->getEditablePlayerData()->getNavData().clearTargets();
+    _agent->stop();
 }
 
 void PlayerNavigating::checkTargetDone()
 {
+    auto& navData = GameModule::get<RoleManager>()->getEditablePlayerData()->getNavData();
+    auto target = navData.getNextTarget();
 
+    if (target == nullptr) return;
+
+    auto role = getBaseData()->getRole();
+
+    bool isNavEnd = false;
+    switch (target->type)
+    {
+        case RoleNavData::TargetType::GATE:
+        {
+
+        }
+            break;
+        case RoleNavData::TargetType::NPC:
+        {
+
+        }
+            break;
+        case RoleNavData::TargetType::COLLECT_ITEM:
+        {
+
+        }
+            break;
+        case RoleNavData::TargetType::TREASURE:
+        {
+
+        }
+            break;
+        case RoleNavData::TargetType::POS:
+        {
+
+        }
+            break;
+        default:
+            break;
+    }
+
+    if (isNavEnd)
+    {
+        net::AgentNavEndData d;
+        d.stateName = "Standing";
+        getInput()->onHandleAgentMsg(net::AgentMsg(d));
+    }
 }
 
 END_NS_FSM
