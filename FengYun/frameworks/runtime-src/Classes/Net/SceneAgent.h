@@ -16,6 +16,7 @@
 
 #include "MathTypes.h"
 #include "RoleTypes.h"
+#include "RoleData.h"
 
 BEGIN_NS_NET
 
@@ -28,7 +29,8 @@ enum class AgentMsgType
     RELEASE_SPELL,
     SPELL_ATTACK,
     STANDING,
-    NAV_PATH
+    NAV_PATH,
+    ENDING_NAV
 };
 
 struct CommondAgentData
@@ -84,6 +86,22 @@ struct AgentStopMoveData
     int posZ;
 
     static AgentMsgType msg_type() { return AgentMsgType::STOP_MOVE; }
+};
+
+struct AgentNavData
+{
+    int id;
+    std::uint64_t playerId;
+    RoleNavData::Target target;
+    int goalId;
+    std::vector<Vector3> path;
+    static AgentMsgType msg_type() { return AgentMsgType::NAV_PATH; }
+};
+
+struct AgentNavEndData
+{
+    std::string stateName;
+    static AgentMsgType msg_type() { return AgentMsgType::ENDING_NAV; }
 };
 
 class AgentMsg

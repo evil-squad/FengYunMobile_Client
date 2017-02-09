@@ -15,6 +15,8 @@
 #include "ECS/World.h"
 #include "ECS/RendererSystem.h"
 #include "ECS/Entity.h"
+#include "ECS/NavAgent.h"
+#include "ECS/Player.h"
 
 USING_NS_CC;
 USING_NS_ECS;
@@ -42,6 +44,7 @@ GameScene::GameScene()
     , _controller(nullptr)
     , _time(0)
     , _battleController(nullptr)
+    , _map(nullptr)
 {
 
 }
@@ -75,9 +78,11 @@ bool GameScene::initWithId(int id)
     _uiLayer = gui::Layer::create();
     this->addChild(_uiLayer);
 
-    this->initMap();
+    _map = GameModule::get<MapManager>()->createMap(id);
 
-    _sceneNode->setContentSize(cocos2d::Size(3000, 3000));
+//    this->initMap();
+
+//    _sceneNode->setContentSize(cocos2d::Size(3000, 3000));
 
     auto labelTip = Label::createWithSystemFont("点击屏幕控制角色行走", "Helvetica", 24);
     auto& rect = GameModule::get<UIManager>()->getUIRect();
@@ -91,7 +96,7 @@ bool GameScene::initWithId(int id)
     auto rep = RepeatForever::create(seq);
     labelTip->runAction(rep);
 
-    this->initMapTouch();
+//    this->initMapTouch();
 
     auto systemEntity = World::getInstance()->findEntity("RendererSystem");
     if (!systemEntity)
@@ -100,6 +105,7 @@ bool GameScene::initWithId(int id)
         systemEntity->setName("RendererSystem");
         systemEntity->markGlobal();
         systemEntity->addComponent<RendererSystem>();
+        World::getInstance()->setComponentPriority(component_type<NavAgent>(), 1);
         //do not finish here
     }
 
@@ -144,7 +150,10 @@ void GameScene::onEnter()
 
     _controller->onSceneEnter();
 
-    this->adjustVirePoint(-1);
+    auto p = ecs::Player::getCurrent()->getTransform()->getPosition();
+    _map.adjust(Vec2(p.x, p.y));
+
+    this->adjustViewPoint(-1);
 
     this->scheduleUpdate();
 }
@@ -170,6 +179,13 @@ void GameScene::setController(SceneController *controller)
 
 void GameScene::onSceneBegin()
 {
+    auto map = _map.getMapLayer();
+    _sceneNode->addChild(map);
+    map->setPosition(Vec2::ZERO);
+    map->setAnchorPoint(Vec2::ZERO);
+
+    GameModule::get<MapManager>()->registerMap(_map);
+
     auto rendererSystem = World::getInstance()->findEntity("RendererSystem")->getComponent<RendererSystem>();
     auto layer = rendererSystem->getLayer();
     layer->removeFromParent();
@@ -181,6 +197,7 @@ void GameScene::onSceneBegin()
 
 void GameScene::onSceneEnd()
 {
+    GameModule::get<MapManager>()->unregisterMap(_map);
     World::getInstance()->stop();
     World::getInstance()->setUserData<GameScene>(nullptr);
 }
@@ -193,7 +210,7 @@ void GameScene::update(float dt)
 
     ecs::World::getInstance()->update(dt);
 
-    this->adjustVirePoint(dt);
+    this->adjustViewPoint(dt);
 }
 
 void GameScene::setViewPoint(const Vector2 &pos)
@@ -205,14 +222,21 @@ void GameScene::setViewPoint(const Vector2 &pos)
     }
 }
 
-void GameScene::adjustVirePoint(float dt)
+void GameScene::adjustViewPoint(float dt)
 {
+    Viewer viewer;
+    if (_viewer)
+        viewer = _viewer;
+    else
+        viewer = ecs::Player::getCurrent();
+    if (!viewer) return;
+
     const Size& size = Director::getInstance()->getVisibleSize();
-    const Size& mapSize = _sceneNode->getContentSize();
+    const Size& mapSize = _map.getSize();
 
-    auto playerPos =  Vector2::ZERO;
+    auto playerPos = viewer->getTransform()->getPosition();
 
-    auto pos = playerPos - Vector2(size.width * 0.5, size.height * 0.5);
+    auto pos = worldToLayerPoint(playerPos) - Vector2(size.width * 0.5, size.height * 0.5);
     float scale = playerPos.y * 0.00005;
     float scaleOffsetX = scale * 500;
 
@@ -262,6 +286,25 @@ void GameScene::updateView()
 {
     auto pos = -_viewPoint;
     _sceneNode->setPosition(pos);
+    _map.adjust(_viewPoint);
+}
+
+Vector2 GameScene::worldToLayerPoint(const Vector3 &pos) const
+{
+    auto p = SceneProjector::project(pos);
+    return Vector2(p.x, p.y + p.z);
+}
+
+Vector2 GameScene::worldToUIPoint(const Vector3 &pos) const
+{
+    return worldToLayerPoint(pos) - _viewPoint;
+}
+
+Vector3 GameScene::uiToWorldPoint(const Vector2 &pos) const
+{
+    auto scenePos = _uiLayer->convertToNodeSpace(pos);
+    auto worldPos = _sceneNode->convertToNodeSpace(scenePos);
+    return Vector3(worldPos.x, worldPos.y, 0);
 }
 
 END_NS_SCENES
