@@ -1,40 +1,3 @@
-/* Version number of package */
-#define VERSION "2.5.0"
-
-#ifdef _WIN32
-/* protobuf config.h for MSVC.  On other platforms, this is generated
- * automatically by autoheader / autoconf / configure. */
-
-/* the location of <hash_map> */
-#define HASH_MAP_H <hash_map>
-
-/* the namespace of hash_map/hash_set */
-// Apparently Microsoft decided to move hash_map *back* to the std namespace
-// in MSVC 2010:
-//   http://blogs.msdn.com/vcblog/archive/2009/05/25/stl-breaking-changes-in-visual-studio-2010-beta-1.aspx
-// TODO(kenton):  Use unordered_map instead, which is available in MSVC 2010.
-#if _MSC_VER < 1310 || _MSC_VER >= 1600
-#define HASH_NAMESPACE std
-#else
-#define HASH_NAMESPACE stdext
-#endif
-
-/* the location of <hash_set> */
-#define HASH_SET_H <hash_set>
-
-/* define if the compiler has hash_map */
-#define HAVE_HASH_MAP 1
-
-/* define if the compiler has hash_set */
-#define HAVE_HASH_SET 1
-
-/* define if you want to use zlib.  See readme.txt for additional
- * requirements. */
-// #define HAVE_ZLIB 1
-
-
-#else
-
 /* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
@@ -42,16 +5,16 @@
 #define HASH_MAP_CLASS unordered_map
 
 /* the location of <unordered_map> or <hash_map> */
-#define HASH_MAP_H <unordered_map>
+#define HASH_MAP_H <tr1/unordered_map>
 
 /* the namespace of hash_map/hash_set */
-#define HASH_NAMESPACE std
+#define HASH_NAMESPACE std::tr1
 
 /* the name of <hash_set> */
 #define HASH_SET_CLASS unordered_set
 
 /* the location of <unordered_set> or <hash_set> */
-#define HASH_SET_H <unordered_set>
+#define HASH_SET_H <tr1/unordered_set>
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
@@ -63,10 +26,10 @@
 #define HAVE_FTRUNCATE 1
 
 /* define if the compiler has hash_map */
-#define HAVE_HASH_MAP 1
+//#define HAVE_HASH_MAP 1
 
 /* define if the compiler has hash_set */
-#define HAVE_HASH_SET 1
+//#define HAVE_HASH_SET 1
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
@@ -172,6 +135,10 @@
 # define __EXTENSIONS__ 1
 #endif
 
+
+/* Version number of package */
+#define VERSION "2.5.0"
+
 /* Define to 1 if on MINIX. */
 /* #undef _MINIX */
 
@@ -181,5 +148,3 @@
 
 /* Define to 1 if you need to in order for `stat' and other things to work. */
 /* #undef _POSIX_SOURCE */
-
-#endif
