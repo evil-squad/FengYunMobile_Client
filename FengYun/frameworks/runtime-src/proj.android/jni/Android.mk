@@ -23,7 +23,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
 					$(LOCAL_PATH)/../../Classes/managers \
 					$(LOCAL_PATH)/../../Classes/Scenes \
 					$(LOCAL_PATH)/../../Classes/misc \
-					$(LOCAL_PATH)/../../Classes/lua
+					$(LOCAL_PATH)/../../Classes/lua \
+					$(LOCAL_PATH)/../../../external/asio/include
 
 
 # _COCOS_HEADER_ANDROID_BEGIN
