@@ -30,6 +30,11 @@
     tolua_error(L, "argument error in '" #func "' function", nullptr); \
     return 0
 
+#define LUA_PUSH_STRUCT_STR_MEM(L, val, mem)    \
+lua_pushliteral(L, #mem);                   \
+lua_pushcppstring(L, (val).mem);            \
+lua_rawset(L, -3)
+
 #define LUA_PUSH_STRUCT_INT_MEM(L, val, mem)    \
     lua_pushliteral(L, #mem);                   \
     lua_pushinteger(L, (val).mem);              \
