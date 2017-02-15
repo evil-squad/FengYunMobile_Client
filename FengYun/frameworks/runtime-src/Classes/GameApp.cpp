@@ -17,6 +17,7 @@
 #include "DebugHelper.h"
 
 #include "UIManager.h"
+#include "NetManager.h"
 #include "SceneManager.h"
 #include "AnimationManager.h"
 #include "MapManager.h"
@@ -42,6 +43,7 @@ static void createAndRegisterMudules(std::vector<GameModule*>& modules)
 {
     DBG_ASSERT(modules.empty(), "Modules not empty!");
     modules.push_back(createAndRegisterModule<UIManager>());
+    modules.push_back(createAndRegisterModule<NetManager>());
     modules.push_back(createAndRegisterModule<SceneManager>());
     modules.push_back(createAndRegisterModule<AnimationManager>());
     modules.push_back(createAndRegisterModule<MapManager>());
