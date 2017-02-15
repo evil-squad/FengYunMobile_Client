@@ -20,11 +20,35 @@ class RoleManagerData_t;
 class RoleManager : public GameModule
 {
 public:
+    class Work
+    {
+    public:
+        virtual ~Work() {}
+
+        virtual void markDone() = 0;
+    };
+
+    class Listener
+    {
+    public:
+        virtual ~Listener() {}
+
+        virtual void onPlayerDataInit() = 0;
+        virtual void onPlayerDataSync(Work* work) { work->markDone(); }
+        virtual void onPlayerDataReset() {}
+        virtual void onPlayerLevelUp() {}
+    };
+
     RoleManager();
     ~RoleManager();
     
     const RoleData* getPlayerData();
     RoleData* getEditablePlayerData();
+
+    void resetPlayerData();
+
+    void registerListener(Listener* listener);
+    void unregisterListener(Listener* listener);
 
 private:
     RoleManagerData_t* _data;
