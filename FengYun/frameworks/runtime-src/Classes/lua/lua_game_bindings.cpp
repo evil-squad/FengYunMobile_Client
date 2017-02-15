@@ -10,6 +10,7 @@
 #include "GameModule.h"
 #include "lua_game_bindings.hpp"
 #include "input.inc.hpp"
+#include "user.inc.hpp"
 
 #include "UIManager.h"
 
@@ -80,6 +81,7 @@ int register_all_game_bindings(lua_State* L)
     TOLUA_FUNC(getUIRect);
     TOLUA_FUNC(getUILayer);
 
+    registerInputFunctions(L);
     registerInputFunctions(L);
 
     tolua_endmodule(L);
