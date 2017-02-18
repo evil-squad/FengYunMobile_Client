@@ -55,7 +55,7 @@ function openInitUI()
 	tip:runAction(cc.RepeatForever:create(seq))
 
 	local function onTouchBegan(touch, event)
-		game.sendEvent("goto_game_scene")
+		-- game.sendEvent("goto_game_scene")
 		return true
 	end
 
@@ -66,6 +66,8 @@ function openInitUI()
 
    local function onCompleted()
    	require "ui"
+
+   	game.sendEvent("init_ui_done")
    end
 
    onCompleted()
