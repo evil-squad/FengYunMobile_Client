@@ -18,6 +18,8 @@
 #include "buffer.h"
 #include "DebugHelper.h"
 
+#include <google/protobuf/message_lite.h>
+
 BEGIN_NS_NET
 
 class Decoder
@@ -92,6 +94,76 @@ public:
 
     BasicDecoder(const_buffer buf) : Decoder(buf) {}
 
+    char readByte()
+    {
+        checkRestSize(1);
+        return getPtrThenAdvance(1)[0];
+    }
+
+    int readVarInt32()
+    {
+        char tmp = readByte();
+        if (tmp >= 0)
+            return tmp;
+
+        int result = tmp & 0x7f;
+        tmp = readByte();
+        if (tmp >= 0)
+        {
+            result |= tmp << 7;
+        }
+        else
+        {
+            result |= (tmp & 0x7f) << 7;
+            tmp = readByte();
+            if (tmp >= 0)
+            {
+                result |= tmp << 14;
+            }
+            else
+            {
+                result |= (tmp & 0x7f) << 14;
+                tmp = readByte();
+                if (tmp >= 0)
+                {
+                    result |= tmp << 21;
+                }
+                else
+                {
+                    result |= (tmp & 0x7f) << 21;
+                    tmp = readByte();
+                    result |= tmp << 28;
+                    if (tmp < 0)
+                    {
+                        for (int i = 0; i < 5; ++i)
+                        {
+                            if (readByte() >= 0)
+                                return result;
+                        }
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    std::int64_t readVarInt64()
+    {
+        int shift = 0;
+        std::int64_t result = 0;
+        while(shift < 64)
+        {
+            char b = readByte();
+            result |= (std::int64_t)(b & 0x7F) << shift;
+            if ((b & 0x80) == 0)
+            {
+                return result;
+            }
+            shift += 7;
+        }
+        return result;
+    }
+
     std::uint8_t readUInt8()
     {
         checkRestSize(1);
@@ -145,6 +217,13 @@ public:
         checkRestSize(buf.size());
         auto ptr = getPtrThenAdvance(buf.size());
         std::memcpy(buf.ptr(), ptr, buf.size());
+    }
+
+    void readMessage(google::protobuf::MessageLite& message)
+    {
+        checkRestSize(_buf.size());
+        auto ptr = getPtrThenAdvance(_buf.size());
+        message.ParseFromArray(ptr, _buf.size());
     }
 };
 

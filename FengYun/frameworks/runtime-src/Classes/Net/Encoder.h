@@ -20,6 +20,8 @@
 #include <cstring>
 #include "DebugHelper.h"
 
+#include <google/protobuf/message_lite.h>
+
 BEGIN_NS_NET
 
 class Encoder
@@ -94,6 +96,38 @@ public:
 
     BasicEncoder(mutable_buffer buf) : Encoder(buf) {}
 
+    void writeByte(std::int8_t val)
+    {
+        checkRestSize(1);
+        getPtrThenAdvance(1)[0] = val;
+    }
+
+    void writeHeadLenght(std::size_t value)
+    {
+        checkRestSize(2);
+        unsigned char *h = static_cast<unsigned char*>(_buf.ptr());
+
+        h[1] = value & 0xFF;
+        h[0] = (value >> 8) & 0xFF;
+    }
+
+    void writeVarInt32(int value)
+    {
+        while(true)
+        {
+            if ((value & ~0x7F) == 0)
+            {
+                writeByte(value);
+                return;
+            }
+            else
+            {
+                writeByte((value & 0x7F) | 0x80);
+                value >>= 7;
+            }
+        }
+    }
+
     void writeUInt8(std::uint8_t val)
     {
         checkRestSize(1);
@@ -158,6 +192,13 @@ public:
         checkRestSize(buf.size());
         auto ptr = getPtrThenAdvance(buf.size());
         std::memcpy(ptr, buf.ptr(), buf.size());
+    }
+
+    void writeMessage(const google::protobuf::MessageLite& message)
+    {
+        checkRestSize(message.ByteSize());
+        auto ptr = getPtrThenAdvance(message.ByteSize());
+        std::memcpy(ptr, message.SerializeAsString().c_str(), message.ByteSize());
     }
 };
 
