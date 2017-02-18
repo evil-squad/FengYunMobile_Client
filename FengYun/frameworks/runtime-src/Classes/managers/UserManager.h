@@ -20,6 +20,14 @@
 
 BEGIN_NS_FY
 
+struct UserInfo
+{
+    UserInfo() {}
+    std::string name;
+    std::vector<int> recentServers;
+};
+
+
 class UserManager : public GameModule
 {
 public:
@@ -77,7 +85,14 @@ public:
 
     const std::vector<ServerEntry>& getServers();
 
+    void connectServer(int serverId, ResultCallback callback);
+
     void createUser(const std::string& name, const std::string& password, const ResultCallback& callback);
+    void createRole(const std::string& name, RoleJob job, const ResultCallback& callback);
+
+    void setTestUser(const std::string& username);
+
+    void flush();
 
     std::string getAccountType();
 
