@@ -150,9 +150,6 @@ void GameScene::onEnter()
 
     _controller->onSceneEnter();
 
-    auto p = ecs::Player::getCurrent()->getTransform()->getPosition();
-    _map.adjust(Vec2(p.x, p.y));
-
     this->adjustViewPoint(-1);
 
     this->scheduleUpdate();
@@ -257,6 +254,7 @@ void GameScene::adjustViewPoint(float dt)
 
     if (dt < 0)
     {
+        _map.adjust(pos);
          setViewPoint(pos);
         return;
     }
