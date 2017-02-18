@@ -9,10 +9,13 @@
 #include "GameApp.h"
 #include "GameModule.h"
 #include "lua_game_bindings.hpp"
-#include "input.inc.hpp"
-#include "user.inc.hpp"
 
 #include "UIManager.h"
+
+//////////////////TODO: include user file header here
+#include "input.inc.hpp"
+#include "user.inc.hpp"
+#include "scene.inc.hpp"
 
 DEF_LUA_FUNC(setEventHandler)
 {
@@ -82,7 +85,8 @@ int register_all_game_bindings(lua_State* L)
     TOLUA_FUNC(getUILayer);
 
     registerInputFunctions(L);
-    registerInputFunctions(L);
+    registerUserFunctions(L);
+    registerSceneFunctions(L);
 
     tolua_endmodule(L);
     return 0;
