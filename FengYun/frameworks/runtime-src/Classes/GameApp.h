@@ -46,7 +46,7 @@ public:
 
     static void runInMainThread(const std::function<void()>& func);
 
-    std::string getPersistenDataPath();
+    std::string getPersistentDataPath();
 
     void loadConfigs(const std::function<void()>& cb);
 
