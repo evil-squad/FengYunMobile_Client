@@ -17,11 +17,11 @@
 #include "Decoder.h"
 #include "Encoder.h"
 
+#include <zlib.h>
+
 #define ENABLE_PACKET_LOG
 
 BEGIN_NS_NET
-
-static const int SEND_HEAD_SIZE = 2 + 2 + 8;
 
 RPCRequest* RPCRequest::create()
 {
@@ -57,7 +57,6 @@ struct GameConnection::PrivateData
     std::function<void()> lostCallback;
 
     unsigned char recvHead[2];
-    unsigned char sendHead[SEND_HEAD_SIZE];
 
     std::unordered_map<int64_t, Processor*> quickDispatchMap;
 
@@ -209,7 +208,6 @@ void GameConnection::unregisterProcessor(fy::net::Processor *p)
 
 static void dispatch(GameConnection::PrivateData*data, PacketPtr pkt);
 
-
 void GameConnection::dispatchAll()
 {
     PacketPtr pkt = nullptr;
@@ -233,38 +231,32 @@ void GameConnection::recvNextPacket()
 #endif
 
     _data->conn->recv(buffer(_data->recvHead, 2), [this](ErrorCode ec, std::size_t bytes_transferred){
-        if (_data->checkLost(ec)) return;
-
-        int len = BasicDecoder(buffer(_data->recvHead, 2)).readUInt16();
-        PacketPtr pkt = PacketCache::makePacket(len);
-        float time = GameApp::getInstance()->getTime();
-
-        _data->conn->recv(pkt->buffer(), [this, pkt, time](ErrorCode ec, std::size_t bytes_transferred){
             if (_data->checkLost(ec)) return;
 
-            float curTime = GameApp::getInstance()->getTime();
-            BasicDecoder d(pkt->buffer());
-            d.skip(8);
-            int msgId = d.readUInt16();
-#ifdef ENABLE_PACKET_LOG
-            DBG_LOG("game recv: complete id [%d, %d][%fs, %fs, %fms]", (msgId >> 8) & 0xFF, msgId & 0xFF, time, curTime, (curTime-time)*1000);
-#endif
-            {
-                std::lock_guard<std::mutex> g(_data->recvLock);
-                _data->recvPackets.push(pkt);
-            }
+            net::BasicDecoder d(buffer(_data->recvHead, 2));
+            int len = d.readUInt16();
+            net::PacketPtr pkt = PacketCache::makePacket(len - 2);
+            float time = GameApp::getInstance()->getTime();
 
-            recvNextPacket();
-        });
+            _data->conn->recv(pkt->buffer(), [this, pkt, time](ErrorCode ec, std::size_t bytes_transferred){
+                    if (_data->checkLost(ec)) return;
+
+                    float curTime = GameApp::getInstance()->getTime();
+                    BasicDecoder d(pkt->buffer());
+                    int modId = d.readVarInt32();
+                    int cmdId = d.readVarInt32();
+                    int64_t msgId = (int64_t)modId << 32 | cmdId;
+        #ifdef ENABLE_PACKET_LOG
+                    DBG_LOG("game recv[%lld]: complete id [%d, %d][%fs, %fs, %fms]", msgId, modId, cmdId, time, curTime, (curTime-time)*1000);
+        #endif
+                    {
+                        std::lock_guard<std::mutex> g(_data->recvLock);
+                        _data->recvPackets.push(pkt);
+                    }
+
+                    recvNextPacket();
+            });
     });
-}
-
-static inline void writeSendHead(mutable_buffer buf, float time, int msgId, int size)
-{
-    BasicEncoder e(buf);
-    e.writeUInt16(size + 2 + 8);
-    e.writeUInt64(time * 1000);
-    e.writeUInt16(msgId);
 }
 
 void GameConnection::sendNextPacket()
@@ -297,12 +289,6 @@ void GameConnection::sendNextPacket()
 #ifdef ENABLE_PACKET_LOG
     DBG_LOG("game send: id [%lld, %lld] time [%fs, %fs]", (msgId >> 32) & 0xFFFFFFFF, msgId & 0xFFFFFFFF, clientTime, serverTime);
 #endif
-
-//    auto headBuf = buffer(_data->sendHead, SEND_HEAD_SIZE);
-//    writeSendHead(headBuf, serverTime, msgId, (int)pkt->size());
-//    _data->conn->send(headBuf, [this, msgId, pkt, clientTime](ErrorCode ec, std::size_t bytes_transferred){
-//        if (_data->checkLost(ec)) return;
-
         _data->conn->send(pkt->buffer(), [this, msgId, pkt, clientTime](ErrorCode ec, std::size_t bytes_transferred){
             if (_data->checkLost(ec)) return;
 
@@ -312,11 +298,7 @@ void GameConnection::sendNextPacket()
 #endif
             sendNextPacket();
         });
-//    });
 }
-
-static const int SERVER_PLAYER_MOD_ID = 1;
-static const int SERVER_ERROR_CMD_ID = 2;
 
 static inline bool tryToFeedRPC(GameConnection::PrivateData* data, int64_t msgId, int error, const PacketPtr& pkt)
 {
@@ -336,23 +318,48 @@ static inline bool tryToFeedRPC(GameConnection::PrivateData* data, int64_t msgId
     return false;
 }
 
+static net::PacketPtr uncompressData(net::PacketPtr& source)
+{
+    uLongf tlen = source->size();
+
+    Bytef* buf = nullptr;
+    uLong blen;
+    blen = compressBound(tlen);
+    if ((buf = (Bytef*)malloc(sizeof(Bytef) * blen)) == nullptr)
+    {
+        return nullptr;
+    }
+
+    if (uncompress(buf, &tlen, (const Bytef*)source->ptr(), blen) != Z_OK)
+    {
+        return nullptr;
+    }
+
+    mutable_buffer buff = buffer((void*)buf, blen);
+
+    net::PacketPtr def = net::PacketCache::makePacket(blen);
+    net::BasicEncoder e(def->buffer());
+    e.writeBuffer(buff);
+
+    if (buf)
+    {
+        free(buf);
+        buf = nullptr;
+    }
+
+    return def;
+}
+
 void dispatch(GameConnection::PrivateData* data, PacketPtr pkt)
 {
     BasicDecoder d(pkt->buffer());
-    auto time = d.readUInt64();
-    int msgId = d.readUInt16();
+    auto time = 0;//d.readUInt64();
+    int modId = d.readVarInt32();
+    int cmdId = d.readVarInt32();
+    net::PacketPtr ptr = PacketCache::makeSlice(pkt, d.offset());
+//    net::PacketPtr ptr = uncompressData(dataPkt);
+    int64_t msgId = (int64_t)modId << 32 | cmdId;
     int error = 0;
-    PacketPtr dataPkt;
-    if (msgId == (SERVER_PLAYER_MOD_ID << 8 | SERVER_ERROR_CMD_ID))
-    {
-        msgId = d.readUInt16();
-        error = d.readUInt16();
-        dataPkt = PacketCache::makeSlice(pkt, 6 + 8);
-    }
-    else
-    {
-        dataPkt = PacketCache::makeSlice(pkt, 2 + 8);
-    }
 
     float clientTime = GameApp::getInstance()->getTime();
     float serverTime = time / 1000.0;
@@ -360,25 +367,25 @@ void dispatch(GameConnection::PrivateData* data, PacketPtr pkt)
     float serverDeltaTime = data->serverStartTime == 0 ? 0 : (serverTime - data->serverStartTime);
     float delayInMs = (clientDeltaTime - serverDeltaTime) * 1000;
 
-    if (!tryToFeedRPC(data, msgId, error, dataPkt))
+    if (!tryToFeedRPC(data, msgId, error, ptr))
     {
         Processor* p = data->findProcessor(msgId);
         if (p)
         {
             if (error == 0)
             {
-                p->process(msgId, dataPkt);
+                p->process(msgId, ptr);
             }
             else
             {
-                p->onError(msgId, error, dataPkt);
+                p->onError(msgId, error, ptr);
             }
         }
     }
 
 #ifdef ENABLE_PACKET_LOG
     float processTimeInMs = (GameApp::getInstance()->getTime() - clientTime) * 1000;
-    DBG_LOG("game recv: id [%d, %d] error %d time [%fs, %fs, %fms, %fms]", (msgId >> 8) & 0xFF, (msgId) & 0xFF, error, clientTime, serverTime, delayInMs, processTimeInMs);
+    DBG_LOG("game recv: id [%d, %d] error %d time [%fs, %fs, %fms, %fms]", modId, cmdId, error, clientTime, serverTime, delayInMs, processTimeInMs);
 #endif
 }
 
