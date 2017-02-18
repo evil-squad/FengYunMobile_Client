@@ -72,8 +72,8 @@ public:
         _encoder.writeUInt16(pktSize + SEND_HEAD_SIZE);
         _encoder.writeUInt8(0);
         _encoder.writeUInt8(0);
-        _encoder.writeUInt32((msgId >> 32) & 0xFFFFFFFF);
-        _encoder.writeUInt32(msgId & 0xFFFFFFFF);
+        _encoder.writeVarInt32((msgId >> 32) & 0xFFFFFFFF);
+        _encoder.writeVarInt32(msgId & 0xFFFFFFFF);
     }
 
     inline ~GamePacketSendHelper()
@@ -82,6 +82,7 @@ public:
 
         if (_pkt->size() > _encoder.offset())
         {
+            _encoder.writeHeadLenght(_encoder.offset());
             _conn->send(_msgId, net::PacketCache::makeSlice(_pkt, 0, _encoder.offset()));
         }
         else
@@ -102,12 +103,17 @@ private:
 class GameRPCSendHelper
 {
 public:
-    inline GameRPCSendHelper(int msgId, int pktSize)
+    inline GameRPCSendHelper(int64_t msgId, int pktSize)
         : _conn(GameModule::get<NetManager>()->getGameConnection())
         , _req(net::RPCRequest::create())
-        , _pkt(net::PacketCache::makePacket(pktSize))
+        , _pkt(net::PacketCache::makePacket(pktSize + SEND_HEAD_SIZE))
         , _encoder(_pkt->buffer())
     {
+        _encoder.writeUInt16(pktSize + SEND_HEAD_SIZE);
+        _encoder.writeUInt8(0);
+        _encoder.writeUInt8(0);
+        _encoder.writeVarInt32((msgId >> 32) & 0xFFFFFFFF);
+        _encoder.writeVarInt32(msgId & 0xFFFFFFFF);
         _req->setMsgId(msgId);
     }
 
