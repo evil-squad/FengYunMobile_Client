@@ -74,16 +74,29 @@ void SceneManager::gotoUIScene(const std::string &name, const std::function<void
     Director::getInstance()->replaceScene(s);
 }
 
-void SceneManager::gotoScene(int id)
+void SceneManager::gotoScene(int id, const std::function<void()>& callback)
 {
-    auto scene = GameScene::create(id);
-    _data->current = scene;
-    scene->setController(new CityController(scene));
-    _data->current->retain();
-    scene->onSceneBegin();
-    auto size = Director::getInstance()->getVisibleSize();
-    scene->getController()->onSetPlayerAgent(1000, Vector3(size.width / 2, size.height / 2, 0), fy::FaceDir::FRONT, nullptr);
-    Director::getInstance()->replaceScene(scene);
+    auto loading = UIScene::create("LoadScene", [=]{
+        GameApp::getInstance()->sendEvent("open_load_scene_ui");
+    });
+
+    GameApp::getInstance()->setEventHandler("load_scene_ui_done", [=]{
+        GameApp::getInstance()->setEventHandler("load_scene_ui_done", nullptr);
+
+        auto scene = GameScene::create(id);
+        _data->current = scene;
+        scene->setController(new CityController(scene));
+        _data->current->retain();
+        scene->onSceneBegin();
+        auto size = Director::getInstance()->getVisibleSize();
+        scene->getController()->onSetPlayerAgent(1000, Vector3(size.width / 2, size.height / 2, 0), fy::FaceDir::FRONT, nullptr);
+        if (callback) callback();
+
+        Director::getInstance()->replaceScene(scene);
+    });
+
+    Director::getInstance()->replaceScene(loading);
+
 }
 
 END_NS_FY

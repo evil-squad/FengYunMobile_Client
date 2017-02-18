@@ -28,7 +28,7 @@ public:
 
     void gotoUIScene(const std::string& name, const std::function<void()>& enterCb);
 
-    void gotoScene(int id);
+    void gotoScene(int id, const std::function<void()>& callback);
 
 private:
     struct PrivateData;
