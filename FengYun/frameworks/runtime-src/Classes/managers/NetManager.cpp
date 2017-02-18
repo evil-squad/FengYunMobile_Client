@@ -21,6 +21,8 @@
 #include "GameApp.h"
 #include "cocos2d.h"
 
+#include "HeartBeatProcess.h"
+
 using asio::ip::tcp;
 
 using namespace cocos2d::network;
@@ -39,6 +41,7 @@ struct NetManager::PrivateData
     std::function<void()> lostCallback;
     std::vector<Listener*> listeners;
 
+    HeartBeatProcess heartBeat;
     asio::io_service::work* work;
 
     PrivateData() : gameConnection(nullptr), work(nullptr)
@@ -113,6 +116,9 @@ void NetManager::connect(const std::string &name, const std::string &ip, unsigne
                 });
             });
 
+            _data->heartBeat.setDelayTime(10);
+            _data->heartBeat.setOverTime(10);
+            _data->heartBeat.start();
             GameApp::runInMainThread([=]{
                 for (auto l: _data->listeners) l->onConnected("GAME_SERVER");
 
@@ -138,6 +144,8 @@ void NetManager::disconnect(const std::string &name)
             {
                 l->onDisconnected("GAME_SERVER");
             }
+
+            _data->heartBeat.stop();
 
             delete _data->gameConnection;
             _data->gameConnection = nullptr;
