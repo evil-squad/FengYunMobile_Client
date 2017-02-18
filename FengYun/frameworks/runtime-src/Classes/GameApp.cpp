@@ -12,6 +12,7 @@
 #include <thread>
 
 #include "GameModule.h"
+#include "GameConfigLoader.h"
 
 #include "cocos2d.h"
 #include "DebugHelper.h"
@@ -24,6 +25,7 @@
 #include "GateManager.h"
 #include "WorldManager.h"
 #include "RoleManager.h"
+#include "UserManager.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -44,6 +46,7 @@ static void createAndRegisterMudules(std::vector<GameModule*>& modules)
     DBG_ASSERT(modules.empty(), "Modules not empty!");
     modules.push_back(createAndRegisterModule<UIManager>());
     modules.push_back(createAndRegisterModule<NetManager>());
+    modules.push_back(createAndRegisterModule<UserManager>());
     modules.push_back(createAndRegisterModule<SceneManager>());
     modules.push_back(createAndRegisterModule<AnimationManager>());
     modules.push_back(createAndRegisterModule<MapManager>());
@@ -105,7 +108,7 @@ void GameApp::onStart()
     _data->startTime = steady_clock::now();
 
     auto fu = FileUtils::getInstance();
-    auto path = getPersistenDataPath();
+    auto path = getPersistentDataPath();
     if (!fu->isDirectoryExist(path))
         fu->createDirectory(path);
 
@@ -139,8 +142,28 @@ void GameApp::onStart()
         GameApp::getInstance()->setEventHandler("goto_init_ui", nullptr);
     });
 
+    setEventHandler("init_ui_done", [=]{
+        auto th  = std::thread([this]{
+            GameConfigLoader loader;
+            GameModule::get<UserManager>()->onLoadConfig(&loader);
+            GameApp::runInMainThread([this]{
+                this->sendEvent("goto_login_ui");
+            });
+        });
+        th.detach();
+        GameApp::getInstance()->setEventHandler("init_ui_done", nullptr);
+    });
+
+    setEventHandler("goto_login_ui", []{
+        GameModule::get<SceneManager>()->gotoUIScene("LoginScene", []{
+            GameApp::getInstance()->sendEvent("open_login_ui");
+        });
+    });
+
     setEventHandler("goto_game_scene", []{
-        GameModule::get<SceneManager>()->gotoScene(1);
+        GameModule::get<SceneManager>()->gotoScene(1, []{
+            DBG_LOG("enter Scene");
+        });
         GameApp::getInstance()->setEventHandler("goto_game_scene", nullptr);
     });
 }
@@ -213,7 +236,7 @@ void GameApp::runInMainThread(const std::function<void ()> &func)
     cocos2d::Director::getInstance()->getScheduler()->performFunctionInCocosThread(func);
 }
 
-std::string GameApp::getPersistenDataPath()
+std::string GameApp::getPersistentDataPath()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS) || (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     return FileUtils::getInstance()->getWritablePath();
