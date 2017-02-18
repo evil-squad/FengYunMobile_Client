@@ -30,17 +30,17 @@ namespace
 
                 _recving = true;
                 asio::async_read(_socket, asio::buffer(buf.ptr(), buf.size()),
-                                 [this, handler] (const asio::error_code& ec, std::size_t bytes_transferred) {
-                                     _recving = false;
+                     [this, handler] (const asio::error_code& ec, std::size_t bytes_transferred) {
+                         _recving = false;
 
-                                     if (ec == asio::error::operation_aborted)
-                                         return;
+                         if (ec == asio::error::operation_aborted)
+                             return;
 
-                                     if (ec)
-                                         handler(net::ErrorCode::UNKNOWN, bytes_transferred);
-                                     else
-                                         handler(net::ErrorCode::NONE, bytes_transferred);
-                                 });
+                         if (ec)
+                             handler(net::ErrorCode::UNKNOWN, bytes_transferred);
+                         else
+                             handler(net::ErrorCode::NONE, bytes_transferred);
+                     });
             });
         }
 
@@ -52,17 +52,17 @@ namespace
 
                 _sending = true;
                 asio::async_write(_socket, asio::buffer(buf.ptr(), buf.size()),
-                                  [this, handler] (const asio::error_code& ec, std::size_t bytes_transferred) {
-                                      _sending = false;
+                      [this, handler] (const asio::error_code& ec, std::size_t bytes_transferred) {
+                          _sending = false;
 
-                                      if (ec == asio::error::operation_aborted)
-                                          return;
+                          if (ec == asio::error::operation_aborted)
+                              return;
 
-                                      if (ec)
-                                          handler(net::ErrorCode::UNKNOWN, bytes_transferred);
-                                      else
-                                          handler(net::ErrorCode::NONE, bytes_transferred);
-                                  });
+                          if (ec)
+                              handler(net::ErrorCode::UNKNOWN, bytes_transferred);
+                          else
+                              handler(net::ErrorCode::NONE, bytes_transferred);
+                      });
             });
         }
 
