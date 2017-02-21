@@ -219,11 +219,15 @@ public:
         std::memcpy(buf.ptr(), ptr, buf.size());
     }
 
-    void readMessage(google::protobuf::MessageLite& message)
+    void readMessage(google::protobuf::MessageLite& message, std::size_t messageSize = 0)
     {
-        checkRestSize(_buf.size());
-        auto ptr = getPtrThenAdvance(_buf.size());
-        message.ParseFromArray(ptr, _buf.size());
+        std::size_t size = messageSize == 0 ? _buf.size() - _offset : messageSize;
+        checkRestSize(size);
+        auto ptr = getPtrThenAdvance(size);
+        if (message.ParseFromArray(ptr, size))
+        {
+            DBG_LOG("format message form buffer");
+        }
     }
 };
 

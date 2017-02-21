@@ -46,6 +46,8 @@ static std::unique_ptr<ConfigReader> loadConfigFile(const std::string& path)
 
 std::unique_ptr<ConfigReader> GameConfigLoader::load(const std::string &name)
 {
+    if (name == "hero")
+        return loadConfigFile("heroInfos.plist");
     return nullptr;
 }
 

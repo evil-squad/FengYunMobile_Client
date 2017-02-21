@@ -123,7 +123,9 @@ local function createCreateRolePanel()
 	local function enterGameClick(btn)
 		game.createRole(nameBox:getText(), index, function(r)
 			if r == game.RESULT_SUCCESS then
-				game.gotoScene(1)
+				game.gotoScene(1, function() 
+					print("goto scene------->")
+				end)
 			else
 				print("create role error");
 			end

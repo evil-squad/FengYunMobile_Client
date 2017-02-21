@@ -220,14 +220,17 @@ public:
                     net::BasicDecoder d(pkt->buffer());
                     int64_t userId = d.readInt64();
                     uint8_t code = d.readUInt8();
-                    int len = d.readUInt16();
-                    if (len == 0)
+                    if (d.offset() >= pkt->size())
                     {
                         if (_loginCallback) _loginCallback(Result::NO_ROLE_ERROR);
                     }
                     else
                     {
-//                        std::string userName = d.readString(len);
+                        int len = d.readUInt16();
+                        std::string userName = d.readString(len);
+                        app::message::HeroProto hero;
+                        d.readMessage(hero);
+                        DBG_LOG("create role scuccess---------->%d", hero.level());
                         if (_loginCallback) _loginCallback(Result::SUCCESS);
                     }
                 }
@@ -238,9 +241,12 @@ public:
                 if (modId == LOGIN_MOD_ID)
                 {
                     net::BasicDecoder d(pkt->buffer());
+                    int len = d.readUInt16();
+                    std::string name = d.readString(len);
                     app::message::HeroProto hero;
                     d.readMessage(hero);
                     DBG_LOG("create role scuccess---------->%d", hero.level());
+                    if (_createRoleCallback) _createRoleCallback(Result::SUCCESS);
                 }
                 break;
             }
@@ -251,6 +257,7 @@ public:
                     net::BasicDecoder d(pkt->buffer());
                     int code = d.readUInt8();
                     DBG_LOG("create role fail--------->%d", code);
+                    if (_createRoleCallback) _createRoleCallback((Result)code);
                 }
             }
                 break;

@@ -8,6 +8,7 @@
 
 #include "RoleManager.h"
 #include "NetManager.h"
+#include "GameConfigLoader.h"
 
 BEGIN_NS_FY
 
@@ -141,6 +142,8 @@ private:
     RoleManagerData_t* _data;
 };
 
+
+////////////////TODO: class RoleManger
 RoleManager::RoleManager()
 {
     _data = new RoleManagerData_t();
@@ -149,6 +152,21 @@ RoleManager::RoleManager()
 RoleManager::~RoleManager()
 {
     delete _data;
+}
+
+void RoleManager::onLoadConfig(fy::GameConfigLoader *loader)
+{
+    loader->load("hero");
+}
+
+void RoleManager::onInitialize()
+{
+
+}
+
+void RoleManager::onRelease()
+{
+    
 }
 
 const RoleData* RoleManager::getPlayerData()

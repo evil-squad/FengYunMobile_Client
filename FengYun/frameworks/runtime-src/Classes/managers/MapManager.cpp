@@ -95,8 +95,8 @@ public:
         _maxVerTileCount = std::ceil(_size.width / _mapTileWidth);
 
         const auto& size = Director::getInstance()->getVisibleSize();
-        xTileCount = std::ceil(size.width / _mapTileWidth);
-        yTileCount = std::ceil(size.height / _mapTileWidth);
+        xTileCount = std::ceil(size.width / _mapTileWidth) + 1;
+        yTileCount = std::ceil(size.height / _mapTileWidth) + 1;
     }
 
 private:
@@ -181,7 +181,7 @@ inline void MapData::adjust(const Vector2 &pt)
                 continue;
 
             char name[128] = {0};
-            sprintf(name, "%s/%s%d_%d.png", _tilePath.c_str(), _tileName.c_str(), xIdx, yIdx);
+            sprintf(name, "%s/%s%d_%d.jpg", _tilePath.c_str(), _tileName.c_str(), xIdx, yIdx);
             string key = string(name);
             newKeys.insert(key);
         }
@@ -200,26 +200,27 @@ inline void MapData::adjust(const Vector2 &pt)
     for (auto it = results.begin(); it != results.end(); ++ it)
     {
         Sprite* tile = Sprite::create(*it);
+        DBG_LOG("map file name:%s", (*it).c_str());
         tile->setIgnoreAnchorPointForPosition(true);
         int xIdx = 0;
         int yIdx = 0;
 //        char path[128] = {0};
 //        sprintf(path, "%s/%s", _tilePath.c_str(), _tileName.c_str());
 
-        sscanf((*it).c_str(), "maps/test/ditu%d_%d.png",  &xIdx, &yIdx);
+        sscanf((*it).c_str(), "maps/guide/guide%d_%d.jpg",  &xIdx, &yIdx);
         int posX = _mapTileWidth * xIdx;
         int posY = _mapTileWidth * yIdx;
         tile->setPosition(Vec2(posX, posY));
         _mapLayer->addChild(tile);
 
-        DebugHelper::debugDraw(tile);
+//        DebugHelper::debugDraw(tile);
 
         curTiles[*it] = tile;
     }
 
     curKeys = newKeys;
     newKeys.clear();
-    Director::getInstance()->getTextureCache()->removeUnusedTextures();
+//    Director::getInstance()->getTextureCache()->removeUnusedTextures();
 }
 
 Node* MapHandle::getMapLayer()
@@ -315,7 +316,7 @@ void MapManager::registerMap(fy::MapHandle map)
     _data->map = map;
     auto& navData = map.get()->getNavData();
     NavSystem::getInstance()->load(navData.getBytes(), navData.getSize());
-    map.get()->debugMap();
+//    map.get()->debugMap();
 }
 
 void MapManager::unregisterMap(fy::MapHandle map)
@@ -375,7 +376,7 @@ inline static std::string getDirname(const std::string& path)
 
 static MapData* createMapData(int sceneId)
 {
-    std::string path = "maps/test/ditu.json";
+    std::string path = "maps/guide/guide.json";
     string str = cocos2d::FileUtils::getInstance()->getStringFromFile(path);
 
     std::string dirname = getDirname(path);

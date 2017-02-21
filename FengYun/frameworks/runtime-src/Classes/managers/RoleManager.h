@@ -41,6 +41,10 @@ public:
 
     RoleManager();
     ~RoleManager();
+
+    void onLoadConfig(GameConfigLoader* loader) override;
+    void onInitialize() override;
+    void onRelease() override;
     
     const RoleData* getPlayerData();
     RoleData* getEditablePlayerData();

@@ -6,6 +6,7 @@ require "UI.Joystick"
 require "UI.ActionPad"
 require "UI.LoginUI"
 require "UI.LoadingUI"
+require "UI.MainSceneUI"
 
 local function registerGameWindowEvent(ev, win_name, onClick, data)
 	game.registerEvent(ev, function()
@@ -19,6 +20,7 @@ local function main()
 	collectgarbage("setstepmul", 5000)
 
 	local function enterCityScene()
+		openMainSceneUI()
 		openJoystick()
 		openActionPad()
 	end
