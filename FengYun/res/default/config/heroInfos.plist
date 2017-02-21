@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>heroInfos</key>
+	<array>
+		<dict>
+			<key>defaultAvatar</key>
+			<string></string>
+			<key>headIcon</key>
+			<string>common/bujingyun.png</string>
+			<key>id</key>
+			<integer>1</integer>
+			<key>name</key>
+			<string>步惊云</string>
+		</dict>
+		<dict>
+			<key>defaultAvatar</key>
+			<string></string>
+			<key>headIcon</key>
+			<string>common/diermeng.png</string>
+			<key>id</key>
+			<integer>2</integer>
+			<key>name</key>
+			<string>第二梦</string>
+		</dict>
+		<dict>
+			<key>defaultAvatar</key>
+			<string></string>
+			<key>headIcon</key>
+			<string>common/niefeng.png</string>
+			<key>id</key>
+			<integer>3</integer>
+			<key>name</key>
+			<string>聂风</string>
+		</dict>
+		<dict>
+			<key>defaultAvatar</key>
+			<string></string>
+			<key>headIcon</key>
+			<string>common/chuchu.png</string>
+			<key>id</key>
+			<integer>4</integer>
+			<key>name</key>
+			<string>楚楚</string>
+		</dict>
+	</array>
+</dict>
+</plist>
