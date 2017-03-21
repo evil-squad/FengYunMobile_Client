@@ -30,7 +30,6 @@ xcuserdata/
 DeriveData/
 
 # Ignore files generate by cocos-console
-build/
 
 #Custom
 FengYun/runtime/mac
