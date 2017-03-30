@@ -5,7 +5,7 @@
 文件结构说明
 -----------------------------
 
-|- FengYun \n
+|- FengYun </bar>
   |- .settings // cocos自动生成文件 
   |- framenworks  
   |- cocos2d-x // cocos2d-x 库目录  
