@@ -55,13 +55,13 @@
 -----------------------------------
 架构说明
 -----------------------------------
-1.GameApp 为程序入口  
-2.GameModule 为各个Manager 的基类 
-3.GameInput 为遥感输入以及技能的输入，并通过 lua/input.inc.hpp绑定相应的方法到lua脚本 
-4.GameConfigLoader 为解析策划配置用，以及misc目录下的ConfigReader.h和ConfigReaderPlist.h 
-5.*Types.h 这类文件主要用来定义各类数据结构，以struct的方式定义，主要是易于公开数据访问 
-6.LuaHelpUtils.h　封装以及定义了一些C++绑定到lua的方法以及宏定义 
-7.为了降低耦合，每个模块各自有各自的manager来管理数据，每个模块的网络数据， \ 
+*1.GameApp 为程序入口  
+*2.GameModule 为各个Manager 的基类 
+*3.GameInput 为遥感输入以及技能的输入，并通过 lua/input.inc.hpp绑定相应的方法到lua脚本 
+*4.GameConfigLoader 为解析策划配置用，以及misc目录下的ConfigReader.h和ConfigReaderPlist.h 
+*5. *Types.h 这类文件主要用来定义各类数据结构，以struct的方式定义，主要是易于公开数据访问 
+*6.LuaHelpUtils.h　封装以及定义了一些C++绑定到lua的方法以及宏定义 
+*7.为了降低耦合，每个模块各自有各自的manager来管理数据，每个模块的网络数据， \ 
     将继承NetManager的Listener管理网络的监听和Processor管理网络的接收，以及继承RoleManager的Listener，用来管理玩家的数据 
 
 
@@ -69,8 +69,7 @@
 ----------------------------------
 一些命令与工具
 ----------------------------------
-1.切割地图，在tools/imagesplitter下， 用 python imgesplitter.py 进行切割，相应的会有参数说明 
-2.生成lua的常量文件，在tools/lua-enum-generator 目录下，进入当前目录， 使用 ./gemeratp.rb game-enum.rb  \ 
-    对应的会直接生成在src目录下的GameConstants.lua 的文件 
-3.使用cocos命令来编译，在工程的根目录，用 cocos compile -p 相应的平台， -m 相应的模式，默认为debug \ 
+*1.切割地图，在tools/imagesplitter下， 用 python imgesplitter.py 进行切割，相应的会有参数说明 
+*2.生成lua的常量文件，在tools/lua-enum-generator 目录下，进入当前目录， 使用 ./gemeratp.rb game-enum.rb  对应的会直接生成在src目录下的GameConstants.lua 的文件 
+*3.使用cocos命令来编译，在工程的根目录，用 cocos compile -p 相应的平台， -m 相应的模式，默认为debug \ 
     如：cocos compile -p android -m release 表示编译android的版本，相应的是release模式 
