@@ -10,6 +10,36 @@
     <Filter Include="resource">
       <UniqueIdentifier>{2d1d0979-58cd-4ab6-b91c-13650158f1fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ECS">
+      <UniqueIdentifier>{e6be7bed-c081-493a-b3af-ce985552c9c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\FSM">
+      <UniqueIdentifier>{9876c84c-c538-4769-903b-359f17b82f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\GUI">
+      <UniqueIdentifier>{c5cf3e04-04f1-4bee-ba88-95fb8d07d484}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\lua">
+      <UniqueIdentifier>{859e79ac-ea01-4641-bbd8-caeb05d5b4ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\lua\auto">
+      <UniqueIdentifier>{77a7c856-decf-4c56-bf09-ec793deb8f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\lua\auto\api">
+      <UniqueIdentifier>{50f738fc-1245-4afe-927d-e855f6180be4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\managers">
+      <UniqueIdentifier>{a0de7e6f-a7ba-4923-b7c3-7a69f038dacf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\misc">
+      <UniqueIdentifier>{caf9e102-d863-4c7c-a523-3b9eceab50c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Net">
+      <UniqueIdentifier>{948ce762-948d-488e-878f-44ec9128dce0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Scenes">
+      <UniqueIdentifier>{09e7b4b3-8da5-41f2-93cf-d4cbe77da8cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -26,6 +56,300 @@
     <ClInclude Include="targetver.h">
       <Filter>win32</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\CommonTypes.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DebugHelper.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameApp.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\gamebase.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameConfigLoader.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameInput.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameModule.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GUI.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua_custom_module_register.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua_module_register.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LuaHelpUtils.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MathTypes.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NavSystem.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NetModDefine.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RoleData.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RoleTypes.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\Agent.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\Avatar.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\Component.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\ecsbase.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\Entity.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\Event.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\NavAgent.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\NetRole.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\Player.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\Renderer.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\RendererSystem.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\Role.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\Transform.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\World.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ECS\WorldEvent.h">
+      <Filter>Classes\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\Attack.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\BaseData.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\BaseInputProcessor.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\BaseMover.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\BaseState.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\Dead.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\Fsm.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\fsmbase.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\InputProcessor.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\Motor.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\Moving.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\PlayerNavigating.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\SharedData.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\Standing.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\State.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\StateFactory.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\UserFreeMover.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FSM\UserInputProcessor.h">
+      <Filter>Classes\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GUI\Layer.h">
+      <Filter>Classes\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GUI\Panel.h">
+      <Filter>Classes\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GUI\TopLevelNode.h">
+      <Filter>Classes\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GUI\Window.h">
+      <Filter>Classes\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua\input.inc.hpp">
+      <Filter>Classes\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua\lua_game_bindings.hpp">
+      <Filter>Classes\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua\lua_gui_manual.hpp">
+      <Filter>Classes\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua\lua_managers_manual.hpp">
+      <Filter>Classes\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua\LuaHandler.hpp">
+      <Filter>Classes\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua\scene.inc.hpp">
+      <Filter>Classes\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua\user.inc.hpp">
+      <Filter>Classes\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua\auto\lua_gui_auto.hpp">
+      <Filter>Classes\lua\auto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lua\auto\lua_managers_auto.hpp">
+      <Filter>Classes\lua\auto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\managers\AnimationManager.h">
+      <Filter>Classes\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\managers\GateManager.h">
+      <Filter>Classes\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\managers\MapManager.h">
+      <Filter>Classes\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\managers\NetManager.h">
+      <Filter>Classes\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\managers\RoleManager.h">
+      <Filter>Classes\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\managers\SceneManager.h">
+      <Filter>Classes\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\managers\UIManager.h">
+      <Filter>Classes\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\managers\UserManager.h">
+      <Filter>Classes\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\managers\WorldManager.h">
+      <Filter>Classes\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\misc\AStar.h">
+      <Filter>Classes\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\misc\BitArray.h">
+      <Filter>Classes\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\misc\ConfigReader.h">
+      <Filter>Classes\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\misc\ConfigReaderPlist.h">
+      <Filter>Classes\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\misc\HeartBeatProcess.h">
+      <Filter>Classes\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\misc\MinHeap.h">
+      <Filter>Classes\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\misc\Physics.h">
+      <Filter>Classes\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\buffer.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\Connection.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\Decoder.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\Encoder.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\GameConnection.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\netbase.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\Packet.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\Processor.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\SceneAgent.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\Timer.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Net\Types.h">
+      <Filter>Classes\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\BaseSceneController.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\BattleController.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\CityController.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\GameScene.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\LocalBattleController.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\scenebase.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\SceneController.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\SceneProjector.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\UIScene.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -38,6 +362,177 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>win32</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GameApp.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameConfigLoader.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameInput.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NavSystem.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\Agent.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\Avatar.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\Component.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\Entity.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\NavAgent.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\NetRole.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\Player.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\Renderer.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\RendererSystem.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\Role.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\Transform.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ECS\World.cpp">
+      <Filter>Classes\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\Attack.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\BaseData.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\BaseInputProcessor.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\BaseState.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\Dead.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\Fsm.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\Motor.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\Moving.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\PlayerNavigating.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\Standing.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\StateFactory.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\UserFreeMover.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FSM\UserInputProcessor.cpp">
+      <Filter>Classes\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GUI\Layer.cpp">
+      <Filter>Classes\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GUI\Panel.cpp">
+      <Filter>Classes\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GUI\Window.cpp">
+      <Filter>Classes\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lua\lua_game_bindings.cpp">
+      <Filter>Classes\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lua\lua_gui_manual.cpp">
+      <Filter>Classes\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lua\lua_managers_manual.cpp">
+      <Filter>Classes\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lua\auto\lua_gui_auto.cpp">
+      <Filter>Classes\lua\auto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lua\auto\lua_managers_auto.cpp">
+      <Filter>Classes\lua\auto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\managers\AnimationManager.cpp">
+      <Filter>Classes\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\managers\GateManager.cpp">
+      <Filter>Classes\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\managers\MapManager.cpp">
+      <Filter>Classes\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\managers\NetManager.cpp">
+      <Filter>Classes\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\managers\RoleManager.cpp">
+      <Filter>Classes\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\managers\SceneManager.cpp">
+      <Filter>Classes\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\managers\UIManager.cpp">
+      <Filter>Classes\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\managers\UserManager.cpp">
+      <Filter>Classes\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\managers\WorldManager.cpp">
+      <Filter>Classes\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\misc\AStar.cpp">
+      <Filter>Classes\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\misc\HeartBeatProcess.cpp">
+      <Filter>Classes\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\misc\Physics.cpp">
+      <Filter>Classes\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Net\GameConnection.cpp">
+      <Filter>Classes\Net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Net\PacketCache.cpp">
+      <Filter>Classes\Net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\BaseSceneController.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\BattleController.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\CityController.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\GameScene.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\LocalBattleController.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\UIScene.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
@@ -46,5 +541,34 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\game.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\lua\auto\api\Layer.lua">
+      <Filter>Classes\lua\auto\api</Filter>
+    </None>
+    <None Include="..\Classes\lua\auto\api\lua_gui_auto_api.lua">
+      <Filter>Classes\lua\auto\api</Filter>
+    </None>
+    <None Include="..\Classes\lua\auto\api\lua_managers_auto_api.lua">
+      <Filter>Classes\lua\auto\api</Filter>
+    </None>
+    <None Include="..\Classes\lua\auto\api\Panel.lua">
+      <Filter>Classes\lua\auto\api</Filter>
+    </None>
+    <None Include="..\Classes\lua\auto\api\TopLevelNode.lua">
+      <Filter>Classes\lua\auto\api</Filter>
+    </None>
+    <None Include="..\Classes\lua\auto\api\UIManager.lua">
+      <Filter>Classes\lua\auto\api</Filter>
+    </None>
+    <None Include="..\Classes\lua\auto\api\Window.lua">
+      <Filter>Classes\lua\auto\api</Filter>
+    </None>
+    <None Include="..\Classes\Net\TcpConnection.ipp">
+      <Filter>Classes\Net</Filter>
+    </None>
+    <None Include="..\Classes\Net\Timer.ipp">
+      <Filter>Classes\Net</Filter>
+    </None>
   </ItemGroup>
 </Project>

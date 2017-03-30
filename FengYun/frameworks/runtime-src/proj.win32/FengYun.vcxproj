@@ -68,7 +68,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\Classes;$(ProjectDir)..\Classes\runtime;$(ProjectDir)..\Classes\protobuf-lite;$(EngineRoot)external\win32-specific\zlib\include;$(EngineRoot)external;$(EngineRoot)external\lua\lua;$(EngineRoot)external\lua\tolua;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)external\curl\include\win32;$(EngineRoot)extensions;$(EngineRoot)tools\simulator\libsimulator\lib;$(EngineRoot)tools\simulator\libsimulator\lib\protobuf-lite;$(EngineRoot);%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\cocos2d-x\cocos\scripting\lua-bindings\auto;$(ProjectDir)..\..\cocos2d-x\cocos\scripting\lua-bindings\manual;$(EngineRoot)external\win32-specific\zlib\include;$(EngineRoot)external;$(EngineRoot)external\lua\lua;$(EngineRoot)external\lua\tolua;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)external\curl\include\win32;$(EngineRoot)extensions;$(EngineRoot)tools\simulator\libsimulator\lib;$(EngineRoot)tools\simulator\libsimulator\lib\protobuf-lite;$(EngineRoot);$(ProjectDir)..\..\external\asio\include;$(ProjectDir)..\Classes;$(ProjectDir)..\Classes\runtime;$(ProjectDir)..\Classes\protobuf-lite;$(ProjectDir)..\Classes\ECS;$(ProjectDir)..\Classes\FSM;$(ProjectDir)..\Classes\GUI;$(ProjectDir)..\Classes\lua;$(ProjectDir)..\Classes\lua\auto;$(ProjectDir)..\Classes\Scenes;$(ProjectDir)..\Classes\Net;$(ProjectDir)..\Classes\misc;$(ProjectDir)..\Classes\managers;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -126,7 +126,8 @@
     <CustomBuildStep>
       <Command>if not exist "$(LocalDebuggerWorkingDirectory)" mkdir "$(LocalDebuggerWorkingDirectory)"
 xcopy /Y /Q "$(OutDir)*.dll" "$(LocalDebuggerWorkingDirectory)"
-xcopy "$(ProjectDir)..\..\..\res" "$(LocalDebuggerWorkingDirectory)\res" /D /E /I /F /Y
+xcopy /Y /Q "$(OutDir)*.exe" "$(LocalDebuggerWorkingDirectory)"
+xcopy "$(ProjectDir)..\..\..\..\..\..\res\fyws\demo\res" "$(LocalDebuggerWorkingDirectory)\res" /D /E /I /F /Y
 xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /I /F /Y</Command>
       <Outputs>$(TargetName).cab</Outputs>
       <Inputs>$(TargetFileName)</Inputs>
@@ -134,7 +135,7 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\Classes;$(EngineRoot)external\win32-specific\zlib\include;$(EngineRoot)external;$(EngineRoot)external\lua\lua;$(EngineRoot)external\lua\tolua;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)external\curl\include\win32;$(EngineRoot);$(EngineRoot)tools\simulator\libsimulator\lib;$(EngineRoot)tools\simulator\libsimulator\lib\protobuf-lite;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\cocos2d-x\cocos\scripting\lua-bindings\auto;$(ProjectDir)..\..\cocos2d-x\cocos\scripting\lua-bindings\manual;$(ProjectDir)..\Classes\Net;$(ProjectDir)..\Classes\misc;$(ProjectDir)..\Classes\managers;$(ProjectDir)..\Classes\lua\auto;$(ProjectDir)..\Classes\lua;$(ProjectDir)..\Classes\GUI;$(ProjectDir)..\Classes\FSM;$(ProjectDir)..\Classes\ECS;$(ProjectDir)..\..\external\asio\include;$(ProjectDir)..\Classes\runtime;$(ProjectDir)..\Classes\protobuf-lite;$(ProjectDir)..\Classes\Scenes;$(ProjectDir)..\Classes;$(EngineRoot)external\win32-specific\zlib\include;$(EngineRoot)external;$(EngineRoot)external\lua\lua;$(EngineRoot)external\lua\tolua;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;$(EngineRoot)external\curl\include\win32;$(EngineRoot);$(EngineRoot)tools\simulator\libsimulator\lib;$(EngineRoot)tools\simulator\libsimulator\lib\protobuf-lite;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -189,6 +190,104 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\CommonTypes.h" />
+    <ClInclude Include="..\Classes\DebugHelper.h" />
+    <ClInclude Include="..\Classes\ECS\Agent.h" />
+    <ClInclude Include="..\Classes\ECS\Avatar.h" />
+    <ClInclude Include="..\Classes\ECS\Component.h" />
+    <ClInclude Include="..\Classes\ECS\ecsbase.h" />
+    <ClInclude Include="..\Classes\ECS\Entity.h" />
+    <ClInclude Include="..\Classes\ECS\Event.h" />
+    <ClInclude Include="..\Classes\ECS\NavAgent.h" />
+    <ClInclude Include="..\Classes\ECS\NetRole.h" />
+    <ClInclude Include="..\Classes\ECS\Player.h" />
+    <ClInclude Include="..\Classes\ECS\Renderer.h" />
+    <ClInclude Include="..\Classes\ECS\RendererSystem.h" />
+    <ClInclude Include="..\Classes\ECS\Role.h" />
+    <ClInclude Include="..\Classes\ECS\Transform.h" />
+    <ClInclude Include="..\Classes\ECS\World.h" />
+    <ClInclude Include="..\Classes\ECS\WorldEvent.h" />
+    <ClInclude Include="..\Classes\FSM\Attack.h" />
+    <ClInclude Include="..\Classes\FSM\BaseData.h" />
+    <ClInclude Include="..\Classes\FSM\BaseInputProcessor.h" />
+    <ClInclude Include="..\Classes\FSM\BaseMover.h" />
+    <ClInclude Include="..\Classes\FSM\BaseState.h" />
+    <ClInclude Include="..\Classes\FSM\Dead.h" />
+    <ClInclude Include="..\Classes\FSM\Fsm.h" />
+    <ClInclude Include="..\Classes\FSM\fsmbase.h" />
+    <ClInclude Include="..\Classes\FSM\InputProcessor.h" />
+    <ClInclude Include="..\Classes\FSM\Motor.h" />
+    <ClInclude Include="..\Classes\FSM\Moving.h" />
+    <ClInclude Include="..\Classes\FSM\PlayerNavigating.h" />
+    <ClInclude Include="..\Classes\FSM\SharedData.h" />
+    <ClInclude Include="..\Classes\FSM\Standing.h" />
+    <ClInclude Include="..\Classes\FSM\State.h" />
+    <ClInclude Include="..\Classes\FSM\StateFactory.h" />
+    <ClInclude Include="..\Classes\FSM\UserFreeMover.h" />
+    <ClInclude Include="..\Classes\FSM\UserInputProcessor.h" />
+    <ClInclude Include="..\Classes\GameApp.h" />
+    <ClInclude Include="..\Classes\gamebase.h" />
+    <ClInclude Include="..\Classes\GameConfigLoader.h" />
+    <ClInclude Include="..\Classes\GameInput.h" />
+    <ClInclude Include="..\Classes\GameModule.h" />
+    <ClInclude Include="..\Classes\GUI.h" />
+    <ClInclude Include="..\Classes\GUI\Layer.h" />
+    <ClInclude Include="..\Classes\GUI\Panel.h" />
+    <ClInclude Include="..\Classes\GUI\TopLevelNode.h" />
+    <ClInclude Include="..\Classes\GUI\Window.h" />
+    <ClInclude Include="..\Classes\LuaHelpUtils.h" />
+    <ClInclude Include="..\Classes\lua\auto\lua_gui_auto.hpp" />
+    <ClInclude Include="..\Classes\lua\auto\lua_managers_auto.hpp" />
+    <ClInclude Include="..\Classes\lua\input.inc.hpp" />
+    <ClInclude Include="..\Classes\lua\LuaHandler.hpp" />
+    <ClInclude Include="..\Classes\lua\lua_game_bindings.hpp" />
+    <ClInclude Include="..\Classes\lua\lua_gui_manual.hpp" />
+    <ClInclude Include="..\Classes\lua\lua_managers_manual.hpp" />
+    <ClInclude Include="..\Classes\lua\scene.inc.hpp" />
+    <ClInclude Include="..\Classes\lua\user.inc.hpp" />
+    <ClInclude Include="..\Classes\lua_custom_module_register.h" />
+    <ClInclude Include="..\Classes\lua_module_register.h" />
+    <ClInclude Include="..\Classes\managers\AnimationManager.h" />
+    <ClInclude Include="..\Classes\managers\GateManager.h" />
+    <ClInclude Include="..\Classes\managers\MapManager.h" />
+    <ClInclude Include="..\Classes\managers\NetManager.h" />
+    <ClInclude Include="..\Classes\managers\RoleManager.h" />
+    <ClInclude Include="..\Classes\managers\SceneManager.h" />
+    <ClInclude Include="..\Classes\managers\UIManager.h" />
+    <ClInclude Include="..\Classes\managers\UserManager.h" />
+    <ClInclude Include="..\Classes\managers\WorldManager.h" />
+    <ClInclude Include="..\Classes\MathTypes.h" />
+    <ClInclude Include="..\Classes\misc\AStar.h" />
+    <ClInclude Include="..\Classes\misc\BitArray.h" />
+    <ClInclude Include="..\Classes\misc\ConfigReader.h" />
+    <ClInclude Include="..\Classes\misc\ConfigReaderPlist.h" />
+    <ClInclude Include="..\Classes\misc\HeartBeatProcess.h" />
+    <ClInclude Include="..\Classes\misc\MinHeap.h" />
+    <ClInclude Include="..\Classes\misc\Physics.h" />
+    <ClInclude Include="..\Classes\NavSystem.h" />
+    <ClInclude Include="..\Classes\NetModDefine.h" />
+    <ClInclude Include="..\Classes\Net\buffer.h" />
+    <ClInclude Include="..\Classes\Net\Connection.h" />
+    <ClInclude Include="..\Classes\Net\Decoder.h" />
+    <ClInclude Include="..\Classes\Net\Encoder.h" />
+    <ClInclude Include="..\Classes\Net\GameConnection.h" />
+    <ClInclude Include="..\Classes\Net\netbase.h" />
+    <ClInclude Include="..\Classes\Net\Packet.h" />
+    <ClInclude Include="..\Classes\Net\Processor.h" />
+    <ClInclude Include="..\Classes\Net\SceneAgent.h" />
+    <ClInclude Include="..\Classes\Net\Timer.h" />
+    <ClInclude Include="..\Classes\Net\Types.h" />
+    <ClInclude Include="..\Classes\RoleData.h" />
+    <ClInclude Include="..\Classes\RoleTypes.h" />
+    <ClInclude Include="..\Classes\Scenes\BaseSceneController.h" />
+    <ClInclude Include="..\Classes\Scenes\BattleController.h" />
+    <ClInclude Include="..\Classes\Scenes\CityController.h" />
+    <ClInclude Include="..\Classes\Scenes\GameScene.h" />
+    <ClInclude Include="..\Classes\Scenes\LocalBattleController.h" />
+    <ClInclude Include="..\Classes\Scenes\scenebase.h" />
+    <ClInclude Include="..\Classes\Scenes\SceneController.h" />
+    <ClInclude Include="..\Classes\Scenes\SceneProjector.h" />
+    <ClInclude Include="..\Classes\Scenes\UIScene.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SimulatorWin.h" />
@@ -197,6 +296,63 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\ECS\Agent.cpp" />
+    <ClCompile Include="..\Classes\ECS\Avatar.cpp" />
+    <ClCompile Include="..\Classes\ECS\Component.cpp" />
+    <ClCompile Include="..\Classes\ECS\Entity.cpp" />
+    <ClCompile Include="..\Classes\ECS\NavAgent.cpp" />
+    <ClCompile Include="..\Classes\ECS\NetRole.cpp" />
+    <ClCompile Include="..\Classes\ECS\Player.cpp" />
+    <ClCompile Include="..\Classes\ECS\Renderer.cpp" />
+    <ClCompile Include="..\Classes\ECS\RendererSystem.cpp" />
+    <ClCompile Include="..\Classes\ECS\Role.cpp" />
+    <ClCompile Include="..\Classes\ECS\Transform.cpp" />
+    <ClCompile Include="..\Classes\ECS\World.cpp" />
+    <ClCompile Include="..\Classes\FSM\Attack.cpp" />
+    <ClCompile Include="..\Classes\FSM\BaseData.cpp" />
+    <ClCompile Include="..\Classes\FSM\BaseInputProcessor.cpp" />
+    <ClCompile Include="..\Classes\FSM\BaseState.cpp" />
+    <ClCompile Include="..\Classes\FSM\Dead.cpp" />
+    <ClCompile Include="..\Classes\FSM\Fsm.cpp" />
+    <ClCompile Include="..\Classes\FSM\Motor.cpp" />
+    <ClCompile Include="..\Classes\FSM\Moving.cpp" />
+    <ClCompile Include="..\Classes\FSM\PlayerNavigating.cpp" />
+    <ClCompile Include="..\Classes\FSM\Standing.cpp" />
+    <ClCompile Include="..\Classes\FSM\StateFactory.cpp" />
+    <ClCompile Include="..\Classes\FSM\UserFreeMover.cpp" />
+    <ClCompile Include="..\Classes\FSM\UserInputProcessor.cpp" />
+    <ClCompile Include="..\Classes\GameApp.cpp" />
+    <ClCompile Include="..\Classes\GameConfigLoader.cpp" />
+    <ClCompile Include="..\Classes\GameInput.cpp" />
+    <ClCompile Include="..\Classes\GUI\Layer.cpp" />
+    <ClCompile Include="..\Classes\GUI\Panel.cpp" />
+    <ClCompile Include="..\Classes\GUI\Window.cpp" />
+    <ClCompile Include="..\Classes\lua\auto\lua_gui_auto.cpp" />
+    <ClCompile Include="..\Classes\lua\auto\lua_managers_auto.cpp" />
+    <ClCompile Include="..\Classes\lua\lua_game_bindings.cpp" />
+    <ClCompile Include="..\Classes\lua\lua_gui_manual.cpp" />
+    <ClCompile Include="..\Classes\lua\lua_managers_manual.cpp" />
+    <ClCompile Include="..\Classes\managers\AnimationManager.cpp" />
+    <ClCompile Include="..\Classes\managers\GateManager.cpp" />
+    <ClCompile Include="..\Classes\managers\MapManager.cpp" />
+    <ClCompile Include="..\Classes\managers\NetManager.cpp" />
+    <ClCompile Include="..\Classes\managers\RoleManager.cpp" />
+    <ClCompile Include="..\Classes\managers\SceneManager.cpp" />
+    <ClCompile Include="..\Classes\managers\UIManager.cpp" />
+    <ClCompile Include="..\Classes\managers\UserManager.cpp" />
+    <ClCompile Include="..\Classes\managers\WorldManager.cpp" />
+    <ClCompile Include="..\Classes\misc\AStar.cpp" />
+    <ClCompile Include="..\Classes\misc\HeartBeatProcess.cpp" />
+    <ClCompile Include="..\Classes\misc\Physics.cpp" />
+    <ClCompile Include="..\Classes\NavSystem.cpp" />
+    <ClCompile Include="..\Classes\Net\GameConnection.cpp" />
+    <ClCompile Include="..\Classes\Net\PacketCache.cpp" />
+    <ClCompile Include="..\Classes\Scenes\BaseSceneController.cpp" />
+    <ClCompile Include="..\Classes\Scenes\BattleController.cpp" />
+    <ClCompile Include="..\Classes\Scenes\CityController.cpp" />
+    <ClCompile Include="..\Classes\Scenes\GameScene.cpp" />
+    <ClCompile Include="..\Classes\Scenes\LocalBattleController.cpp" />
+    <ClCompile Include="..\Classes\Scenes\UIScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SimulatorWin.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -218,6 +374,17 @@ xcopy "$(ProjectDir)..\..\..\src" "$(LocalDebuggerWorkingDirectory)\src" /D /E /
     <ProjectReference Include="..\..\cocos2d-x\tools\simulator\libsimulator\proj.win32\libsimulator.vcxproj">
       <Project>{001b324a-bb91-4e83-875c-c92f75c40857}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\lua\auto\api\Layer.lua" />
+    <None Include="..\Classes\lua\auto\api\lua_gui_auto_api.lua" />
+    <None Include="..\Classes\lua\auto\api\lua_managers_auto_api.lua" />
+    <None Include="..\Classes\lua\auto\api\Panel.lua" />
+    <None Include="..\Classes\lua\auto\api\TopLevelNode.lua" />
+    <None Include="..\Classes\lua\auto\api\UIManager.lua" />
+    <None Include="..\Classes\lua\auto\api\Window.lua" />
+    <None Include="..\Classes\Net\TcpConnection.ipp" />
+    <None Include="..\Classes\Net\Timer.ipp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
