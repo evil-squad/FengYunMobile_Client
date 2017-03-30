@@ -4,7 +4,7 @@
 -----------------------------
 文件结构说明
 -----------------------------
-
+```
 |- FengYun <br />
   |- .settings // cocos自动生成文件  <br />
   |- framenworks   <br />
@@ -31,7 +31,7 @@
   |- runtime   <br />
   |- simulator //变异后的debug目录  <br />
   |- src // lua脚本的目录   <br />
-    |- app //可忽略   <br />
+    ***|- app //可忽略   <br />
     |- cocos //cocos2d 的lua脚本目录   <br />
     |- Component //封装的基础，公用组件   <br />
     |- packages //可忽略  |- UI // UI脚本  
@@ -51,7 +51,7 @@
     |- config.json // cocos自动生成文件  <br />
     |- MokyLinFengYun.keystore //编译 Android 所需的keystore文件 <br />
     
-     <br />
+```
 -----------------------------------
 架构说明
 -----------------------------------
