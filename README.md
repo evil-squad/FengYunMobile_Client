@@ -31,7 +31,7 @@
   |- runtime   <br />
   |- simulator //变异后的debug目录  <br />
   |- src // lua脚本的目录   <br />
-    ***|- app //可忽略   <br />
+    |- app //可忽略   <br />
     |- cocos //cocos2d 的lua脚本目录   <br />
     |- Component //封装的基础，公用组件   <br />
     |- packages //可忽略  |- UI // UI脚本  
