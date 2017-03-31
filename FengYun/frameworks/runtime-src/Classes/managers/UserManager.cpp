@@ -26,7 +26,7 @@
 
 #include "DebugHelper.h"
 
-#include "hero.pb.h"
+//#include "hero.pb.h"
 #include "NetModDefine.h"
 
 #define SERVER_LIST_FILE_NAME "servers.json"
@@ -228,9 +228,9 @@ public:
                     {
                         int len = d.readUInt16();
                         std::string userName = d.readString(len);
-                        app::message::HeroProto hero;
-                        d.readMessage(hero);
-                        DBG_LOG("create role scuccess---------->%d", hero.level());
+                       // app::message::HeroProto hero;
+                    //    d.readMessage(hero);
+                    //    DBG_LOG("create role scuccess---------->%d", hero.level());
                         if (_loginCallback) _loginCallback(Result::SUCCESS);
                     }
                 }
@@ -243,9 +243,9 @@ public:
                     net::BasicDecoder d(pkt->buffer());
                     int len = d.readUInt16();
                     std::string name = d.readString(len);
-                    app::message::HeroProto hero;
-                    d.readMessage(hero);
-                    DBG_LOG("create role scuccess---------->%d", hero.level());
+                  //  app::message::HeroProto hero;
+                  //  d.readMessage(hero);
+                  //  DBG_LOG("create role scuccess---------->%d", hero.level());
                     if (_createRoleCallback) _createRoleCallback(Result::SUCCESS);
                 }
                 break;
