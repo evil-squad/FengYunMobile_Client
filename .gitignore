@@ -36,8 +36,15 @@ FengYun/runtime/mac
 FengYun/simulator/
 FengYun/publish/
 
+*.obj
+*.tlog
+*.log
+*.VC.db
+*.VC.opendb
+*.idb
+*.pdb
 
-
+Debug.win32
 
 
 
