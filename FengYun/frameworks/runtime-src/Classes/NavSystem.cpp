@@ -210,6 +210,8 @@ namespace fy
     
     bool NavSystem::isWalkable(const Vector3& pt)
     {
+		return true;
+
         if  (pt.z > 0) return false;
         
         int x = (int)pt.x;
