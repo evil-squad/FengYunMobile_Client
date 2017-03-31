@@ -204,6 +204,9 @@ local function createConnection()
 		end
 
 		game.setTestUser(nameBox:getText())
+		game.gotoScene(1, function() 
+			print("enter scene------->")
+		end)
 		game.connectServer(namePanel.serverId, function(result)
 			print("connect to server-->", result, namePanel.serverId)
 			if result == game.RESULT_NO_ROLE_ERROR then
